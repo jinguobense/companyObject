@@ -31,7 +31,7 @@ Page({
     let that = this
     var telStr = /^[1](([3][0-9])|([4][5-9])|([5][0-3,5-9])|([6][5,6])|([7][0-8])|([8][0-9])|([9][1,8,9]))[0-9]{8}$/;
     var inputStr = that.data.denglphone
-    if (!(telStr.test(inputStr))) {
+    if (!(telStr.test(inputStr))) { 
       wx.showToast({
         title: '手机号码输入不规范',
         icon: 'none',
