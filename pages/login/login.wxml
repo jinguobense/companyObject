@@ -8,11 +8,11 @@
         <view class="loginItem flex">
           <image class='leftimg' mode="widthFix" src="/images/login/tel.png"></image>
 
-          <input type="text" value="15290805361" placeholder="请输入手机号" bindinput="dlphone"></input>
+          <input type="text" value="15290805361"  placeholder="请输入手机号" bindinput="dlphone"></input>
         </view>
         <view class="loginItem flex">
           <image class='leftimg' mode="widthFix" src="/images/login/psd.png"></image>
-          <input type="password" value="123456" placeholder="请输入密码" bindinput="dlpasswd"></input>
+          <input type="password" value="123456"   placeholder="请输入密码" bindinput="dlpasswd"></input>
          
   
         </view>

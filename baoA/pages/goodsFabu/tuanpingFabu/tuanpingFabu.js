@@ -31,6 +31,8 @@ for (let i = 0; i <= 59; i++) {
 Page({
 
   data: {
+    tuangou: '',
+    xiangou: "",
     zanshiName: '', //暂时
     anshiId: '', //暂时
     showAnceng1: false, //暗层
@@ -40,7 +42,7 @@ Page({
     danweiModel: false, //单位
     addshopfenlModal: false,
     headIndex: 0,
-
+    danjiaprice: '', // 单价
     years: years, //日期初始化
     year: '',
     year1: '',
@@ -95,15 +97,15 @@ Page({
     goodsId: '', //修改必填
     goId: '', //修改必填
 
-    limitNum:'', //限购量
-    tuanNum:'', //团购目标
+    limitNum: '', //限购量
+    tuanNum: '', //团购目标
 
   },
 
   //点击店铺分类弹窗
   showshoplist() {
     let that = this
-    if (!that.data.shuxingFenleiarray.length) {
+    if (!that.data.shuxingFenleiarray) {
       that.setData({
         showAnceng: true,
         shopfenlModal: true,
@@ -124,9 +126,23 @@ Page({
     console.log('picker发送选择改变，携带值为', e.detail.value)
     let that = this
     that.setData({
-      zanshiName: e.detail.value[0],
-      anshiId: that.data.shuxingFenleiarray[e.detail.value[0]].goodsTypeId
+      shuxingindex: e.detail.value[0],
+      shuxing: that.data.shuxingFenleiarray[e.detail.value[0]].goodsTypeId
     })
+  },
+  //店铺确定
+  shuxingChange(e) {
+    let that = this
+    that.setData({
+      // shuxingindex: that.data.zanshiName,
+      // shuxing: that.data.anshiId,
+      showAnceng: false, //暗层的显示
+      shopfenlModal: false,
+      // shuxingindex: '',
+      // shuxing: ''
+    })
+    console.log('属性分类改变', that.data.shuxingindex)
+
   },
   //点击一级分类弹窗*********************************
   showyijilist() {
@@ -200,6 +216,14 @@ Page({
     })
   },
 
+  //点击商品参数跳转
+  toxiugai(e) {
+    wx.navigateTo({
+      url: '/baoA/pages/goodsCanadd/goodsCanadd?index=2&guigelist=' + JSON.stringify(this.data.guigelist) + '&listitem=' + e.currentTarget.dataset.item
+    })
+  },
+
+
   //点击单位弹窗*******************
   showdanweilist() {
     let that = this
@@ -248,7 +272,7 @@ Page({
         that.setData({
           sumfenlei: res.data.pfgType
         })
-        
+
       }
     })
   },
@@ -269,7 +293,7 @@ Page({
       success(res) {
         console.log(res, 333333)
         that.setData({
-          shuxingFenleiarray:res.data.goodsType
+          shuxingFenleiarray: res.data.goodsTypes
         })
       }
     })
@@ -304,7 +328,7 @@ Page({
     })
   },
   //上传主图
-  addzhutuImg(){
+  addzhutuImg() {
     let that = this
     that.setData({
       imglistobg: ''
@@ -324,13 +348,13 @@ Page({
   },
 
   //上传详情
-  xiangqTu(){
+  xiangqTu() {
     let that = this
     wx.chooseImage({
       count: 1,
       sizeType: ['compressed'],
       sourceType: ['album', 'camera'],
-      success(res){
+      success(res) {
         console.log(res)
         const tempFilePaths = res.tempFilePaths[0]
         if (res.tempFiles[0].size > 1000000) {
@@ -347,16 +371,16 @@ Page({
           }, 0)
           wx.request({
             url: app.globalData.myurl,
-            method:'POST',
-            data:{
+            method: 'POST',
+            data: {
               cmd: "uploadImg",
               imgFile: wx.getFileSystemManager().readFileSync(tempFilePaths, "base64"),
             },
-            header:{
+            header: {
               "content-type": "application/x-www-form-urlencoded",
               "token": wx.getStorageSync('token')
             },
-            success(res){
+            success(res) {
               that.setData({
                 xiangQingimg: res.data.imgUrl
               })
@@ -379,8 +403,18 @@ Page({
 
   },
 
-
-
+  //团购失焦赋值
+  tuangouVal: function (e) {
+    this.setData({
+      tuangou: e.detail.value
+    })
+  },
+  //限购失焦赋值
+  xiangouVal: function (e) {
+    this.setData({
+      xiangou: e.detail.value
+    })
+  },
   //选择照片
   chooseImage(e) {
     wx.chooseImage({
@@ -395,15 +429,28 @@ Page({
     })
   },
 
+
+
   // 跳转添加页面
   toAdd() {
     wx.showLoading({
       title: '加载中',
     })
     wx.navigateTo({
-      url: '/baoA/pages/goodsCanadd/goodsCanadd?index=1&guigelist=' + JSON.stringify(this.data.guigelist)
+      url: '/baoA/pages/goodsCanadd/goodsCanadd?index=2&guigelist=' + JSON.stringify(this.data.guigelist)
     })
+    console.log('66666666666666', this.data.guigelist)
     wx.hideLoading()
+  },
+  //商品参数删除
+  shanchuguige(e) {
+    var {
+      guigelist
+    } = this.data
+    guigelist.splice(e.currentTarget.dataset.index, 1)
+    this.setData({
+      guigelist: guigelist
+    })
   },
   // 头部切换
   changeIndex(e) {
@@ -430,48 +477,43 @@ Page({
     wx.request({
       url: app.globalData.myurl,
       method: 'POST',
-      data: {
-        cmd: "addCsGood",
-
-        goodsCheckImgUrl: "", //商品外观图URL
-        goodsUnitNo: "", //商品销售计量单位编号
-        goodsImgUrl: ["", ""], //商品图片-多张轮播 URL
-        shopId: "", //店铺Id
-        userId: "", //用户Id
-        goodsId: "", //商品ID（非必填）
-        url: "", //商品描述url
-        deadline: '', //取货截止时间					
-        goodsName: "", //商品名称
-        shopGoodTypeId: "", //店内商品分类  
-        pfgtypeid2Id: "", //商品二级分类   
-        dedustate: "", //是否参与积分换购 0 不参与积分; 1 参与积分; 2发起拼团
-        deduratio: "", //允许积分换购的比例  0.01
-        pnum: '', //拼团人数     （2发起拼团）
-
-        actime: '', //拼团活动时间    （2发起拼团）
-        skunameid: "", //规格名称Id  
-        goodSkuList: [{
-          goodSkunameid: "", //规格名称Id   
-          goodSkuvalue1: "", //规格值1
-          goodSkuvalue2: "", //规格值2
-          goodSkunum: "", //对应规格的库存
-          curprice: "", //对应规格的商品现价
-          limitprice: '', //拼团优惠价格
-          goodSkuimgFile: "", //对应规格的图片文件
-        }]
+      header: {
+        "content-type": "application/x-www-form-urlencoded"
       },
-      success(res){
-        console.log(res,8888888888888)
+      data: {
+        cmd: "addGroGood",
+
+        goodsCheckImgUrl: that.data.imgURL, //商品外观图URL
+        goodsUnitNo: that.data.index, //商品销售计量单位编号
+        goodsImgUrl: JSON.stringify(that.data.goodsZhutu), //商品图片-多张轮播 URL
+        shopId: wx.getStorageSync('shopId'), //店铺Id
+        userId: wx.getStorageSync('userId'), //用户Id
+        // goodsId: "", //商品ID（非必填）
+        url: that.data.xiangQingimg, //商品描述url
+        deadline: that.data.blankTimestr, //取货截止时间					
+        goodsName: that.data.goodsValName, //商品名称
+        shopGoodTypeId: that.data.zancunindex, //店内商品属性分类  
+        pfgtypeid2Id: that.data.erjiindex, //商品二级分类 
+        // skunameid: "",               //规格名称Id 
+
+        minBuyNum: "", //起订量   
+        maxBuyNum: that.data.xiangou, //每人一单限制购买数量上限  只可购买一单 
+        planNum: that.data.tuangou, //团购目标量
+        startTime: that.data.startTimestr, //活动开始时间  
+        endTime: that.data.endTimestr, //活动结束时间 
+
+        goodSkuList: JSON.stringify(that.data.guigelist) //规格数组
+      },
+      success(res) {
+        console.log(res, 8888888888888)
         that.setData({
-          
+
         })
         wx.hideLoading()
       }
     })
 
   },
-
-
 
 
 
@@ -508,7 +550,7 @@ Page({
       addshopfenlModal: false
     })
   },
-  
+
 
 
   // 日期切换
@@ -692,6 +734,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
     console.log(options)
     let that = this
     if (options.goodsId) {

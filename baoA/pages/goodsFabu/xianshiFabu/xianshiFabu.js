@@ -61,26 +61,30 @@ Page({
     second1: '',
     valueRiqi: '',
     valueShijian: '',
+    valuejinge: '',
     showAnceng: false, //暗层
     goodsModalone: false, //商品开始时间年月日弹窗
     goodsModaltwo: false, //商品开始时间时分秒弹窗
     zanshistartTime: '', //点击下一步时暂时年月日时间
     goodsstartTimes: '', //选择后的开始时间订单日期
     startTimestr: '', //开始时间订单日期字符串
+    blankTimestr: '', //取货截至日期字符串
     goodssendTimes: '', //选择后的结束时间订单日期
     endTimestr: '', //结束时间订单日期字符串
-    startorend: true, //ture是开始时间，flase结束时间
+    startorend: ' 1', //1是开始时间，2结束时间 3取货截至时间
 
     array: [], //商品单位
     shuxingFenleiarray: [], //商品属性分类列表
     yijiFenlei: '', //一级分类ID
     erjiFenlei: '', //二级分类ID
+    zancunFenlei: "", //商品属性分类ID
     danweis: '', //单位ID
     shuxing: '', //属性ID
     index: '', //商品单位下标
     sumfenlei: '', //一级二级总分类
     yijiindex: '', //一级分类下标
     erjiindex: '', //二级分类下标
+    zancunindex: '', //商品属性分类下标
     shuxingindex: '', //属性分类下标
     goodsValName: '', //商品名称
 
@@ -94,12 +98,15 @@ Page({
     name: "", //新添加的分类
     goodsId: '', //修改必填
     goId: '', //修改必填
-
+    xiangouVal: '' //限购数量
   },
+
+
   //点击店铺分类弹窗
   showshoplist() {
     let that = this
-    if (!that.data.shuxingFenleiarray.length) {
+
+    if (!that.data.shuxingFenleiarray) {
       that.setData({
         showAnceng: true,
         shopfenlModal: true,
@@ -115,15 +122,45 @@ Page({
       })
     }
   },
+
   //店铺暂时存储
   changeshuxingVal(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     let that = this
     that.setData({
-      zanshiName: e.detail.value[0],
-      anshiId: that.data.shuxingFenleiarray[e.detail.value[0]].goodsTypeId
+      shuxingindex: e.detail.value[0],
+      shuxing: that.data.shuxingFenleiarray[e.detail.value[0]].goodsTypeId
+    })
+    // console.log('=================',shuxingindex)
+  },
+  //店铺属性确定按钮
+  shuxingChange(e) {
+    let that = this
+    that.setData({
+      // shuxingindex: that.data.zanshiName,
+      // shuxing: that.data.anshiId,
+      showAnceng: false, //暗层的显示
+      shopfenlModal: false,
+      // shuxingindex: '',
+      // shuxing: ''
+    })
+    console.log('属性分类改变', that.data.shuxingindex)
+
+  },
+  //点击一级分类弹窗*********************************
+  showyijilist() {
+    let that = this
+    that.setData({
+      showAnceng: true,
+      yijiModel: true,
+      zanshiName: 0,
+      anshiId: that.data.sumfenlei[0].pfgTypeId1
     })
   },
+
+
+
+
   //点击一级分类弹窗*********************************
   showyijilist() {
     let that = this
@@ -139,20 +176,20 @@ Page({
     console.log('picker发送选择改变，携带值为', e.detail.value)
     let that = this
     that.setData({
-      zanshiName: e.detail.value[0],
-      anshiId: that.data.sumfenlei[e.detail.value[0]].pfgTypeId1
+      yijiindex: e.detail.value[0],
+      yijiFenlei: that.data.sumfenlei[e.detail.value[0]].pfgTypeId1
     })
   },
   //确定1级分类
   yijiChange: function () {
     let that = this
     this.setData({
-      yijiindex: that.data.zanshiName,
-      yijiFenlei: that.data.anshiId,
+      // yijiindex: that.data.zanshiName,
+      // yijiFenlei: that.data.anshiId,
       showAnceng: false, //暗层的显示
       yijiModel: false,
-      erjiindex: '',
-      erjiFenlei: ''
+      // erjiindex: '',
+      // erjiFenlei: ''
     })
   },
   //未选一级，选二级*********************
@@ -180,8 +217,8 @@ Page({
     console.log('picker发送选择改变，携带值为', e.detail.value)
     let that = this
     that.setData({
-      zanshiName: e.detail.value[0],
-      anshiId: that.data.sumfenlei[that.data.yijiindex].subTypeList[e.detail.value[0]].pfgTypeId2
+      erjiindex: e.detail.value[0],
+      erjiFenlei: that.data.sumfenlei[that.data.yijiindex].subTypeList[e.detail.value[0]].pfgTypeId2
     })
   },
   //确定二级分类
@@ -189,8 +226,8 @@ Page({
     let that = this
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
-      erjiindex: that.data.zanshiName,
-      erjiFenlei: that.data.anshiId,
+      // erjiindex: that.data.zanshiName,
+      // erjiFenlei: that.data.anshiId,
       showAnceng: false,
       erjiModel: false,
     })
@@ -211,17 +248,18 @@ Page({
     console.log('picker发送选择改变，携带值为', e.detail.value)
     let that = this
     that.setData({
-      zanshiName: e.detail.value[0],
-      anshiId: that.data.array[e.detail.value[0]].unitNo
+      index: e.detail.value[0],
+      danweis: that.data.array[e.detail.value[0]].unitNo
     })
+    // console.log('发送选择改变，携带值为', index)
   },
   //确定单位
   danweiChange: function (e) {
     let that = this
-    console.log('picker发送选择改变，携带值为', e.detail.value)
+    // console.log('picker发送选择改变，携带值为', e.detail.value)
     that.setData({
-      index: that.data.zanshiName,
-      danweis: that.data.anshiId,
+      // index: that.data.zanshiName,
+      // danweis: that.data.anshiId,
       showAnceng: false,
       danweiModel: false,
     })
@@ -244,7 +282,7 @@ Page({
         that.setData({
           sumfenlei: res.data.pfgType
         })
-        
+
       }
     })
   },
@@ -265,8 +303,9 @@ Page({
       success(res) {
         console.log(res, 333333)
         that.setData({
-          shuxingFenleiarray:res.data.goodsType
+          shuxingFenleiarray: res.data.goodsTypes
         })
+
       }
     })
   },
@@ -300,7 +339,7 @@ Page({
     })
   },
   //上传主图
-  addzhutuImg(){
+  addzhutuImg() {
     let that = this
     that.setData({
       imglistobg: ''
@@ -320,13 +359,13 @@ Page({
   },
 
   //上传详情
-  xiangqTu(){
+  xiangqTu() {
     let that = this
     wx.chooseImage({
       count: 1,
       sizeType: ['compressed'],
       sourceType: ['album', 'camera'],
-      success(res){
+      success(res) {
         console.log(res)
         const tempFilePaths = res.tempFilePaths[0]
         if (res.tempFiles[0].size > 1000000) {
@@ -343,16 +382,16 @@ Page({
           }, 0)
           wx.request({
             url: app.globalData.myurl,
-            method:'POST',
-            data:{
+            method: 'POST',
+            data: {
               cmd: "uploadImg",
               imgFile: wx.getFileSystemManager().readFileSync(tempFilePaths, "base64"),
             },
-            header:{
+            header: {
               "content-type": "application/x-www-form-urlencoded",
               "token": wx.getStorageSync('token')
             },
-            success(res){
+            success(res) {
               that.setData({
                 xiangQingimg: res.data.imgUrl
               })
@@ -375,8 +414,16 @@ Page({
 
   },
 
-
-
+  //商品参数删除
+  shanchuguige(e) {
+    var {
+      guigelist
+    } = this.data
+    guigelist.splice(e.currentTarget.dataset.index, 1)
+    this.setData({
+      guigelist: guigelist
+    })
+  },
   //选择照片
   chooseImage(e) {
     wx.chooseImage({
@@ -399,6 +446,7 @@ Page({
     wx.navigateTo({
       url: '/baoA/pages/goodsCanadd/goodsCanadd?index=2&guigelist=' + JSON.stringify(this.data.guigelist)
     })
+    console.log('66666666666666', this.data.guigelist)
     wx.hideLoading()
   },
   // 头部切换
@@ -416,55 +464,66 @@ Page({
       goodsValName: e.detail.value
     })
   },
-
+  //限购量失焦赋值
+  xiangouVals: function (e) {
+    this.setData({
+      xiangouVal: e.detail.value
+    })
+  },
   //上传普通零售
   tiJiaoInfo() {
     var that = this
     wx.showLoading({
       title: '加载中',
     })
+
     wx.request({
       url: app.globalData.myurl,
       method: 'POST',
-      data: {
-        cmd: "addCsGood",
-
-        goodsCheckImgUrl: "", //商品外观图URL
-        goodsUnitNo: "", //商品销售计量单位编号
-        goodsImgUrl: ["", ""], //商品图片-多张轮播 URL
-        shopId: "", //店铺Id
-        userId: "", //用户Id
-        goodsId: "", //商品ID（非必填）
-        url: "", //商品描述url
-        deadline: '', //取货截止时间					
-        goodsName: "", //商品名称
-        shopGoodTypeId: "", //店内商品分类  
-        pfgtypeid2Id: "", //商品二级分类   
-        dedustate: "", //是否参与积分换购 0 不参与积分; 1 参与积分; 2发起拼团
-        deduratio: "", //允许积分换购的比例  0.01
-        pnum: '', //拼团人数     （2发起拼团）
-
-        actime: '', //拼团活动时间    （2发起拼团）
-        skunameid: "", //规格名称Id  
-        goodSkuList: [{
-          goodSkunameid: "", //规格名称Id   
-          goodSkuvalue1: "", //规格值1
-          goodSkuvalue2: "", //规格值2
-          goodSkunum: "", //对应规格的库存
-          curprice: "", //对应规格的商品现价
-          limitprice: '', //拼团优惠价格
-          goodSkuimgFile: "", //对应规格的图片文件
-        }]
+      header: {
+        "content-type": "application/x-www-form-urlencoded"
       },
-      success(res){
-        console.log(res,8888888888888)
+      data: {
+        cmd: "addLimitGood",
+        goodsCheckImgUrl: that.data.imgURL, //商品外观图URL
+        goodsUnitNo: that.data.index, //商品销售计量单位编号
+        goodsImgUrl: JSON.stringify(that.data.goodsZhutu), //商品图片-多张轮播 URL
+        shopId: wx.getStorageSync('shopId'), //店铺Id
+        userId: wx.getStorageSync('userId'), //用户Id
+        // goodsId: "", //商品ID（非必填）
+        url: that.data.xiangQingimg, //商品描述url
+        deadline: that.data.blankTimestr, //取货截止时间					
+        goodsName: that.data.goodsValName, //商品名称
+        shopGoodTypeId: that.data.zancunindex, //店内商品属性分类  
+        pfgtypeid2Id: that.data.erjiindex, //商品二级分类   
+        // skunameid: "", //规格名称Id  
+        maxBuyNum: that.data.xiangouVal, //每人一单限制购买数量上限  只可购买一单 
+        showTime: "", //活动展示时间 
+        startTime: that.data.startTimestr, //活动开始时间  
+        endTime: that.data.endTimestr, //活动结束时间  
+        // dedustate: "", //是否参与积分换购 0 不参与积分; 1 参与积分; 2发起拼团
+        // deduratio: "", //允许积分换购的比例  0.01
+        // pnum: '', //拼团人数     （2发起拼团）
+
+        // actime: '', //拼团活动时间    （2发起拼团）
+        // skunameid: "", //规格名称Id  
+        goodSkuList: JSON.stringify(that.data.guigelist)
+      },
+      success(res) {
+        console.log(res, 8888888888888)
         that.setData({
-          
+
         })
         wx.hideLoading()
       }
     })
 
+  },
+  //点击商品参数跳转
+  toxiugai(e) {
+    wx.navigateTo({
+      url: '/baoA/pages/goodsCanadd/goodsCanadd?index=2&guigelist=' + JSON.stringify(this.data.guigelist) + '&listitem=' + e.currentTarget.dataset.item
+    })
   },
 
 
@@ -472,12 +531,6 @@ Page({
 
 
 
-
-
-
-
-
-  //时间
   close_dingdanTime() {
     let that = this
     that.setData({
@@ -486,29 +539,40 @@ Page({
       goodsModaltwo: false, //商品开始时间时分秒弹窗
     })
   },
+
+
+
+
+
   //关闭弹窗
   close_dingdanTime1: function () {
     this.setData({
       shopfenlModal: false, //店铺分类
-      showAnceng1: false, //暗层的显示
+      showAnceng: false, //暗层的显示
       yijiModel: false,
       erjiModel: false,
       danweiModel: false,
       addshopfenlModal: false
     })
   },
-  
+
 
 
   // 日期切换
   riqiChange: function (e) {
     let that = this
     const val = e.detail.value
-    if (that.data.startorend) {
+    if (that.data.startorend == '1') {
       this.setData({
         year: this.data.years[val[0]],
         month: this.data.months[val[1]],
         day: this.data.days[val[2]]
+      })
+    } else if (that.data.startorend == '2') {
+      this.setData({
+        year1: this.data.years[val[0]],
+        month1: this.data.months[val[1]],
+        day1: this.data.days[val[2]]
       })
     } else {
       this.setData({
@@ -518,22 +582,27 @@ Page({
       })
     }
 
+
   },
   // 时间切换
   shijianChange: function (e) {
     const val = e.detail.value
     let that = this
-    if (that.data.startorend) {
+    if (that.data.startorend == '1') {
       this.setData({
         hour: this.data.hours[val[0]],
         minute: this.data.minutes[val[1]],
         // second: this.data.seconds[val[2]]
       })
+    } else if (that.data.startorend == '2') {
+      this.setData({
+        hour1: this.data.hours[val[0]],
+        minute1: this.data.minutes[val[1]],
+      })
     } else {
       this.setData({
         hour1: this.data.hours[val[0]],
         minute1: this.data.minutes[val[1]],
-        // second1: this.data.seconds[val[2]]
       })
     }
 
@@ -557,18 +626,26 @@ Page({
       second1: '',
       valueRiqi: [dates.getFullYear() - 1990, dates.getMonth(), dates.getDate() - 1],
       valueShijian: [dates.getHours(), dates.getMinutes(), dates.getSeconds()],
+      valuejinge: [dates.getHours(), dates.getMinutes(), dates.getSeconds()],
     })
-    console.log(e.currentTarget.dataset.startorend)
+    console.log('====>99999999999999', e.currentTarget.dataset.startorend)
     let startorend
-    let valueRiqi, valueShijian
+    let valueRiqi, valueShijian, valuejinge
     if (e.currentTarget.dataset.startorend == 1) {
-      startorend = true
+      startorend = '1'
       valueRiqi = [(that.data.year - 1990), that.data.month - 1, that.data.day - 1]
       valueShijian = [that.data.hour, that.data.minute, that.data.second]
-    } else {
-      startorend = false
+      valuejinge = [that.data.hour, that.data.minute, that.data.second]
+    } else if (e.currentTarget.dataset.startorend == 2) {
+      startorend = '2'
       valueRiqi = [(that.data.year1 - 1990), that.data.month1 - 1, that.data.day1 - 1]
       valueShijian = [that.data.hour1, that.data.minute1, that.data.second1]
+      valuejinge = [that.data.hour1, that.data.minute1, that.data.second1]
+    } else {
+      startorend = '3'
+      valueRiqi = [(that.data.year1 - 1990), that.data.month1 - 1, that.data.day1 - 1]
+      valueShijian = [that.data.hour1, that.data.minute1, that.data.second1]
+      valuejinge = [that.data.hour1, that.data.minute1, that.data.second1]
     }
     this.setData({
       goodsModalone: true,
@@ -576,6 +653,7 @@ Page({
       startorend: startorend,
       valueRiqi: valueRiqi,
       valueShijian: valueShijian,
+      valuejinge: valuejinge,
       // year: e.currentTarget.dataset.year * 1,
       // month: e.currentTarget.dataset.month * 1,
     })
@@ -655,20 +733,29 @@ Page({
     }
 
     let timestr = times.year + '-' + times.month + '-' + times.day + ' ' + times.hour + ':' + times.minute + ':00'
-    if (that.data.startorend) {
+    1
+    if (that.data.startorend == '1') {
       this.setData({
         showAnceng: false,
         goodsModaltwo: false,
         goodsstartTimes: times,
         startTimestr: timestr
       })
-    } else {
+    } else if (that.data.startorend == '2') {
       this.setData({
         showAnceng: false,
         goodsModaltwo: false,
         goodssendTimes: times,
         endTimestr: timestr
       })
+    } else {
+      this.setData({
+        showAnceng: false,
+        goodsModaltwo: false,
+        goodssendTimes: times,
+        blankTimestr: timestr
+      })
+      console.log('=======1===1', this.data.blankTimestr)
     }
   },
 

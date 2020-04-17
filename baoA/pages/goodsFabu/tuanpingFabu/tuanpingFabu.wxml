@@ -21,7 +21,7 @@
 			<view class="goodsFenlei" catchtap="showshoplist">
 				<view class="left">
 					<text>店铺商品属性分类：</text>
-					<text wx:if='{{shuxingFenleiarray[shuxingindex]}}' class="show">{{shuxingFenleiarray[shuxingindex]}}</text>
+					<text wx:if='{{shuxingFenleiarray}}' class="show">{{shuxingFenleiarray[shuxingindex].goodsTypeName}}</text>
 					<text wx:if='{{!shuxingFenleiarray[shuxingindex]}}' class="noshow">休闲零食</text>
 				</view>
 				<image src="/images/index/you.png"></image>
@@ -85,13 +85,13 @@
 		<view>
 			<view class="goodsnum">
 				<text>限购量：</text>
-				<input class="num" placeholder="请输入限购量" />
+				<input class="num"  bindblur='xiangouVal'  placeholder="请输入限购量" />
 			</view>
 		</view>
 		<view>
 			<view class="goodsnum">
 				<text>团购目标：</text>
-				<input class="num" placeholder="20" />
+				<input class="num" bindblur='tuangouVal'   placeholder="20" />
 			</view>
 		</view>
 		<!-- 时间 -->
@@ -118,11 +118,25 @@
 
 
 
-	<!--商品参数  -->
-	<view class="canshu" wx:if="{{headIndex==1}}">
+  <!--商品参数  -->
+  <view class="goodsCanshu" wx:if="{{headIndex==1}}">
 
-		<view class="btn" catchtap="toAdd">添加</view>
-	</view>
+   <view class="addCanshu">
+      <text catchtap="toAdd">添加</text>
+    </view>
+    <view class="guiGeitem" wx:for='{{guigelist}}' catchtap="toxiugai"  data-item="{{index}}" wx:key='i'>
+      <view class="leftInfo">
+        <image wx:if='{{!item.goodSkuimgFile}}' src="../../../images/baobei/zhanweitu.png"></image>
+        <image wx:if='{{item.goodSkuimgFile}}' src="{{item.goodSkuimgFile}}"></image>
+        <view class="sumNum">
+          <text>规格：{{item.goodSkuvalue1}}</text> 
+          <text>库存：{{item.goodSkunum}}</text>
+        </view>
+      </view>
+      <view class="rightdel" catchtap="shanchuguige" data-index="{{index}}">删除</view>
+    </view>
+
+  </view>
 
 	<!-- 商品主图 -->
 	<view wx:if='{{headIndex==2}}' class="goodsImg ">

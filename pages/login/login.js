@@ -7,8 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    denglphone:'', //登录电话
-    denglpasswd:'', //登录密码
+    denglphone:'15290805361', //登录电话
+    denglpasswd:'123456', //登录密码
 
   },
   // 登录电话
