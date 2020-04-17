@@ -38,7 +38,7 @@
 		<view class="right">
 			<block wx:for="{{rightlist}}" wx:key="i">
 				<view class="list" catchtap="toGooodsinfo" data-type="1">
-					<image src="/images/index/tihuan.png"></image>
+					<image src="{{item.goodsImg}}"></image>
 					<view class="cont">
 						<view class="title">{{item.goodsName}}</view>
 						<view class="midle">
@@ -48,21 +48,21 @@
 							</view>
 							<view class="ku">
 								<text class="kutext">已售：</text>
-								<text class="kunum">6666</text>
+								<text class="kunum">{{item.goodsSales}}</text>
 							</view>
 						</view>
 
 						<view class="price">
 							<view class="ku">
-								<text class="kutext">限购价：</text>
-								<text class="kunum">￥10</text>
-								<text class="kutext">/袋</text>
+								<text class="kutext">单价</text>
+								<text class="kunum">￥{{item.minprice}}</text>
+								<text class="kutext">/{{item.goodsUnit}}</text>
 							</view>
-							<view class="ku">
+							<!-- <view class="ku">
 								<text class="kutext">原价：</text>
 								<text class="kunum">￥20</text>
 								<text class="kutext">/袋</text>
-							</view>
+							</view> -->
 
 						</view>
 
