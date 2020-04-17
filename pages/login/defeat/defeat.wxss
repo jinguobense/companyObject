@@ -1,0 +1,25 @@
+/* pages/login/defeat/defeat.wxss */
+.padding-88{
+	padding:50rpx 88rpx;
+	box-sizing: border-box;
+}
+.image{
+	width: 42rpx;
+	height: 42rpx;
+}
+.flex{
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+}
+.right{
+	width:500rpx;
+	margin-left:20rpx;
+	font-size: 28rpx;
+}
+.inform{
+	color:#e2211c
+}
+.margin-top-30{
+	margin-top:30rpx;
+}

@@ -1,0 +1,56 @@
+/* baoA/pages/goodsGuanli/fenxiangshop/fenxiangshop.wxss */
+page{
+  background-color: gainsboro;
+}
+.share{
+  width: 90%;
+  margin-top: 10%;
+  height: 800rpx;
+  margin-left: 5%;
+  background-color: #fff;
+  text-align: center;
+
+}
+.share image{
+width: 500rpx;
+height: 500rpx;
+margin: 15% 0 5% 0;
+}
+.share-text{
+font-size:35rpx;
+font-weight: bold;
+}
+.tap-text{
+  text-align: center;
+  font-size: 35rpx;
+  margin: 5% 0;
+}
+.share-img{
+  width: 100rpx;
+  height: 100rpx;
+}
+.tap{
+  margin: 10%;
+}
+.tap .left{
+  float: left;
+  width: 45%;
+  text-align: center;
+}
+.tap .right{
+ text-align: center;
+}
+
+.btn{
+  width: 100%;
+	height: 100rpx;
+	background-color: #e2211c;
+  line-height: 100rpx;
+  text-align: center;
+  position: fixed;
+  bottom: 0rpx;
+  left: 0rpx;
+  color: #fff;
+  z-index: 999;
+  font-size: 35rpx;
+}

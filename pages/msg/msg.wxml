@@ -1,0 +1,29 @@
+<!--pages/xiaoxi/xiaoxi.wxml-->
+<view class="container">
+	<view class="top">
+		<view class="conttop" catchtap="totongzhi">
+			<image src="/images/index/tongzhi.png"></image>
+			<view class="dian"></view>
+		</view>
+	</view>
+
+	<view class="content">
+		<block wx:for='{{20}}' wx:key='i'>
+			<view class="item" catchtap="tokefu">
+				<image src="/images/index/tihuan.png"></image>
+				<view class="suminfo">
+					<view class="nameAtime">
+						<text class="name">麦克店铺</text>
+						<text class="times">11:56</text>
+					</view>
+					<view class="infos">我买的菜怎么还没来啊...</view>
+					<view class="conts">99+</view>
+				</view>
+				<view class="xian"></view>
+			</view>
+		</block>
+
+
+	</view>
+
+</view>

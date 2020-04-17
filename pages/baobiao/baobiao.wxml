@@ -1,0 +1,225 @@
+<view class="container">
+	<view class="top">
+		<view class="xuanxiang">
+			<text catchtap="changes" data-index="0" class="{{index == 0?'active':''}}">订单统计</text>
+			<text catchtap="changes" data-index="1" class="{{index == 1?'active':''}}">商品统计</text>
+			<text catchtap="changes" data-index="2" class="{{index == 2?'active':''}}">财务统计</text>
+		</view>
+	</view>
+	<view class="content">
+		<!-- 订单统计 -->
+		<view wx:if="{{index == 0}}" class="dingdan">
+			<view class="tops">
+				<view class="leftt">
+					<view></view>
+					<text>订单销量统计</text>
+				</view>
+				<view class="rightt" catchtap="dingdanTime" data-year="{{dingdanTimes1.year}}" data-month="{{dingdanTimes1.month}}">
+					<text>{{dingdanTimes1.year}}.{{dingdanTimes1.month}}</text>
+					<image src="../../images/baobiao/up.png"></image>
+				</view>
+			</view>
+			<!-- 订单图表 -->
+			<view class="dingdanbiao" hidden="{{filter}}">
+				<view class="biaotile">
+					<image src="../../images/fahuo/jian.png"></image>
+					{{dingdanTimes1.month}}月份
+				</view>
+			 <ec-canvas id="mychart" canvas-id="mychart-bar" ec="{{ ec }}"></ec-canvas>
+			</view>
+			<view class="footers">
+				<view class="item">
+					<text>已完成订单：</text>
+					<text wx:if='{{finishorderinfo.count}}'>{{finishorderinfo.count}}</text>
+					<text wx:if='{{!finishorderinfo.count}}'>0</text>
+				</view>
+
+				<view class="item">
+					<text>已退款订单：</text>
+					<text wx:if='{{!refundorderinfo.count}}'>0</text>
+					<text wx:if='{{refundorderinfo.count}}'>{{refundorderinfo.count}}</text>
+				</view>
+				<view class="item">
+					<text>本月销售额：</text>
+					<text wx:if='{{finishorderinfo.sum}}'>￥{{finishorderinfo.sum}}</text>
+					<text wx:if='{{!finishorderinfo.sum}}'>￥0</text>
+				</view>
+			</view>
+		</view>
+	
+		<!-- 商品统计 -->
+		<view wx:if="{{index == 1}}" class="goodsyongj">
+			<view class="tops">
+				<view class="leftt">
+					<view></view>
+					<text>商品盘点</text>
+				</view>
+				<view class="rightt" catchtap="tongJiStart1" data-timeobj="{{dingdanTimes2}}">
+					<text>{{dingdanTimes2.yearstar}}.{{dingdanTimes2.monthstar}}.{{dingdanTimes2.daystar}}~{{dingdanTimes2.yearend}}.{{dingdanTimes2.monthend}}.{{dingdanTimes2.dayend}}</text>
+					<image src="../../images/baobiao/up.png"></image>
+				</view>
+			</view>
+			<view class="table" wx:if='{{goodstongjiList.length&&showflag}}'>
+				<view class="tr bg-w">
+					<view class="th1">商品名称</view>
+					<view class="th2">规格</view>
+					<view class="th2">销量</view>
+					<view class="th3">剩余库存</view>
+				</view>
+				<block wx:for="{{goodstongjiList}}" wx:key="i">
+					<view class="tr">
+						<view class="td1">
+							<view>{{item.goodsname}}</view>
+						</view>
+						<view class="td2">
+							<view>{{item.value1}}</view>
+						</view>
+						<view class="td2">{{item.count}}</view>
+						<view class="td3">{{item.countsku}}</view>
+					</view>
+				</block>
+			</view>
+			<!-- <view class="daochu">
+				<image src="../../images/fahuo/1.png"></image>
+				<text>导出表格</text>
+			</view> -->
+			<view class="emptypage" wx:if='{{!goodstongjiList.length&&showflag}}'>
+        <image class="empty" mode="widthFix" src="/images/baobiao/kong.png"></image>
+      </view>
+		</view>
+		<!-- 财务统计 -->
+		<scroll-view wx:if='{{index == 2}}' class="caiwutongj" scroll-y bindscrolltolower='chudi'>
+			<view class="tops">
+				<view class="leftt">
+					<view></view>
+					<text>财务报表</text>
+				</view>
+				<view class="rightt" catchtap="tongJiStart2" data-timeobj="{{dingdanTimes3}}">
+					<text>{{dingdanTimes3.yearstar}}.{{dingdanTimes3.monthstar}}.{{dingdanTimes3.daystar}}~{{dingdanTimes3.yearend}}.{{dingdanTimes3.monthend}}.{{dingdanTimes3.dayend}}</text>
+					<image src="../../images/baobiao/up.png"></image>
+				</view>
+			</view>
+			<view class="caiwuheji">
+				<view class="hejileft">
+					<text>收入合计：</text>
+					<text>￥</text>
+					<text>{{caiwutongjiInfo.income}}</text>
+				</view>
+				<view class="hejiright">
+					<text>支出合计：</text>
+					<text>￥</text>
+					<text>{{caiwutongjiInfo.payment}}</text>
+				</view>
+			</view>
+			<view class="table" wx:if='{{caiwutongjiList.length&&showflag}}'>
+				<view class="tr bg-w">
+					<view class="th1">订单号</view>
+					<view class="th2">交易金额</view>
+					<view class="th3">交易时间</view>
+				</view>
+				<block wx:for="{{caiwutongjiList}}" wx:key="i">
+					<view class="tr">
+						<view class="td1">
+							<view>{{item.orderNo}}</view>
+						</view>
+						<view class="td2">{{item.amount}}</view>
+						<view class="td3">
+							<text>{{item.timeheader}}</text>
+							<text> {{item.timefooter}}</text>
+						</view>
+					</view>
+				</block>
+			</view>
+
+			<view class="emptypage" wx:if='{{!caiwutongjiList.length&&showflag}}'>
+        <image class="empty" mode="widthFix" src="/images/baobiao/kong.png"></image>
+      </view>
+      <view class="addQujian" catchtap="addxiayiye" wx:if='{{(caiwunowpage<caiwutotalpage)&&(caiwunowpage==1)}}'>
+        <text>加载更多数据</text>
+        <image src="../../../images/index/shangxia.png"></image>
+      </view>
+			<!-- <view class="daochu">
+				<image src="../../images/fahuo/1.png"></image>
+				<text>导出表格</text>
+			</view> -->
+
+		</scroll-view>
+
+
+	</view>
+
+
+
+	 <!-- 订单日期弹窗 -->
+  <view class="modalDlgdingdan" wx:if="{{dingdanModal}}">
+    <!-- 订单日期选择 -->
+    <view class="dingdanitel">
+      <text class="quxiao" catchtap="close_dingdanTime">取消</text>
+      <text class="queding" catchtap="queding_dingdanTime">确定</text>
+    </view>
+    <view>
+      <picker-view indicator-style="height: 50rpx;" style="width:80%; margin: 0 auto; height: 340rpx;" value="{{value}}" bindchange="dingdanChange">
+        <picker-view-column>
+          <view wx:for="{{years}}" wx:key='k' style="line-height: 50rpx; text-align: center;">{{item}}年</view>
+        </picker-view-column>
+        <picker-view-column>
+          <view wx:for="{{months}}" wx:key='k' style="line-height: 50rpx; text-align: center;">{{item}}月</view>
+        </picker-view-column>
+      </picker-view>
+    </view>
+  </view>
+
+
+  <!-- 商品开始日期弹窗 -->
+  <view class="modalDlgdingdan" wx:if="{{goodsModalone}}">
+    <!-- 商品日期选择 -->
+    <view class="dingdanitel">
+      <text class="quxiao" catchtap="close_dingdanTime">取消</text>
+      <text class="">统计开始时间</text>
+      <text class="queding" catchtap="xiayiBu">下一步</text>
+    </view>
+    <view>
+      <picker-view indicator-style="height: 50rpx;" style="width:80%; margin: 0 auto; height: 340rpx;" value="{{value1}}" bindchange="dingdanChange2">
+        <picker-view-column>
+          <view wx:for="{{years}}" wx:key='k' style="line-height: 50rpx; text-align: center;">{{item}}年</view>
+        </picker-view-column>
+        <picker-view-column>
+          <view wx:for="{{months}}" wx:key='k' style="line-height: 50rpx; text-align: center;">{{item}}月</view>
+        </picker-view-column>
+        <picker-view-column>
+          <view wx:for="{{days}}" wx:key='k' style="line-height: 50rpx; text-align: center;">{{item}}日</view>
+        </picker-view-column>
+      </picker-view>
+    </view>
+  </view>
+  
+  <!-- 商品结束日期弹窗 -->
+  <view class="modalDlgdingdan" wx:if="{{goodsModaltwo}}">
+    <!-- 商品日期选择 -->
+    <view class="dingdanitel">
+      <text class="quxiao" catchtap="close_dingdanTime">取消</text>
+      <text class="">统计结束时间</text>
+      <text class="queding" catchtap="quedingEnd">确定</text>
+    </view>
+    <view>
+      <picker-view indicator-style="height: 50rpx;" style="width:80%; margin: 0 auto; height: 340rpx;" value="{{value2}}" bindchange="dingdanChange3">
+        <picker-view-column>
+          <view wx:for="{{years}}" wx:key='k' style="line-height: 50rpx; text-align: center;">{{item}}年</view>
+        </picker-view-column>
+        <picker-view-column>
+          <view wx:for="{{months}}" wx:key='k' style="line-height: 50rpx; text-align: center;">{{item}}月</view>
+        </picker-view-column>
+        <picker-view-column>
+          <view wx:for="{{days}}" wx:key='k' style="line-height: 50rpx; text-align: center;">{{item}}日</view>
+        </picker-view-column>
+      </picker-view>
+    </view>
+  </view>
+
+
+  <view class="mask" catchtouchmove="preventTouchMove" wx:if="{{showAnceng}}"></view>
+
+
+
+
+</view>

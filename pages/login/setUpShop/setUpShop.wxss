@@ -1,0 +1,158 @@
+/* pages/login/setUpShop/setUpShop.wxss */
+.height-90{
+	width:100%;
+	height:90rpx;
+}
+.padding-x-50{
+	padding:30rpx 50rpx;
+	box-sizing: border-box;
+}
+.informTitle{
+	padding:0 50rpx;
+	box-sizing: border-box;
+}
+.infoIcon{
+	width:42rpx;
+	height:42rpx;
+	border-radius: 50%;
+}
+.infoCon{
+	width:442rpx;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.fs-24{
+	font-size: 24rpx;
+}
+.color-e2{
+	color:#e2211c;
+}
+.margin-left-20{
+	margin-left:20rpx;
+}
+.margin-top-50{
+	margin-top:50rpx;
+}
+.margin-left-40{
+	margin-left:40rpx;
+}
+.flex{
+	display: flex;
+	align-items: center;
+}
+.flex-between{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.flex-stat-between{
+	display: flex;
+	/* align-items: center; */
+	justify-content: space-between;
+}
+.line{
+	width:100%;
+	height:10rpx;
+	background:#f7f7f7;
+}
+.fs-36{
+	font-size: 36rpx;
+}
+.border-bottom{
+	border-bottom:1rpx solid #f7f7f7;
+}
+.fs-32{
+	font-size: 32rpx;
+}
+input{
+	text-align: right;
+}
+.upImg{
+	width:75rpx;
+	height:75rpx;
+	border-radius: 4rpx;
+}
+.select{
+	width:35rpx;
+	height:17rpx;
+}
+.textCon{
+	width:400rpx;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	text-align: right;
+}
+.addr{
+	width:400rpx;
+	height:100rpx;
+}
+.img{
+	width:200rpx;
+	height:200rpx;
+}
+.line2{
+	width:100%;
+	height:20rpx;
+	background:#f7f7f7;
+}
+.idList image{
+	width:316rpx;
+	height:194rpx;
+}
+.verify{
+	width: 124rpx;
+	height: 44rpx;
+	border-radius: 22rpx;
+	border: solid 1rpx #e2211c;
+	font-size:18rpx;
+	text-align: center;
+	line-height: 44rpx;
+	color:#e2211c;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	padding:0 15rpx;
+	box-sizing: border-box;
+}
+.verify.disabled{
+	border: solid 1rpx #666;
+	color:#666
+}
+.btn{
+	width:618rpx;
+	height:88rpx;
+	background-color: #ff1b1b;
+	border-radius:10rpx;
+	margin:50rpx auto 100rpx auto;
+	text-align: center;
+	line-height: 88rpx;
+	color:#fff;
+	font-size:32rpx;
+}
+
+.imgbox{
+	width:200rpx;
+	height:200rpx;
+	position: relative;
+}
+.idCartbox{
+	width:316rpx;
+	height:194rpx;
+	position: relative;
+}
+.idList .cuo{
+	width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  right: 6rpx;
+  top: 6rpx;
+}
+.cuo{
+	width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  right: 6rpx;
+  top: 6rpx;
+}

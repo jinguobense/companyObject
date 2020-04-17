@@ -1,0 +1,9 @@
+<!--baoA/pages/goodsGuanli/fenxiangshop/fenxiangshop.wxml-->
+<view class="share">
+<image src="{{imgUrl}}"></image>
+<view class="share-text">扫一扫或分享二维码</view>
+</view>
+
+<!-- 底部按钮 -->
+<view class="btn" open-type="share" bindtap="actionSheetTap">分享</view>
+

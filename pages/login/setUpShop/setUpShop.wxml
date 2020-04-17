@@ -1,0 +1,96 @@
+<!--pages/login/setUpShop/setUpShop.wxml-->
+<view class="setUpShop">
+	<view class='padding-x-50 flex fs-24'>
+		<image class="infoIcon" src="../../../images/login/shibai.png" mode="widthFix"></image>
+		<view class="infoCon margin-left-20 color-e2">通知：由于您的开店信息填写有误，所以过申请开店的资质。</view>
+		<view class="margin-left-40" bindtap="goDetail">查看详情</view>
+	</view>
+	<view class="line"></view>
+	<view class="fs-32">
+		<view class="color-e2 fs-36 padding-x-50 border-bottom">填写信息</view>
+		<view class="padding-x-50 border-bottom flex-between">
+			<view class="left">店铺名称：</view>
+			<input type="text" placeholder="填写店铺名称" bindinput="getshopName"></input>
+		</view>
+		<view class="padding-x-50 border-bottom flex-between">
+			<view class="left">店铺门面：</view>
+			<image bindtap="upshopImg" data-type="0" src="{{shoplogo!=''?shoplogo:'/images/login/up.png'}}" class="upImg"></image>
+		</view>
+		<view class="padding-x-50 border-bottom flex-between">
+			<view class="left">主营项目：</view>
+			<view>
+				<picker bindchange="bindPickerChange" range-key='shopTypeName' range="{{typeList}}">
+					<view class="flex">
+						<text style="display: inline-block;" wx:if="{{typeIndex==''}}">请选择主营项目</text>
+						<view class="textCon" wx:if="{{typeIndex!=''}}">{{typeList[typeIndex].shopTypeName}}</view>
+						<image class="select margin-left-20" src="../../../images/login/select.png" mode="widthFix"></image>
+					</view>
+				</picker>
+			</view>
+		</view>
+		<view class="padding-x-50 border-bottom flex-between">
+			<view class="left">店铺地址：</view>
+			<view>
+				<picker mode="region" bindchange="bindRegionChange">
+					<view class="flex">
+						<text style="display: inline-block;" wx:if="{{regionData.length==0}}">请选择地区</text>
+						<view class="textCon" style="display: inline-block;" wx:if="{{regionData.length != 0}}">{{regionData[0]}}、{{regionData[1]}}、{{regionData[2]}}</view>
+						<!-- <text class="text" style="display: inline-block;"  wx:if="{{regionData}}">{{regionData[0]}}、{{regionData[1]}}、{{regionData[2]}}</text> -->
+						<image class="select margin-left-20" src="../../../images/login/select.png" mode="widthFix"></image>
+					</view>
+				</picker>
+			</view>
+		</view>
+		<view class="padding-x-50 border-bottom flex-stat-between">
+			<view class="left">详细地址：</view>
+			<textarea class="addr" placeholder="例如：街道、小区、门牌号" bindinput="getdetailAddr"></textarea>
+		</view>
+		<view class="padding-x-50 border-bottom flex-between">
+			<view class="left">唯一社会信用代码：</view>
+			<input type="text" placeholder="填写唯一社会信用代码" bindinput="getcreditCode"></input>
+		</view>
+		<view class="padding-x-50 border-bottom">
+			<view class="left">营业资质：</view>
+			<view class="imgList flex margin-top-50" style="margin-bottom:40px;">
+				<view class="imgbox" wx:for="{{shopImgs}}" wx:key="i">
+					<image class="img" src="{{item}}"></image>
+					<image class="cuo" catchtap="shanchuzhutu" data-index="{{index}}" src="/images/login/cuohao.png"></image>
+				</view>
+				<image wx:if='{{shopImgs.length<3}}' bindtap="choseImg" class="img" src="/images/login/permit.png"></image>
+			</view>
+		</view>
+		<view class="line2"></view>
+		<view class="padding-x-50 border-bottom flex-between">
+			<view class="left">经营者：</view>
+			<input type="text" placeholder="请输入您的真实姓名" bindinput="getrealName"></input>
+		</view>
+		<view class="padding-x-50">
+			<view class="border-bottom flex-between">
+				<view class="left">身份证号：</view>
+				<input type="text" placeholder="请输入您的身份证号" bindinput="getidCardNum"></input>
+			</view>
+			<view class="idList flex-between margin-top-50">
+				<view class="idCartbox" wx:for="{{busiLicImg}}" wx:key="o">
+					<image bindtap="choseImg"  class="left" src="{{item}}"></image>
+					<image class="cuo" catchtap="shanchuzhutu" data-index="{{indexs}}" src="/images/login/cuohao.png"></image>
+				</view>
+				<image src="/images/login/idR.png" catchtap="choseIdcartimg" wx:if="{{busiLicImg.length == 0}}"></image>
+				<image src="/images/login/idW.png" catchtap="choseIdcartimg" wx:if="{{busiLicImg.length != 0 && busiLicImg.length < 2}}"></image>
+				<!-- <image src="/images/login/idR.png" class="right"></image> -->
+			</view>
+		</view>
+		<view class="border-bottom flex-between padding-x-50">
+			<view class="left">绑定手机号：</view>
+			<input type="text" placeholder="请输入您的联系方式" bindinput="getphoneNum"></input>
+		</view>
+		<view class="padding-x-50 flex-between">
+			<view class="left">验证码：</view>
+			<view class="flex">
+				<input type="text" placeholder="输入验证码" bindinput="getinputcode"></input>
+				<view class="verify margin-left-20 {{disabled?'':'disabled'}}" bindtap="getrealCode">{{time}}</view>
+			</view>
+		</view>
+		<view class="btn" catchtap="tijiao">提交申请</view>
+		<!-- <view class="btn">重新提交申请</view> -->
+	</view>
+</view>

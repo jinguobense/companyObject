@@ -1,0 +1,22 @@
+<view class="tuijshopgoods">
+  <block wx:for="{{goodsList}}" wx:key="i" >
+		<view class="shopbox">
+			<image src="{{itm.goodsImg}}" class="shopimg"></image>
+			<view class="shopcont">
+				<view class="goodsIfo">	{{item.goodsName}} </view>
+				<view class="money">
+          <view class="left">
+            <view class="active" wx:if="{{item.goodsType == 1}}">大众团拼</view>
+						<view class="active" wx:if="{{item.goodsType == 3}}">满减活动</view>
+						<view class="active" wx:if="{{item.goodsType == 5}}">小众拼团</view>
+						<view class="active" wx:if="{{item.goodsType == 4}}">限时抢购</view>
+            <text>￥{{item.minprice}}</text>
+          </view>
+          <view class="btn" catchtap="xuanSure" data-goodsid="{{item.goodsId}}" data-goodsname="{{item.goodsName}}" data-goodsimg="{{item.goodsImg}}">选用商品</view>
+        </view>
+			</view>
+		</view>
+
+	</block>
+
+</view>

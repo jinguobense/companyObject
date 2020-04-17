@@ -1,0 +1,67 @@
+/* baoA/pages/goodsGuanli/canshuXiu/canshuXiu.wxss */
+.canshu{
+  width: 100%;
+  height: 100%;
+}
+.canshu .list{
+  height: 296rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1rpx solid #f2f2f2;
+
+}
+.canshu .list .item{
+  width: 100%;
+  height: 70rpx;
+  display: flex;
+  align-items: center;
+  font-size: 30rpx;
+  color: #999999;
+  margin-bottom: 20rpx;
+  padding-left:28rpx ;
+}
+.canshu .list .guige{
+  margin-top:40rpx ;
+}
+.canshu .list .guige input{
+  color: #333;
+}
+.canshu .list .price input{
+  width: 131rpx;
+	height: 56rpx;
+  background-color: #f2f2f2;
+  text-align: center;
+  color: #e11352;
+}
+.canshu .list .price image{
+  width: 28rpx;
+  height: 29rpx;
+  margin-left: 47rpx;
+}
+.canshu .list .kucun image{
+  width: 35rpx;
+  height: 38rpx;
+  margin-left: 24rpx;
+}
+.canshu .list .kucun input{
+  width: 134rpx;
+	height: 56rpx;
+	border-radius: 7rpx;
+  border: solid 1rpx #5e5959;
+  text-align: center;
+  color: #333;
+}
+.canshu .list .kucun .left{
+  width: 50%;
+}
+.canshu .list .kucun .left .num{
+  color: #333;
+}
+.canshu .list .kucun .right{
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,11 @@
+<!--rootA/pages/system/system.wxml-->
+<view class="system">
+	<view class="top flex-between">
+		<view class="left fs-32">系统通知</view>
+		<view class="right fs-26 color-9">22:35:26</view>
+	</view>
+	<image class="line" src="../../../images/mes/line.png"></image>
+	<view class="content">
+		<text>恭喜15617896709用户开店成功，祝您生意兴隆，开业大吉。多多发财。</text>
+	</view>
+</view>

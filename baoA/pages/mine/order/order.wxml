@@ -1,0 +1,497 @@
+<!--pages/mine/order/order.wxml-->
+<view class="order">
+
+	<view class="header">
+		<!-- 类别横向滚动框 -->
+		<scroll-view class="recommend_scroll_x_box" scroll-x="true" scroll-with-animation bindscroll="scrollMove" scroll-left='{{scrollLeft}}'>
+			<text class="list recommend_hot_box {{tabindex==0 ? 'active' : ''}}" data-current="0" catchtap="changetab" id="ele0">全部</text>
+			<text class="list recommend_hot_box {{tabindex==1 ? 'active' : ''}}" data-current="1" catchtap="changetab" id="ele1">待付款</text>
+			<text class="list recommend_hot_box {{tabindex==2 ? 'active' : ''}}" data-current="2" catchtap="changetab" id="ele1">拼团中</text>
+			<text class="list recommend_hot_box {{tabindex==3 ? 'active' : ''}}" data-current="3" catchtap="changetab" id="ele2">待取货</text>
+			<text class="list recommend_hot_box {{tabindex==4 ? 'active' : ''}}" data-current="4" catchtap="changetab" id="ele3">待发货</text>
+			<text class="list recommend_hot_box {{tabindex==5 ? 'active' : ''}}" data-current="5" catchtap="changetab" id="ele4">待收货</text>
+			<text class="list recommend_hot_box {{tabindex==6 ? 'active' : ''}}" data-current="6" catchtap="changetab" id="ele6">申请退款</text>
+			<text class="list recommend_hot_box {{tabindex==7 ? 'active' : ''}}" data-current="7" catchtap="changetab" id="ele7">待评价</text>
+			<text class="list recommend_hot_box {{tabindex==8 ? 'active' : ''}}" data-current="8" catchtap="changetab" id="ele8">已完成</text>
+			<text class="list recommend_hot_box {{tabindex==9 ? 'active' : ''}}" data-current="9" catchtap="changetab" id="ele5">退款售后</text>
+		</scroll-view>
+	</view>
+
+	<!-- 订单列表 -->
+	<!--  state:""   //订单状态（0-待付款 1-拼团中 2-待取货 3-待发货 4-待收货 5-已完成 6-已退款） wx:if="{{tabindex == 0}}"-->
+	<!-- 全部 -->
+	<view class="orderList padding-x-16" wx:if="{{tabindex == 0}}">
+		<view class="nogoods" wx:if='{{list.length==0}}'>
+			<image src="/images/mine/ddkong.png" mode="widthFix"></image>
+			<text>暂无订单信息</text>
+		</view>
+
+		<view class="orderItem bg-f margin-top-16" wx:for="{{list}}" wx:key="i">
+			<view class="orderNum border-bottom-f0 padding-x-30 flex-between">
+				<view class="leftNum fs-28">订单号:{{item.orderno}}</view>
+				<view class='rightType'>
+					<text class="fs-20 color-green" wx:if="{{item.disState == 0 && item.distributions == 0}}">[店铺配送]</text>
+					<text class="fs-20 color-blue" wx:if="{{item.disState == 1 && item.distribut == null}}">[用户自取]</text>
+					<text class="fs-20 color-green" wx:if="{{item.disState == 0 && item.distributions == 1}}">[平台配送]</text>
+					<!-- disState: 0
+distribut: 0
+distributions: 1 -->
+					<text class="fs-28 margin-left-10 color-or" wx:if="{{item.state == 0}}">待付款</text>
+					<text class="fs-28 margin-left-10 color-or" wx:if="{{item.state == 4}}">待收货</text>
+					<text class="fs-28 margin-left-10 color-or" wx:if="{{item.state == 2 && item.rfState == null}}">待取货</text>
+					<text class="fs-28 margin-left-10 color-or" wx:if="{{item.state == 3 && item.rfState == null}}">待配送</text>
+					<text class="fs-28 margin-left-10 color-or" wx:if="{{item.state == 1}}">拼团中</text>
+					<text class="fs-28 margin-left-10 color-or" wx:if="{{item.state == 5 && item.cmtstate == 1}}">已完成</text>
+					<text class="fs-28 margin-left-10 color-or" wx:if="{{item.state == 5 && item.cmtstate == 0}}">待评价</text>
+					<text class="fs-28 margin-left-10 color-or" wx:if="{{(item.state == 3 || item.state == 2) && item.rfState == 0 }}" >申请退款</text>
+					<text class="fs-28 margin-left-10 color-or" wx:if="{{item.state == 6}}">已退款</text>
+				</view>
+			</view>
+			<view class="orderShop border-bottom-f0 flex padding-x-30" bindtap="goDetail" wx:for="{{item.goodsList}}" wx:key="i" wx:for-item="cell" data-id="{{item.id}}" data-orderno="{{item.orderno}}">
+				<image class="leftImg bg-d margin-right-14" src="{{cell.goodsimg}}"></image>
+				<view class="rightCon margin-left-20">
+					<view class="shopTitle fs-26">{{cell.goodsname}}</view>
+					<view class="shopPrice flex-between margin-top-16">
+						<view class="price color-f4 fs-28">￥{{cell.price}}</view>
+						<view class="count fs-26">x{{cell.num}}</view>
+					</view>
+				</view>
+			</view>
+			<view class="orderPrice padding-x-30 border-bottom-f0 flex-between">
+				<view class="fs-28">订单合计：</view>
+				<view>
+					<text class="color-de fs-26">￥{{item.totalprice}}</text>
+					<!-- <text class="fs-20 margin-left-10">（含配送费1元）</text> -->
+				</view>
+			</view>
+			<view class="orderBtn padding-x-30 flex-end">
+				<!-- <view class="btns grayBtn fs-24 margin-right-14" wx:if="{{index==7}}">拒绝退款</view> -->
+				<view class="btns redBtn fs-24" wx:if="{{(item.state == 2 || item.state == 3) && item.rfState == 0}}">同意退款</view>
+				<!-- <view class="btns redBtn fs-24" wx:if="{{item.state == 3}}">确认发货</view> -->
+				<view class="btns redBtn fs-24" wx:if="{{item.state == 3 && item.rfState == null}}">去配送</view>
+				<view class="btns redBtn fs-24" wx:if="{{item.state == 2 && item.rfState == null}}">确认取货</view>
+				<view class="btns redBtn fs-24" wx:if="{{item.state == 4}}">确认收货</view>
+			</view>
+		</view>
+	</view>
+
+	<!-- 待付款 -->
+	<view class="orderList padding-x-16" wx:if="{{tabindex == 1}}">
+		<view class="nogoods" wx:if='{{list1.length==0}}'>
+			<image src="/images/mine/ddkong.png" mode="widthFix"></image>
+			<text>暂无订单信息</text>
+		</view>
+		<view class="orderItem bg-f margin-top-16" wx:for="{{list1}}" wx:key="i">
+			<view class="orderNum border-bottom-f0 padding-x-30 flex-between">
+				<view class="leftNum fs-28">订单号:{{item.orderno}}</view>
+				<view class='rightType'>
+					<text class="fs-20 color-green" wx:if="{{item.disState == 0 && item.distributions == 0}}">[店铺配送]</text>
+					<text class="fs-20 color-blue" wx:if="{{item.disState == 1 && item.distribut == null}}">[用户自取]</text>
+					<text class="fs-20 color-green" wx:if="{{item.disState == 0 && item.distributions == 1}}">[平台配送]</text>
+					<!-- disState: 0
+distribut: 0
+distributions: 1 -->
+					<text class="fs-28 margin-left-10 color-or" wx:if="{{item.state == 0}}">待付款</text>
+
+				</view>
+			</view>
+			<view class="orderShop border-bottom-f0 flex padding-x-30" bindtap="goDetail" data-id="{{item.id}}" data-orderno="{{item.orderno}}" wx:for="{{item.goodsList}}" wx:key="i" wx:for-item="cell">
+				<image class="leftImg bg-d margin-right-14" src="{{cell.goodsimg}}"></image>
+				<view class="rightCon margin-left-20">
+					<view class="shopTitle fs-26">{{cell.goodsname}}</view>
+					<view class="shopPrice flex-between margin-top-16">
+						<view class="price color-f4 fs-28">￥{{cell.price}}</view>
+						<view class="count fs-26">x{{cell.num}}</view>
+					</view>
+				</view>
+			</view>
+			<view class="orderPrice padding-x-30 border-bottom-f0 flex-between">
+				<view class="fs-28">订单合计：</view>
+				<view>
+					<text class="color-de fs-26">￥{{item.totalprice}}</text>
+					<!-- <text class="fs-20 margin-left-10">（含配送费1元）</text> -->
+				</view>
+			</view>
+
+		</view>
+	</view>
+
+	<!-- 拼团 -->
+	<view class="orderList padding-x-16" wx:if="{{tabindex == 2}}">
+		<view class="nogoods" wx:if='{{list2.length==0}}'>
+			<image src="/images/mine/ddkong.png" mode="widthFix"></image>
+			<text>暂无订单信息</text>
+		</view>
+		<view class="orderItem bg-f margin-top-16" wx:for="{{list2}}" wx:key="i">
+			<view class="orderNum border-bottom-f0 padding-x-30 flex-between">
+				<view class="leftNum fs-28">订单号:{{item.orderno}}</view>
+				<view class='rightType'>
+					<text class="fs-20 color-green" wx:if="{{item.disState == 0 && item.distributions == 0}}">[店铺配送]</text>
+					<text class="fs-20 color-blue" wx:if="{{item.disState == 1 && item.distribut == null}}">[用户自取]</text>
+					<text class="fs-20 color-green" wx:if="{{item.disState == 0 && item.distributions == 1}}">[平台配送]</text>
+					<!-- disState: 0
+distribut: 0
+distributions: 1 -->
+
+					<text class="fs-28 margin-left-10 color-or" wx:if="{{item.state == 1}}">拼团中</text>
+
+				</view>
+			</view>
+			<view class="orderShop border-bottom-f0 flex padding-x-30" bindtap="goDetail" data-id="{{item.id}}" data-orderno="{{item.orderno}}" wx:for="{{item.goodsList}}" wx:key="i" wx:for-item="cell">
+				<image class="leftImg bg-d margin-right-14" src="{{cell.goodsimg}}"></image>
+				<view class="rightCon margin-left-20">
+					<view class="shopTitle fs-26">{{cell.goodsname}}</view>
+					<view class="shopPrice flex-between margin-top-16">
+						<view class="price color-f4 fs-28">￥{{cell.price}}</view>
+						<view class="count fs-26">x{{cell.num}}</view>
+					</view>
+				</view>
+			</view>
+			<view class="orderPrice padding-x-30 border-bottom-f0 flex-between">
+				<view class="fs-28">订单合计：</view>
+				<view>
+					<text class="color-de fs-26">￥{{item.totalprice}}</text>
+					<!-- <text class="fs-20 margin-left-10">（含配送费1元）</text> -->
+				</view>
+			</view>
+
+		</view>
+	</view>
+
+	<!-- 取货 -->
+	<view class="orderList padding-x-16" wx:if="{{tabindex == 3}}">
+		<view class="nogoods" wx:if='{{list3.length==0}}'>
+			<image src="/images/mine/ddkong.png" mode="widthFix"></image>
+			<text>暂无订单信息</text>
+		</view>
+		<view class="orderItem bg-f margin-top-16" wx:for="{{list3}}" wx:key="i">
+			<view class="orderNum border-bottom-f0 padding-x-30 flex-between">
+				<view class="leftNum fs-28">订单号:{{item.orderno}}</view>
+				<view class='rightType'>
+					<text class="fs-20 color-green" wx:if="{{item.disState == 0 && item.distributions == 0}}">[店铺配送]</text>
+					<text class="fs-20 color-blue" wx:if="{{item.disState == 1 && item.distribut == null}}">[用户自取]</text>
+					<text class="fs-20 color-green" wx:if="{{item.disState == 0 && item.distributions == 1}}">[平台配送]</text>
+					<!-- disState: 0
+distribut: 0
+distributions: 1 -->
+
+					<text class="fs-28 margin-left-10 color-or" wx:if="{{item.state == 2 && item.rfState == null}}">待取货</text>
+
+				</view>
+			</view>
+			<view class="orderShop border-bottom-f0 flex padding-x-30" bindtap="goDetail" data-id="{{item.id}}" data-orderno="{{item.orderno}}" wx:for="{{item.goodsList}}" wx:key="i" wx:for-item="cell">
+				<image class="leftImg bg-d margin-right-14" src="{{cell.goodsimg}}"></image>
+				<view class="rightCon margin-left-20">
+					<view class="shopTitle fs-26">{{cell.goodsname}}</view>
+					<view class="shopPrice flex-between margin-top-16">
+						<view class="price color-f4 fs-28">￥{{cell.price}}</view>
+						<view class="count fs-26">x{{cell.num}}</view>
+					</view>
+				</view>
+			</view>
+			<view class="orderPrice padding-x-30 border-bottom-f0 flex-between">
+				<view class="fs-28">订单合计：</view>
+				<view>
+					<text class="color-de fs-26">￥{{item.totalprice}}</text>
+					<!-- <text class="fs-20 margin-left-10">（含配送费1元）</text> -->
+				</view>
+			</view>
+			<view class="orderBtn padding-x-30 flex-end">
+				<!-- <view class="btns grayBtn fs-24 margin-right-14" wx:if="{{index==7}}">拒绝退款</view> -->
+
+				<view class="btns redBtn fs-24" wx:if="{{item.state == 2 && item.rfState == null}}" catchtap="quhuo" data-id="{{item.id}}">确认取货</view>
+
+			</view>
+		</view>
+	</view>
+
+	<!-- 发货 -->
+	<view class="orderList padding-x-16" wx:if="{{tabindex == 4}}">
+		<view class="nogoods" wx:if='{{list4.length==0}}'>
+			<image src="/images/mine/ddkong.png" mode="widthFix"></image>
+			<text>暂无订单信息</text>
+		</view>
+		<view class="orderItem bg-f margin-top-16" wx:for="{{list4}}" wx:key="i">
+			<view class="orderNum border-bottom-f0 padding-x-30 flex-between">
+				<view class="leftNum fs-28">订单号:{{item.orderno}}</view>
+				<view class='rightType'>
+					<text class="fs-20 color-green" wx:if="{{item.disState == 0 && item.distributions == 0}}">[店铺配送]</text>
+					<text class="fs-20 color-blue" wx:if="{{item.disState == 1 && item.distribut == null}}">[用户自取]</text>
+					<text class="fs-20 color-green" wx:if="{{item.disState == 0 && item.distributions == 1}}">[平台配送]</text>
+					<!-- disState: 0
+distribut: 0
+distributions: 1 -->
+
+					<text class="fs-28 margin-left-10 color-or" wx:if="{{item.state == 3 && item.rfState == null}}">待配送</text>
+
+				</view>
+			</view>
+			<view class="orderShop border-bottom-f0 flex padding-x-30" bindtap="goDetail" data-id="{{item.id}}" data-orderno="{{item.orderno}}" wx:for="{{item.goodsList}}" wx:key="i" wx:for-item="cell">
+				<image class="leftImg bg-d margin-right-14" src="{{cell.goodsimg}}"></image>
+				<view class="rightCon margin-left-20">
+					<view class="shopTitle fs-26">{{cell.goodsname}}</view>
+					<view class="shopPrice flex-between margin-top-16">
+						<view class="price color-f4 fs-28">￥{{cell.price}}</view>
+						<view class="count fs-26">x{{cell.num}}</view>
+					</view>
+				</view>
+			</view>
+			<view class="orderPrice padding-x-30 border-bottom-f0 flex-between">
+				<view class="fs-28">订单合计：</view>
+				<view>
+					<text class="color-de fs-26">￥{{item.totalprice}}</text>
+					<!-- <text class="fs-20 margin-left-10">（含配送费1元）</text> -->
+				</view>
+			</view>
+			<view class="orderBtn padding-x-30 flex-end">
+				<!-- <view class="btns grayBtn fs-24 margin-right-14" wx:if="{{index==7}}">拒绝退款</view> -->
+
+				<!-- <view class="btns redBtn fs-24" wx:if="{{item.state == 3}}">确认发货</view> -->
+				<view class="btns redBtn fs-24" wx:if="{{item.state == 3 && item.rfState == null}}">去配送</view>
+
+			</view>
+		</view>
+	</view>
+
+	<!--  收货-->
+	<view class="orderList padding-x-16" wx:if="{{tabindex == 5}}">
+		<view class="nogoods" wx:if='{{list5.length==0}}'>
+			<image src="/images/mine/ddkong.png" mode="widthFix"></image>
+			<text>暂无订单信息</text>
+		</view>
+		<view class="orderItem bg-f margin-top-16" wx:for="{{list5}}" wx:key="i">
+			<view class="orderNum border-bottom-f0 padding-x-30 flex-between">
+				<view class="leftNum fs-28">订单号:{{item.orderno}}</view>
+				<view class='rightType'>
+					<text class="fs-20 color-green" wx:if="{{item.disState == 0 && item.distributions == 0}}">[店铺配送]</text>
+					<text class="fs-20 color-blue" wx:if="{{item.disState == 1 && item.distribut == null}}">[用户自取]</text>
+					<text class="fs-20 color-green" wx:if="{{item.disState == 0 && item.distributions == 1}}">[平台配送]</text>
+					<!-- disState: 0
+distribut: 0
+distributions: 1 -->
+
+					<text class="fs-28 margin-left-10 color-or" wx:if="{{item.state == 4}}">待收货</text>
+
+
+				</view>
+			</view>
+			<view class="orderShop border-bottom-f0 flex padding-x-30" bindtap="goDetail" data-id="{{item.id}}" data-orderno="{{item.orderno}}" wx:for="{{item.goodsList}}" wx:key="i" wx:for-item="cell">
+				<image class="leftImg bg-d margin-right-14" src="{{cell.goodsimg}}"></image>
+				<view class="rightCon margin-left-20">
+					<view class="shopTitle fs-26">{{cell.goodsname}}</view>
+					<view class="shopPrice flex-between margin-top-16">
+						<view class="price color-f4 fs-28">￥{{cell.price}}</view>
+						<view class="count fs-26">x{{cell.num}}</view>
+					</view>
+				</view>
+			</view>
+			<view class="orderPrice padding-x-30 border-bottom-f0 flex-between">
+				<view class="fs-28">订单合计：</view>
+				<view>
+					<text class="color-de fs-26">￥{{item.totalprice}}</text>
+					<!-- <text class="fs-20 margin-left-10">（含配送费1元）</text> -->
+				</view>
+			</view>
+			<view class="orderBtn padding-x-30 flex-end">
+				<!-- <view class="btns grayBtn fs-24 margin-right-14" wx:if="{{index==7}}">拒绝退款</view> -->
+
+				<view class="btns redBtn fs-24" wx:if="{{item.state == 4}}">确认收货</view>
+			</view>
+		</view>
+	</view>
+
+	<!-- 申请退款6 -->
+	<view class="orderList padding-x-16" wx:if="{{tabindex == 6}}">
+		<view class="nogoods" wx:if='{{list6.length==0}}'>
+			<image src="/images/mine/ddkong.png" mode="widthFix"></image>
+			<text>暂无订单信息</text>
+		</view>
+		<view class="orderItem bg-f margin-top-16" wx:for="{{list6}}" wx:key="i">
+			<view class="orderNum border-bottom-f0 padding-x-30 flex-between">
+				<view class="leftNum fs-28">订单号:{{item.orderno}}</view>
+				<view class='rightType'>
+					<text class="fs-20 color-green" wx:if="{{item.disState == 0 && item.distributions == 0}}">[店铺配送]</text>
+					<text class="fs-20 color-blue" wx:if="{{item.disState == 1 && item.distribut == null}}">[用户自取]</text>
+					<text class="fs-20 color-green" wx:if="{{item.disState == 0 && item.distributions == 1}}">[平台配送]</text>
+					<!-- disState: 0
+distribut: 0
+distributions: 1 -->
+
+					<text class="fs-28 margin-left-10 color-or" wx:if="{{(item.state == 3 || item.state == 2) && item.rfState == 0 }}" >申请退款</text>
+					<text class="fs-28 margin-left-10 color-or" wx:if="{{item.state == 6}}">已退款</text>
+				</view>
+			</view>
+			<view class="orderShop border-bottom-f0 flex padding-x-30" bindtap="goDetail" data-id="{{item.id}}" data-orderno="{{item.orderno}}" wx:for="{{item.goodsList}}" wx:key="i" wx:for-item="cell">
+				<image class="leftImg bg-d margin-right-14" src="{{cell.goodsimg}}"></image>
+				<view class="rightCon margin-left-20">
+					<view class="shopTitle fs-26">{{cell.goodsname}}</view>
+					<view class="shopPrice flex-between margin-top-16">
+						<view class="price color-f4 fs-28">￥{{cell.price}}</view>
+						<view class="count fs-26">x{{cell.num}}</view>
+					</view>
+				</view>
+			</view>
+			<view class="orderPrice padding-x-30 border-bottom-f0 flex-between">
+				<view class="fs-28">订单合计：</view>
+				<view>
+					<text class="color-de fs-26">￥{{item.totalprice}}</text>
+					<!-- <text class="fs-20 margin-left-10">（含配送费1元）</text> -->
+				</view>
+			</view>
+			<view class="orderBtn padding-x-30 flex-end">
+				<!-- <view class="btns grayBtn fs-24 margin-right-14" wx:if="{{index==7}}">拒绝退款</view> -->
+				<view class="btns redBtn fs-24" wx:if="{{(item.state == 2 || item.state == 3) && item.rfState == 0}}">同意退款</view>
+
+			</view>
+		</view>
+	</view>
+
+	<!-- 评价7 -->
+	<view class="orderList padding-x-16" wx:if="{{tabindex == 7}}">
+		<view class="nogoods" wx:if='{{list7.length==0}}'>
+			<image src="/images/mine/ddkong.png" mode="widthFix"></image>
+			<text>暂无订单信息</text>
+		</view>
+		<view class="orderItem bg-f margin-top-16" wx:for="{{list7}}" wx:key="i">
+			<view class="orderNum border-bottom-f0 padding-x-30 flex-between">
+				<view class="leftNum fs-28">订单号:{{item.orderno}}</view>
+				<view class='rightType'>
+					<text class="fs-20 color-green" wx:if="{{item.disState == 0 && item.distributions == 0}}">[店铺配送]</text>
+					<text class="fs-20 color-blue" wx:if="{{item.disState == 1 && item.distribut == null}}">[用户自取]</text>
+					<text class="fs-20 color-green" wx:if="{{item.disState == 0 && item.distributions == 1}}">[平台配送]</text>
+					<!-- disState: 0
+distribut: 0
+distributions: 1 -->
+
+					<text class="fs-28 margin-left-10 color-or" wx:if="{{item.state == 5 && item.cmtstate == 0}}">待评价</text>
+
+				</view>
+			</view>
+			<view class="orderShop border-bottom-f0 flex padding-x-30" bindtap="goDetail" data-id="{{item.id}}" data-orderno="{{item.orderno}}" wx:for="{{item.goodsList}}" wx:key="i" wx:for-item="cell">
+				<image class="leftImg bg-d margin-right-14" src="{{cell.goodsimg}}"></image>
+				<view class="rightCon margin-left-20">
+					<view class="shopTitle fs-26">{{cell.goodsname}}</view>
+					<view class="shopPrice flex-between margin-top-16">
+						<view class="price color-f4 fs-28">￥{{cell.price}}</view>
+						<view class="count fs-26">x{{cell.num}}</view>
+					</view>
+				</view>
+			</view>
+			<view class="orderPrice padding-x-30 border-bottom-f0 flex-between">
+				<view class="fs-28">订单合计：</view>
+				<view>
+					<text class="color-de fs-26">￥{{item.totalprice}}</text>
+					<!-- <text class="fs-20 margin-left-10">（含配送费1元）</text> -->
+				</view>
+			</view>
+		</view>
+	</view>
+
+	<!-- 已完成8 -->
+	<view class="orderList padding-x-16" wx:if="{{tabindex == 8}}">
+		<view class="nogoods" wx:if='{{list8.length==0}}'>
+			<image src="/images/mine/ddkong.png" mode="widthFix"></image>
+			<text>暂无订单信息</text>
+		</view>
+		<view class="orderItem bg-f margin-top-16" wx:for="{{list8}}" wx:key="i">
+			<view class="orderNum border-bottom-f0 padding-x-30 flex-between">
+				<view class="leftNum fs-28">订单号:{{item.orderno}}</view>
+				<view class='rightType'>
+					<text class="fs-20 color-green" wx:if="{{item.disState == 0 && item.distributions == 0}}">[店铺配送]</text>
+					<text class="fs-20 color-blue" wx:if="{{item.disState == 1 && item.distribut == null}}">[用户自取]</text>
+					<text class="fs-20 color-green" wx:if="{{item.disState == 0 && item.distributions == 1}}">[平台配送]</text>
+
+					<text class="fs-28 margin-left-10 color-or" wx:if="{{item.state == 5 && item.cmtstate == 1}}">已完成</text>
+
+				</view>
+			</view>
+			<view class="orderShop border-bottom-f0 flex padding-x-30" bindtap="goDetail" data-id="{{item.id}}" data-orderno="{{item.orderno}}" wx:for="{{item.goodsList}}" wx:key="i" wx:for-item="cell">
+				<image class="leftImg bg-d margin-right-14" src="{{cell.goodsimg}}"></image>
+				<view class="rightCon margin-left-20">
+					<view class="shopTitle fs-26">{{cell.goodsname}}</view>
+					<view class="shopPrice flex-between margin-top-16">
+						<view class="price color-f4 fs-28">￥{{cell.price}}</view>
+						<view class="count fs-26">x{{cell.num}}</view>
+					</view>
+				</view>
+			</view>
+			<view class="orderPrice padding-x-30 border-bottom-f0 flex-between">
+				<view class="fs-28">订单合计：</view>
+				<view>
+					<text class="color-de fs-26">￥{{item.totalprice}}</text>
+					<!-- <text class="fs-20 margin-left-10">（含配送费1元）</text> -->
+				</view>
+			</view>
+
+		</view>
+	</view>
+
+	<!-- 退款售后9 -->
+	<view class="orderList padding-x-16" wx:if="{{tabindex == 9}}">
+		<view class="nogoods" wx:if='{{list9.length==0}}'>
+			<image src="/images/mine/ddkong.png" mode="widthFix"></image>
+			<text>暂无订单信息</text>
+		</view>
+		<view class="orderItem bg-f margin-top-16" wx:for="{{list9}}" wx:key="i">
+			<view class="orderNum border-bottom-f0 padding-x-30 flex-between">
+				<view class="leftNum fs-28">订单号:{{item.orderno}}</view>
+				<view class='rightType'>
+					<text class="fs-20 color-green" wx:if="{{item.disState == 0 && item.distributions == 0}}">[店铺配送]</text>
+					<text class="fs-20 color-blue" wx:if="{{item.disState == 1 && item.distribut == null}}">[用户自取]</text>
+					<text class="fs-20 color-green" wx:if="{{item.disState == 0 && item.distributions == 1}}">[平台配送]</text>
+					<!-- disState: 0
+distribut: 0
+distributions: 1 -->
+
+					<text class="fs-28 margin-left-10 color-or" wx:if="{{(item.state == 3 || item.state == 2) && item.rfState == 0 }}" >申请退款</text>
+					<text class="fs-28 margin-left-10 color-or" wx:if="{{item.state == 6}}">已退款</text>
+				</view>
+			</view>
+			<view class="orderShop border-bottom-f0 flex padding-x-30" bindtap="goDetail" data-index="{{index}}" wx:for="{{item.goodsList}}" wx:key="i" wx:for-item="cell">
+				<image class="leftImg bg-d margin-right-14" src="{{cell.goodsimg}}"></image>
+				<view class="rightCon margin-left-20">
+					<view class="shopTitle fs-26">{{cell.goodsname}}</view>
+					<view class="shopPrice flex-between margin-top-16">
+						<view class="price color-f4 fs-28">￥{{cell.price}}</view>
+						<view class="count fs-26">x{{cell.num}}</view>
+					</view>
+				</view>
+			</view>
+			<view class="orderPrice padding-x-30 border-bottom-f0 flex-between">
+				<view class="fs-28">订单合计：</view>
+				<view>
+					<text class="color-de fs-26">￥{{item.totalprice}}</text>
+					<!-- <text class="fs-20 margin-left-10">（含配送费1元）</text> -->
+				</view>
+			</view>
+			<view class="orderBtn padding-x-30 flex-end">
+				<!-- <view class="btns grayBtn fs-24 margin-right-14" wx:if="{{index==7}}">拒绝退款</view> -->
+				<view class="btns redBtn fs-24" wx:if="{{(item.state == 2 || item.state == 3) && item.rfState == 0}}">同意退款</view>
+
+			</view>
+		</view>
+	</view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</view>

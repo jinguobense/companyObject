@@ -1,0 +1,52 @@
+/* pages/mine/guide/guide.wxss */
+.padding-bottom-100{
+	padding-bottom:100rpx;
+	box-sizing: border-box;
+}
+.padding-40{
+	padding:10rpx 40rpx;
+	box-sizing: border-box;
+}
+.stepText{
+	font-size: 26rpx;
+}
+.width-324{
+	width:324rpx;
+}
+.flex-between{
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+}
+.content{
+	color:#666;
+	line-height:40rpx;
+	margin-top:10rpx;
+}
+.title{
+	margin-top:20rpx;
+}
+.image{
+	width:298rpx;
+	height:600rpx;
+}
+.imgList{
+	padding:0 20rpx;
+	box-sizing: border-box;
+	display: flex;
+	/* align-items: center; */
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+.margin-top-30{
+	margin-top:30rpx;
+}
+.margin-top-40{
+	margin-top:40rpx;
+}
+image{
+	display: block;
+}
+.fs-28{
+	font-size:28rpx;
+}

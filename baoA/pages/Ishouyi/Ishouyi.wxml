@@ -1,0 +1,43 @@
+<view class="shouyi">
+	<view class="tops">
+		<view class="tabs">
+			<text data-index="0" class="{{index == 0?'active':''}}" catchtap="changes">日收益</text>
+			<text data-index="1" class="{{index == 1?'active':''}}" catchtap="changes">月收益</text>
+		</view>
+		<view class="chazhao">查找</view>
+	</view>
+
+	<!-- 日收益 -->
+	<view wx:if="{{index == 0}}">
+		日收益
+	</view>
+
+
+
+
+
+
+
+
+
+	<!-- 月收益 -->
+	<view wx:if="{{index == 1}}" class="cont">
+		<block wx:for="{{3}}" wx:key="i">
+			<view class="list" catchtap="toshouyiXq">
+				<image src="/images/index/tihuan.png"></image>
+				<view class="contInfo">
+					<view class="title">Anber小屋</view>
+					<text>今日 22:28</text>
+				</view>
+				<view class="money">+￥19.90</view>
+			</view>
+
+		</block>
+	</view>
+
+
+
+
+
+
+</view>

@@ -1,0 +1,24 @@
+<!--pages/mine/account/account.wxml-->
+<view class="account">
+	<view class="accountList">
+		<view class="accountItem padding-x-40 fs-32 flex-between">
+			<view>经营者</view>
+			<!-- <image class="rightImg" src="../../../images/mine/you.png" mode="widthFix"></image> -->
+			<view class="color-6">{{userName}}</view>
+		</view>
+		<view class="accountItem padding-x-40 fs-32 flex-between">
+			<view>绑定手机号</view>
+			<!-- <image class="rightImg" src="../../../images/mine/you.png" mode="widthFix"></image> -->
+			<view class="color-6">{{tel}}</view>
+		</view>
+		<view class="accountItem padding-x-40 fs-32 flex-between" bindtap="goReset" data-type="1">
+			<view>重置交易密码</view>
+			<image class="rightImg" src="../../../images/mine/you.png" mode="widthFix"></image>
+		</view>
+		<view class="accountItem padding-x-40 fs-32 flex-between" bindtap="goReset" data-type="2">
+			<view>重置登录密码</view>
+			<image class="rightImg" src="../../../images/mine/you.png" mode="widthFix"></image>
+		</view>
+	</view> 
+	<view class="btn" catchtap="tijiao">提  交</view>
+</view>

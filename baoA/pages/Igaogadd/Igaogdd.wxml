@@ -1,0 +1,62 @@
+<view class="gaodadd">
+	<view class="number item">
+		<view class="kong"></view>
+		<text>序号：</text>
+		<input type="number" bindinput="inputnum" placeholder="请填写序号，例如：01"></input>
+	</view>
+	<view class="number item">
+		<view class="kong"></view>
+		<text>链接类型：</text>
+		<view class="select" catchtap="leixing">
+			<input type="text" disabled value="{{TypeValue}}" placeholder="商品"></input>
+			<image src="../../../images/index/xia.png"></image>
+		</view>
+	</view>
+	<view class="number item">
+		<view class="kong"></view>
+		<text>链接活动：</text>
+		<view class="select" catchtap="huodong">
+			<input type="text" disabled value="{{ActiveValue}}" placeholder="满减活动"></input>
+			<image src="../../../images/index/xia.png"></image>
+		</view>
+	</view>
+
+	<view class="number item">
+		<view class="kong"></view>
+		<text>图片：</text>
+		<view class="addpic">
+			<image src="../../../images/index/addpic.png" wx:if='{{imgUrl==""}}' catchtap="choseImg"></image>
+			<image src="{{imgUrl}}" catchtap="choseImg"></image>
+		</view>
+	</view>
+
+	<!-- 保存按钮 -->
+	<view class="btn" catchtap="setList">保 存</view>
+
+	<!--弹框  -->
+	<view wx:if="{{leixing}}" class="selectbox1">
+		<view class="list" data-type="0" catchtap="typeTab">商品</view>
+		<view class="list" data-type="1" catchtap="typeTab">活动</view>
+		<view class="list" data-type="2" catchtap="typeTab">活动公告</view>
+		
+	</view>
+
+	<view wx:if="{{huodong}}" class="selectbox2">
+
+		<view class="list" data-value="1" catchtap="activeTab">团购活动</view>
+		<view class="list" data-value="3" catchtap="activeTab">满减活动</view>
+		<view class="list" data-value="4" catchtap="activeTab">限时活动</view>
+		<view class="list" data-value="5" catchtap="activeTab">领取优惠券</view>
+		
+	</view>
+
+	<!--图片选择弹窗  -->
+	<!-- <view class="picmode" wx:if="{{picmode}}">
+		<view>拍照</view>
+		<view>从手机相册选择</view>
+		<view catchtap="closepic">取消</view>
+	</view> -->
+
+
+
+</view>

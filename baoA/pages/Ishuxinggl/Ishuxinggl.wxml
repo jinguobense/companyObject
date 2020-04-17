@@ -1,0 +1,19 @@
+<!--baoA/pages/Ishuxinggl/Ishuxinggl.wxml-->
+<view class="shopshux">
+  <view class="top">
+    <view>序号</view>
+    <view>分类名称</view>
+    <view>状态</view>
+  </view>
+  <view class="cont">
+    <block wx:for="{{list}}" wx:key="i">
+      <view class="list">
+      <view>{{item.goodsTypeSeq}}</view>
+      <view>{{item.goodsTypeName}}</view>
+      <view wx:if="{{item.goodsTypeState == 0}}">显示</view>
+      <view wx:if="{{item.goodsTypeState == 1}}">不显示</view>
+    </view>
+    </block>
+  </view>
+  <view class="btn" catchtap="toadd">添加属性</view>
+</view> 

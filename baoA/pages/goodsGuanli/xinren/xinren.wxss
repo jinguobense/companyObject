@@ -1,0 +1,121 @@
+/* baoA/pages/goodsGuanli/putong/putong.wxss */
+page{
+  background-color: #e9e9e9;
+}
+.putong{
+  height: 100%;
+  width: 100%;
+}
+
+/* 内容 */
+.contbox{
+  width: 100%;
+}
+.line{
+margin: 0 auto;
+width: 150rpx;
+height: 2rpx;
+background-color: #D8D8D8;
+}
+/* 右边内容部分 */
+.right{
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding-bottom:100rpx ;
+  
+}
+.right .list{
+  width: 100%;
+	height: 180rpx;
+	background-color: #ffffff;
+  border-radius: 7rpx;
+  padding:3%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* margin-bottom: 10rpx; */
+}
+.right .list image{
+  width: 25%;
+	height: 100%;
+	border-radius: 7rpx;
+}
+.right .list .cont{
+  height: 90%;
+  width: 80%;
+  margin-left: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.right .list .cont .title{
+  width: 381rpx;
+  height: 28rpx;
+  font-size: 25rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.right .list .cont .midle{
+  /* height: 30rpx; */
+  width: 381rpx;
+  font-size: 21rpx;
+  color: #666666;
+}
+.right .list .cont .midle .ku{
+  width: 200rpx;
+  height: 30rpx;
+  color: grey;
+}
+.right .list .cont .midle .ku .kunum{
+  font-size: 25rpx;
+  color: #333333;
+}
+.right .list .cont .price{
+  width: 381rpx;
+  height: 30rpx;
+  font-size: 21rpx;
+  color: #666666;
+  display: flex;
+  align-items: center;
+}
+.right .list .cont .price .ku{
+  width: 200rpx;
+  height: 30rpx;
+  color: #666666;
+  margin-right: 10rpx;
+
+}
+.right .list .cont .price .ku .kunum{
+  font-size: 25rpx;
+  color: #e2211c;
+  margin-left: 100rpx;
+
+}
+.kusale{
+   font-size: 25rpx;
+}
+.fabu{
+  width: 100%;
+  height: 100rpx;
+  background-color:#fff ;
+  z-index: 999;
+  position: fixed;
+  bottom: 0rpx;
+  left: 0rpx;
+}
+  .btn{
+  width: 100%;
+  border-radius: 50rpx;
+	height: 80rpx;
+	background-color: #e2211c;
+  line-height: 80rpx;
+  text-align: center;
+  position: fixed;
+  bottom: 10rpx;
+  left: 0rpx;
+  color: #fff;
+  z-index: 999;
+  font-size: 35rpx;
+}

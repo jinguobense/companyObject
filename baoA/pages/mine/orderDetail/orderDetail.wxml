@@ -1,0 +1,125 @@
+<!--pages/mine/order/orderDetail/orderDetail.wxml-->
+<view class="detail">
+	<view class="detailTop">
+		<view class="top1">
+			<view class="fs-38 color-f leftText" wx:if="{{type==0}}">待付款...</view>
+			<view class="fs-38 color-f leftText" wx:if="{{type==1}}">拼团中...</view>
+			<view class="fs-38 color-f leftText" wx:if="{{type==2 && obj.rfState == null}}">待取货...</view>
+			<view class="fs-38 color-f leftText" wx:if="{{type==3 && obj.rfState == null}}">待发货...</view>
+			<view class="fs-38 color-f leftText" wx:if="{{type==4}}">待收货...</view>
+			<view class="fs-38 color-f leftText" wx:if="{{type==5}}">已完成...</view>
+			<view class="fs-38 color-f leftText" wx:if="{{type==6}}">已退款</view>
+			<view class="fs-38 color-f leftText" wx:if="{{(type == 3 || type == 2) && obj.rfState == 0 }}">申请退款</view>
+			
+			<image src="" class="rightImg" mode="widthFix"></image>
+		</view>
+	</view>
+	<!-- 用户信息 -->
+	<view class="userInfo border-bottom-f0 bg-f padding-35 ">
+		<view class="flex-between">
+			<view class="leftUser">
+				<image src="/images/mine/user.png" mode="widthFix" class="userImg"></image>
+				<text class="userText textWidth fs-28 margin-left-10">{{obj.nickName}}用户名</text>
+			</view>
+			<view class="leftUser">
+				<image src="/images/mine/phone.png" mode="widthFix" class="userImg"></image>
+				<text class="userText fs-28 margin-left-10">{{obj.phoneNum}}</text>
+			</view>
+		</view>
+		<view class="margin-top-10" wx:if="{{type==3 && obj.rfState == null}}">
+			<image src="/images/mine/user.png" mode="widthFix" class="userImg"></image>
+			<text class="userText fs-28 margin-left-10">{{obj.nickName}}</text>
+		</view>
+	</view>
+	<!-- 商品 -->
+	<view class="shopDetail bg-f padding-35">
+		<view class="shopBox flex" wx:for="{{obj.goodsList}}" wx:key="i">
+			<image src="{{item.goodsimg}}" class="shopImg bg-d"></image>
+			<view class="rightCon margin-left-20 flex-clum">
+				<view class="shopTitle fs-28">{{item.goodsname}}</view>
+				<view class="flex-between margin-top-10">
+					<view>
+						<view class='fs-24'>规格：{{item.value1}}</view>
+						<view class='fs-36 color-e4'>¥{{item.price}}</view>
+					</view>
+					<view class="fs-36">x{{item.num}}</view>
+				</view>
+			</view>
+		</view>
+		<!-- <view class="shopPrice flex-between margin-top-60">
+			<view class="left fs-26">商品金额</view>
+			<view class="right color-80 fs-24">¥{{item.price}}</view>
+		</view> -->
+		<view class="shopPrice flex-between margin-top-20">
+			<view class="left fs-26">配送费</view>
+			<view class="right color-80 fs-24" wx:if="{{obj.disState == 0}}">¥{{obj.disCusFee}}</view>
+			<view class="right color-80 fs-24" wx:if="{{obj.disState == 1}}">无</view>
+		</view>
+		<view class="flex-end margin-top-20">
+			<text class="margin-right-10 fs-24">实付金额</text>
+			<view class="fs-36 color-e4"><text class="fs-24">¥</text>{{obj.amount}}</view>
+		</view>
+	</view>
+	<!-- 订单信息 -->
+	<view class='orderInfo margin-top-40 padding-35 bg-f'>
+		<view class="margin-top-20 fs-26">
+			<text>订单编号：</text>
+			<text>{{obj.orderno}}</text>
+		</view>
+		<view class="margin-top-20 fs-26">
+			<text>下单时间：</text>
+			<text>{{obj.paytime}}</text>
+		</view>
+		<view class="margin-top-20 fs-26">
+			<text>支付方式：</text>
+			<text>微信支付</text>
+		</view>
+		<view class="margin-top-20 fs-26">
+			<text>是否配送：</text>
+			<text wx:if="{{obj.disState == 0}}">配送</text>
+			<text wx:if="{{obj.disState == 1}}">不配送</text>
+		</view>
+		<view class="margin-top-20 fs-26" wx:if="{{obj.disState == 0}}">
+			<text>配送方式：</text>
+			<text wx:if="{{obj.disState == 0 && obj.distributions == 0}}">服务商配送</text>
+			<text wx:if="{{obj.disState == 0 && obj.distributions == 1}}">店铺自配送</text>
+		</view>
+		<view class="margin-top-20 fs-26" wx:if="{{type==5}}">
+			<text>分账时间：</text>
+			<text>{{item.accountTime}}</text>
+		</view>
+		<view class="margin-top-20 fs-26" wx:if="{{type==5}}">
+			<text>分账金额：</text>
+			<text>￥{{item.account}}</text>
+		</view>
+		<view class="margin-top-20 fs-26">
+			<text>订单备注：</text>
+			<text>暂无</text>
+		</view>
+		<view class="margin-top-20 fs-26 color-e4">
+			<text>订单状态：</text>
+			<text wx:if="{{type==0}}">待付款</text>
+			<text wx:if="{{type==1}}">拼团中</text>
+			<text wx:if="{{type==2 && obj.rfState == null}}">待取货</text>
+			<text wx:if="{{type==3 && obj.rfState == null}}">待发货</text>
+			<text wx:if="{{type==4}}">待收货</text>
+			<text wx:if="{{type==5}}">已完成</text>
+			<text wx:if="{{type==6}}">已退款</text>
+			<text wx:if="{{(type == 3 || type == 2) && obj.rfState == 0 }}">申请退款</text>
+		</view>
+	</view>
+</view>
+<!-- 按钮 -->
+<view class="btnBox bg-f flex-between padding-x-35" wx:if="{{type==3 || type == 2 || type==4}}">
+	<view class="text fs-20 color-9" wx:if="{{type==3 && obj.rfState == null}}">*该区域还未开通平台
+		配送服务.</view>
+	<view class="btns flex fs-28">
+		<view class="leftBtn margin-right-14 color-9" wx:if="{{type==3 && obj.rfState == null}}">众聚配送</view>
+		<view class='rightBtn color-e9' wx:if="{{type==3 && obj.rfState == null}}">店铺配送</view>
+		<!-- <view class="leftBtn margin-right-14 color-9">拒绝退款</view> -->
+		<view class='rightBtn color-e9' wx:if="{{(type == 3 || type == 2) && obj.rfState == 0 }}">同意退款</view>
+		<view class='rightBtn color-e9' wx:if="{{type==3 && obj.rfState == null}}">确认发货</view>
+		<view class='rightBtn color-e9' wx:if="{{type==2 && obj.rfState == null}}">确认取货</view>
+		<view class='rightBtn color-e9' wx:if="{{type==4}}">确认收货</view> 
+	</view>
+</view>

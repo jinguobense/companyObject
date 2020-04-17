@@ -1,0 +1,143 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/login/login",
+    "pages/mine/mine",
+    "pages/login/setUpShop/setUpShop",
+    "pages/baobiao/baobiao",
+    "pages/msg/msg",
+    "pages/logs/logs",
+    "pages/login/defeat/defeat"
+
+  ],
+  "subpackages": [
+    {
+      "root": "baoA",
+      "name": "hello",
+      "pages": [
+        "pages/goodsCanadd/goodsCanadd",
+        "pages/Ituku/Ituku",
+        "pages/Ishuxinggl/Ishuxinggl",
+        "pages/Igaogl/Igaogl",
+        "pages/Igaogadd/Igaogdd",
+        "pages/Ipsonggl/Ipsonggl",
+        "pages/Isuxingadd/Isuxingadd",
+        "pages/mydd/mydd",
+        
+        "pages/mine/order/order",
+        "pages/mine/orderDetail/orderDetail",
+        "pages/mine/storeInfo/storeInfo",
+        "pages/mine/setting/setting",
+        "pages/mine/account/account",
+        "pages/mine/reset/reset",
+
+        "pages/Ishouyi/Ishouyi",
+        "pages/IshouyiXq/IshouyiXq",
+
+        "pages/Iyue/Iyue",
+        "pages/Iyuezhanghu/Iyuezhanghu",
+
+        "pages/Ituijshop/Ituijshop",
+        "pages/ItuijshopFabu/ItuijshopFabu",
+        "pages/Ituijshopgoods/Ituijshopgoods",
+
+        "pages/Itukulist/Itukulist",
+        "pages/ItukulistXq/ItukulistXq",
+        
+
+        "pages/goodsGuanli/putong/putong",
+        "pages/goodsGuanli/tuanping/tuanping",
+        "pages/goodsGuanli/xianshi/xianshi",
+        "pages/goodsGuanli/manjian/manjian",
+        "pages/goodsGuanli/xiaozhong/xiaozhong",
+        "pages/goodsGuanli/xinren/xinren",
+        "pages/goodsGuanli/fenxiangshop/fenxiangshop",
+
+
+        "pages/goodsGuanli/setactive/setactive",
+        "pages/goodsGuanli/setactiveList/setactiveList",
+        "pages/goodsGuanli/setactiveAdd/setactiveAdd",
+        "pages/goodsGuanli/setactiveXiu/setactiveXiu",
+
+        "pages/goodsGuanli/putongGoods/putongGoods",
+        "pages/goodsGuanli/tuanpingGoods/tuanpingGoods",
+        "pages/goodsGuanli/xianshiGoods/xianshiGoods",
+        "pages/goodsGuanli/manjianGoods/manjianGoods",
+        "pages/goodsGuanli/xiaozhongGoods/xiaozhongGoods",
+        "pages/goodsGuanli/xinrenGoods/xinrenGoods",
+        
+        "pages/goodsGuanli/canshuXiu/canshuXiu",
+
+        "pages/goodsFabu/putongFabu/putongFabu",
+        "pages/goodsFabu/tuanpingFabu/tuanpingFabu",
+        "pages/goodsFabu/xianshiFabu/xianshiFabu",
+        "pages/goodsFabu/manjianFabu/manjianFabu",
+        "pages/goodsFabu/xiaozhongFabu/xiaozhongFabu",
+        "pages/goodsFabu/xinrenFabu/xinrenFabu",
+        "pages/goodsFabu/cropper/cropper"
+
+      ]
+    },
+    {
+      "root":"baoB",
+      "name":"world",
+      "pages":[
+        "pages/msg/chat/chat",
+        "pages/msg/inform/inform",
+        "pages/msg/system/system",
+
+        "pages/goodsGuanli/guide/guide",
+        "pages/goodsGuanli/guideList/guideList"
+      ]
+    }
+  ],
+  "preloadRule": {
+    "pages/index/index": {
+      "network": "all",
+      "packages": [
+        "baoB"
+      ]
+    }
+    
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "众聚店助",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#333333",
+    "selectedColor": "#E74104",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/tabs/home.png",
+        "selectedIconPath": "images/tabs/home01.png"
+      },
+      {
+        "pagePath": "pages/baobiao/baobiao",
+        "text": "报表",
+        "iconPath": "images/tabs/baobiao.png",
+        "selectedIconPath": "images/tabs/baobiao01.png"
+      },
+      {
+        "pagePath": "pages/msg/msg",
+        "text": "消息",
+        "iconPath": "images/tabs/msg.png",
+        "selectedIconPath": "images/tabs/msg01.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "images/tabs/mine.png",
+        "selectedIconPath": "images/tabs/mine01.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

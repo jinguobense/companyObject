@@ -1,0 +1,52 @@
+<view class="shouyiXq">
+  <view class="cont">
+    <view class="header">
+      <view class="title">
+        <image src="/images/index/tihuan.png"></image>
+        <text>某某</text>
+      </view>
+      <view class="money">+99.69</view>
+      <text>交易成功</text>
+    </view>
+
+    <view class="Info">
+      <view class="item">
+        <text class="left">付款方式</text>
+        <text>支付宝</text>
+      </view>
+      <view class="item">
+        <text class="left">交易时间</text>
+        <view class="time">
+          <text>201904-15  </text>
+          <text>20:25:51</text>
+        </view>
+      </view>
+      <view class="item goodsinfo">
+        <text class="left">购买商品</text>
+        <text>可比克薯片105g桶装多种口味
+休闲小吃零食品马铃薯膨化</text>
+      </view>
+      <view class="item">
+        <text class="left">订单号</text>
+        <text>20190012345696512</text>
+      </view>
+      <view class="item">
+        <text class="left">支付备注</text>
+        <text>暂无备注</text>
+      </view>
+
+
+
+
+
+
+
+
+    </view>
+
+
+  </view>
+
+
+
+</view>

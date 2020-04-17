@@ -1,0 +1,143 @@
+<view class="activeAdd">
+	<view class="cont">
+		<view class="money">
+			<view class="item">
+				<text>满：</text>
+				<input type="digit"></input>
+			</view>
+			<view class="item">
+				<text>优惠：</text>
+				<input type="digit"></input>
+			</view>
+
+		</view>
+		<view class="goodsitem" wx:if="{{ feileiIndex == 1 }}">
+			<view class="top">
+				<text>选择参与优惠的商品：</text>
+				<image src="/images/index/you.png"></image>
+			</view>
+			<input class="data" type="text" placeholder="全场通用" disabled></input>
+		</view>
+
+		<view class="goodsitem" wx:if="{{ feileiIndex == 2 }}">
+			<view class="top">
+				<text>排列序号：</text>
+				<image src="/images/index/you.png"></image>
+			</view>
+			<input class="data" type="number" placeholder="如001"></input>
+		</view>
+
+		<view class="goodsitem" catchtap="tongJiStart" data-startorend="1">
+			<view class="top">
+				<text>活动开始时间：</text>
+				<image class="timeimg" src="/images/index/time.png"></image>
+			</view>
+		<input class="data" wx:if='{{!startTimestr}}' type="text" placeholder="请选择活动开始时间" disabled></input>
+		<input class="data" wx:if='{{startTimestr}}' type="text" value="{{startTimestr}}" disabled placeholder="请选择活动开始时间"></input>>
+		</view>
+
+		<view class="goodsitem" catchtap="tongJiStart" data-startorend="2">
+			<view class="top">
+				<text>活动结束时间：</text>
+				<image class="timeimg" src="/images/index/time.png"></image>
+			</view>
+		<input class="data" type="text" placeholder="请选择活动结束时间" disabled wx:if="{{!endTimestr}}"></input>
+		<input class="data" wx:if='{{endTimestr}}' type="text" value="{{endTimestr}}" disabled placeholder="请选择活动结束时间"></input>
+		</view>
+
+		<!-- <view class="goodsitem">
+			<view class="top">
+				<text>优惠券描述：</text>
+			</view>
+			<input class="data" type="text"></input>
+		</view> -->
+
+		<view class="goodsitem">
+			<view class="top">
+				<text>备注：</text>
+			</view>
+			<textarea placeholder="优惠券备注信息" ></textarea>
+		</view>
+
+	</view>
+
+
+
+
+	<!-- <view class="Time" catchtap="tongJiStart" data-startorend="1">
+		<view class="top">
+			<text>活动开始时间：</text>
+			<image src="/images/index/time.png"></image>
+		</view>
+		<input class="data" wx:if='{{!startTimestr}}' type="text" placeholder="请选择活动开始时间" disabled></input>
+		<input class="data" wx:if='{{startTimestr}}' type="text" value="{{startTimestr}}" disabled placeholder="请选择活动开始时间"></input>
+	</view>
+
+	<view class="Time" catchtap="tongJiStart" data-startorend="2">
+		<view class="top">
+			<text>活动结束时间：</text>
+			<image src="/images/index/time.png"></image>
+		</view>
+		<input class="data" type="text" placeholder="请选择活动结束时间" disabled wx:if="{{!endTimestr}}"></input>
+		<input class="data" wx:if='{{endTimestr}}' type="text" value="{{endTimestr}}" disabled placeholder="请选择活动结束时间"></input>
+	</view> -->
+
+
+
+	<view class="footer" wx:if="{{feileiIndex == 1}}">
+		<view class="btn">保 存</view>
+	</view>
+
+	<view class="footer" wx:if="{{feileiIndex == 0}}">
+		<view class="btn">保 存</view>
+	</view>
+
+
+
+</view>
+
+
+<!-- 商品开始日期弹窗 -->
+<view class="modalDlgdingdan" wx:if="{{goodsModalone}}">
+	<!-- 商品日期选择 -->
+	<view class="dingdanitel">
+		<text class="quxiao" catchtap="close_dingdanTime">取消</text>
+		<text class="queding" catchtap="xiayiBu">下一步</text>
+	</view>
+	<view>
+		<picker-view indicator-style="height: 50rpx;" style="width:80%; margin: 0 auto; height: 340rpx;" value="{{valueRiqi}}" bindchange="riqiChange">
+			<picker-view-column>
+				<view wx:for="{{years}}" wx:key='k' style="line-height: 50rpx; text-align: center;">{{item}}年</view>
+			</picker-view-column>
+			<picker-view-column>
+				<view wx:for="{{months}}" wx:key='k' style="line-height: 50rpx; text-align: center;">{{item}}月</view>
+			</picker-view-column>
+			<picker-view-column>
+				<view wx:for="{{days}}" wx:key='k' style="line-height: 50rpx; text-align: center;">{{item}}日</view>
+			</picker-view-column>
+		</picker-view>
+	</view>
+</view>
+
+<!-- 商品结束日期弹窗 -->
+<view class="modalDlgdingdan" wx:if="{{goodsModaltwo}}">
+	<!-- 商品日期选择 -->
+	<view class="dingdanitel">
+		<text class="quxiao" catchtap="close_dingdanTime">取消</text>
+		<text class="queding" catchtap="quedingEnd">确定</text>
+	</view>
+	<view>
+		<picker-view indicator-style="height: 50rpx;" style="width:80%; margin: 0 auto; height: 340rpx;" value="{{valueShijian}}" bindchange="shijianChange">
+			<picker-view-column>
+				<view wx:for="{{hours}}" wx:key='k' style="line-height: 50rpx; text-align: center;">{{item}}时</view>
+			</picker-view-column>
+			<picker-view-column>
+				<view wx:for="{{minutes}}" wx:key='k' style="line-height: 50rpx; text-align: center;">{{item}}分</view>
+			</picker-view-column>
+			<!-- <picker-view-column>
+        <view wx:for="{{seconds}}" wx:key='k' style="line-height: 50rpx; text-align: center;">{{item}}秒</view>
+      </picker-view-column> -->
+		</picker-view>
+	</view>
+</view>
+<view class="mask" catchtouchmove="preventTouchMove" wx:if="{{showAnceng}}"></view>

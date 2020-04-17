@@ -1,0 +1,66 @@
+<view class="peisong">
+	<view class="peisongbox">
+		<view class="title">配送选择：</view>
+		<view class="peicont">
+			<view class="selectbox">
+				<view class="select" catchtap="psbtn" data-type='1'>
+					<image src="../../../images/index/xz.png" wx:if="{{!psType1}}"></image>
+					<image src="../../../images/index/xz01.png" wx:if="{{psType1}}"></image>
+					<text>不参与配送</text>
+				</view>
+				<view class="select" catchtap="psbtn" data-type='0'>
+					<image src="../../../images/index/xz.png" wx:if="{{!psType2}}"></image>
+					<image src="../../../images/index/xz01.png" wx:if="{{psType2}}"></image>
+					<text>参与配送</text>
+				</view>
+			</view>
+			<!--其他 -->
+			<view class="morecont" wx:if="{{psType2}}">
+				<view class="money">
+					<text>*填写起送金额：</text>
+					<view class="moneyb">
+						<text>￥</text>
+						<input type="digit" value="{{value}}" bindinput="inpsPrice"></input>
+					</view>
+					<text class="text">￥10元起</text>
+				</view>
+
+				<view class="psxz">
+					<text class="xztitle">配送默认选择</text>
+					<view class="itembox">
+
+						<view class="item"  catchtap="psTypebtn" data-type='1'>
+							<text>店铺配送</text>
+							<view class="selectboxb">
+								<image src="../../../images/index/xzz.png" wx:if="{{!dpType}}"></image>
+								<image src="../../../images/index/xz01.png" wx:if="{{dpType}}"></image>
+							</view>
+						</view>
+						<view class="item" catchtap="psTypebtn" data-type='0'>
+							<text>平台配送</text>
+							<view class="selectboxb">
+								<image src="../../../images/index/xzz.png" wx:if="{{!ptType}}"></image>
+								<image src="../../../images/index/xz01.png" wx:if="{{ptType}}"></image>
+							</view>
+						</view>
+
+					</view>
+				</view>
+			</view>
+		</view>
+
+	</view>
+
+	<!-- 规则 -->
+	<view class="psguiz">
+		<view class="guititle">【配送规则】：</view>
+		<view class="itemtext">1.当您选择参与配送，您在上传商品时选择商品是否参与配送。</view>
+		<view class="itemtext">2.在需配送订单生成后，自由选择自配送或是平台配送。</view>
+		<view class="itemtext">3.平台配送完成后，平台配送完成后，会相应收取一定配送服务费（当订单金额在一百元以下时，配送服务费为5元；超过一百元，配送服务费为10元）。</view>
+	</view>
+
+  <!-- 保存按钮 -->
+  	<view class="btn" catchtap="sure">保 存</view>
+
+
+</view>

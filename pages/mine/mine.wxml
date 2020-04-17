@@ -1,0 +1,86 @@
+<!--pages/user/user.wxml-->
+<view class="User">
+	<view class="header">
+		<image class="bg" src="../../images/index/beijing.png"></image>
+		<image class="msg" src="../../images/mine/msg.png" catchtap="tomsg"></image>
+		<view class="userxx" catchtap="tologin">
+			<!-- <image src="{{imgUrl2}}" class="touxiang" wx:if="{{imgUrl2}}"></image> -->
+			<image src='/images/index/tihuan.png' class="touxiang"></image>
+			<view class="right">
+				<view class="name" wx:if="{{shopBean.shopName}}">{{shopBean.shopName}}超市</view>
+				<view class="name" wx:if="{{!shopBean.shopName}}" style="margin-left:30rpx;">登录/注册<text class='iconfont icon-youjiantou' style="margin-left:10rpx"></text></view>
+				<view class="shopstate" wx:if="{{shopState == 0}}">店铺状态：正常</view>
+				<view class="shopstate" wx:if="{{shopState == 1}}">店铺状态：停用</view>
+				<view class="shopstate" wx:if="{{shopState == 2}}">店铺状态：待审核</view>
+				<view class="shopstate" wx:if="{{shopState == 3}}">店铺状态：审核未通过</view>
+			</view>
+		</view>
+	</view>
+	<!-- 订单 -->
+	<view class="dingdanbox">
+		<view class="mydd">
+			<text class="tit">订单管理</text>
+			<view class="right" catchtap="tomydd" data-index="0">
+				<text>全部订单</text>
+				<text class='iconfont icon-youjiantou'></text>
+			</view>
+		</view>
+		<view class="tabbox">
+			<view class="tablist" data-index="2" catchtap="tomydd">
+				<image src="../../images/mine/pt.png"></image>
+				<text>拼团中</text>
+				<view class="num" wx:if="{{userinfo.cst1Num > 0}}">{{userinfo.cst1Num}}</view>
+			</view>
+
+			<view class="tablist" data-index="3" catchtap="tomydd">
+				<image src="../../images/mine/pay.png"></image>
+				<text>待取货</text>
+				<view class="num" wx:if="{{userinfo.cst2Num > 0}}">{{userinfo.cst2Num}}</view>
+			</view>
+
+			<view class="tablist" data-index="4" catchtap="tomydd">
+				<image src="../../images/mine/shouhuo.png"></image>
+				<text>待发货</text>
+				<view class="num" wx:if="{{userinfo.cst6Num > 0}}">{{userinfo.cst6Num}}</view>
+			</view>
+			<view class="tablist" data-index="5" catchtap="tomydd">
+				<image src="../../images/mine/quhuo.png"></image>
+				<text>待收货</text>
+				<view class="num" wx:if="{{userinfo.cst3Num > 0 }}">{{userinfo.cst3Num}}</view>
+			</view>
+			<view class="tablist" data-index="9" catchtap="tomydd">
+				<image src="../../images/mine/tuipay.png"></image>
+				<text>退款售后</text>
+				<view class="num" wx:if="{{userinfo.cst5Num > 0}}">{{userinfo.cst5Num}}</view>
+			</view>
+		</view>
+	</view>
+	<!-- 列表 -->
+	<view class="listbox">
+		<view class="list">
+			<image class="leftimg" src="../../images/mine/pay.png"></image>
+			<text>代销商品管理</text>
+			<image class="rightimg" src="../../images/mine/you.png"></image>
+		</view>
+		<view class="list" bindtap="goStore">
+			<image class="leftimg" src="../../images/mine/pay.png"></image>
+			<text>店铺信息</text>
+			<image class="rightimg" src="../../images/mine/you.png"></image>
+		</view>
+		<view class="list" bindtap="totixian">
+			<image class="leftimg" src="../../images/mine/pay.png"></image>
+			<text>余额提现</text>
+			<image class="rightimg" src="../../images/mine/you.png"></image>
+		</view>
+		<view class="list" catchtap="toSetting">
+			<image class="leftimg" src="../../images/mine/pay.png"></image>
+			<text>设置</text>
+			<image class="rightimg" src="../../images/mine/you.png"></image>
+		</view>
+		<view class="list">
+			<image class="leftimg" src="../../images/mine/pay.png"></image>
+			<text>店助指南</text>
+			<image class="rightimg" src="../../images/mine/you.png"></image>
+		</view>
+	</view>
+</view>

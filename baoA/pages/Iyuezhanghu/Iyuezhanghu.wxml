@@ -1,0 +1,83 @@
+<view class="zhanghubox">
+	<!-- 微信 -->
+	<view class="cont" wx:if="{{indexTar == 0}}">
+		<view class="item">
+			<image src="/images/index/xm.png"></image>
+			<text>真实姓名：</text>
+			<input type="text" placeholder="某某静"></input>
+		</view>
+
+		<view class="item">
+			<image src="/images/index/wx.png"></image>
+			<text>绑定微信账户：</text>
+      <input type="text" placeholder="123456789" ></input>
+			<image src="/images/index/you.png" class="you"></image>
+		</view>
+
+		<view class="item">
+			<image src="/images/index/sj.png"></image>
+			<text>绑定手机号：</text>
+			<input type="number" placeholder="15537035750"></input>
+		</view>
+
+		<view class="item">
+			<image src="/images/index/yzm.png"></image>
+			<text>验证码：</text>
+			<input type="number" placeholder="123456"></input>
+			<text class="huoqu">获取验证码</text>
+		</view>
+
+    <view class="tijiao">提交绑定</view>
+
+	</view>
+
+
+
+
+
+
+
+
+
+	<!-- 银行卡 -->
+	<view class="cont" wx:if="{{indexTar == 1}}">
+	
+		<view class="item">
+			<image src="/images/index/xm.png"></image>
+			<text>真实姓名：</text>
+			<input type="text" placeholder="某某静"></input>
+		</view>
+
+		<view class="item">
+			<image src="/images/index/wx.png"></image>
+			<text>绑定银行账户：</text>
+      <input type="text" placeholder="123456789" ></input>
+			<image src="/images/index/you.png" class="you"></image>
+		</view>
+
+		<view class="item">
+			<image src="/images/index/sj.png"></image>
+			<text>绑定手机号：</text>
+			<input type="number" placeholder="15537035750"></input>
+		</view>
+
+		<view class="item">
+			<image src="/images/index/yzm.png"></image>
+			<text>验证码：</text>
+			<input type="number" placeholder="123456"></input>
+			<text class="huoqu">获取验证码</text>
+		</view>
+
+    <view class="tijiao">提交绑定</view>
+	</view>
+
+
+
+
+
+
+
+
+
+
+</view>

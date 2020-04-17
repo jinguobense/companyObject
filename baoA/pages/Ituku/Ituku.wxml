@@ -1,0 +1,50 @@
+<view class="tukubox">
+	<!-- 头部搜索框 -->
+	<view class=" headbox">
+		<view class="searchbox">
+			<input placeholder="搜索您想要的图库" bindinput='watch' value="{{searchcon}}"></input>
+			<view catchtap="tosearch">
+				<icon type='search' size='36rpx'></icon>
+			</view>
+
+		</view>
+	</view>
+	<!-- 内容部分 -->
+	<view class="contbox">
+		<view class="lefttab">
+
+			<block wx:for="{{typeList}}" wx:key="i">
+				<view class="list {{tabindex==index ? 'active' : ''}} " catchtap="changes" data-current="{{index}}" data-id="{{item.id}}" data-name="{{item.name}}" data-typeList2="{{item.typeList2}}">
+					{{item.name}}
+				</view>
+			</block>
+
+		</view>
+		<view class="right">
+			<view class="title">{{name}}</view>
+			<view class="rcontbox">
+
+				<block wx:for="{{typeList2}}" wx:key="o"  wx:for-item="cess">
+					<view class="rlist" catchtap="totukulist">
+						<image src="{{cess.img}}"></image>
+						<text>{{cess.name}}</text>
+					</view>
+				</block>
+
+			</view>
+
+		</view>
+
+
+
+
+	</view>
+
+
+
+
+
+
+
+
+</view>

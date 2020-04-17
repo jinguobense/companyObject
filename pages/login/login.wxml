@@ -1,0 +1,76 @@
+<!--pages/login/login.wxml-->
+<view class="login">
+	<image class="bg" src="/images/index/beijing.png" mode="widthFix"></image>
+	<view class="title">众聚店助</view>
+	<view class="loginBox">
+		<view class='loginCon'>
+			<view class='loginList'>
+				<view class="loginItem flex">
+					<image class='leftimg' mode="widthFix" src="/images/login/tel.png"></image>
+					<input type="text" placeholder="请输入手机号" bindinput="dlphone"></input>
+				</view>
+				<view class="loginItem flex">
+					<image class='leftimg' mode="widthFix" src="/images/login/psd.png"></image>
+					<input type="password" placeholder="请输入密码" bindinput="dlpasswd"></input>
+				</view>
+				<view class="padding-x-20 margin-top-60">
+					<view class='loginBtn' catchtap="tologin">登录</view>
+					<view class="rem">忘记密码？</view>
+						<!-- <view class='loginBtn margin-top-60 bg_fff' catchtap="tozuce">去注册</view> -->
+				</view>
+				<view class="reg" bindtap="goReg">注册开店</view>
+			</view>
+		</view>
+	</view>
+</view>
+
+<!-- 注册弹框 -->
+
+  <!-- <view class="modalDlg" wx:if="{{showModal}}">
+    <view class='close_mask' bindtap="close_mask">
+      <image src="../../images/login/cuohao.png"></image>
+    </view>
+    <view class="tops">
+      注册
+    </view>
+
+    <view class="sumInfo">
+      <view class="phone">
+        <image src="../../images/login/phone.png"></image>
+        <input type="number" bindinput="zcphone" maxlength="11" placeholder="请输入手机号"></input>
+      </view>
+      <view class="yanzhengm">
+        <view class="left">
+          <image src="../../images/login/icon-yzmx.png"></image>
+          <input type="number" bindinput="zcyanzm" placeholder="请输入验证码"></input>
+        </view>
+        <view wx:if='{{yzmTime!=60}}' class="right">
+          {{yzmTime}}s后重新发送
+        </view>
+        <view wx:if='{{yzmTime==60}}' class="right" catchtap="fasongyzm">
+          获取验证码
+        </view>
+      </view>
+      <view class="passwd">
+        <image src="../../images/login/code.png"></image>
+        <input type="password" bindinput="zcmima1" placeholder="请输入密码"></input>
+      </view>
+      <view class="passwd">
+        <image style="width:31rpx;height:31rpx;" src="../../images/login/queren.png"></image>
+        <input type="password" bindinput="zcmima2" placeholder="请重新输入密码"></input>
+      </view>
+      <view class="yiduread">
+        <image wx:if='{{!redmsg}}' catchtap="redmsg" src="../../images/login/gou.png"></image>
+        <image wx:if='{{redmsg}}' catchtap="redmsg" src="../../images/login/duihao.png"></image>
+        <view>
+          <text class="le">我已阅读并同意</text>
+          <text class="ri" catchtap="toxieyi" data-index="1">《众聚汇采厂家入驻协议》、</text>
+          <text class="ri" catchtap="toxieyi" data-index="2">《用户隐私声明》</text>
+        </view>
+
+      </view>
+
+      <view class="xiayibu" catchtap="zhucetwo">下一步</view>
+    </view>
+  </view>
+  <view class="mask" catchtap="" wx:if="{{showModal}}"></view> -->

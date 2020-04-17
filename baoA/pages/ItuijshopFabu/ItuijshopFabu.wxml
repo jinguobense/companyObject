@@ -1,0 +1,36 @@
+<view class="suxingadd">
+	<view class="number item" catchtap="totuijshopgoods">
+		<view></view>
+		<text>选择商品：</text>
+		<input type="number" wx:if="{{obj}}" placeholder="{{obj.goodsName}}" disabled></input>
+		<input type="number" wx:if="{{!obj}}" placeholder="请选择你想要推广的商品" disabled></input>
+		<image src="../../../images/index/you.png" class="image"></image>
+	</view>
+	<view class="shopbox" wx:if="{{obj}}">
+		<image src="{{obj.img}}" class="shopimg"></image>
+		<view class="shopcont">
+			<view class="goodsIfo"> {{obj.goodsName}} </view>
+		</view>
+	</view>
+
+	<view class="zhaung item" catchtap="openmodel">
+		<view></view>
+		<text>状态：</text>
+		<input type="text" value="{{value}}" disabled></input>
+		<image src="../../../images/index/you.png" class="image"></image>
+	</view>
+	<view class="pic item">
+		<view></view>
+		<text>选择主图：</text>
+		<image src="/images/index/select.png" catchtap="chooseImg" wx:if="{{imgUrl == ''}}"></image>
+		<image src="{{imgUrl}}" catchtap="chooseImg" wx:if="{{imgUrl != ''}}"></image>
+	</view>
+	<!-- 选择显示 -->
+	<view class="model" wx:if="{{showmodel == 0}}">
+		<view data-show="0" catchtap="xuanze">显示</view>
+		<view data-show="1" catchtap="xuanze">不显示</view>
+	</view>
+
+	<!-- 添加按钮 -->
+	<view class="addbtn" catchtap="newgoodShop">{{btnValue}}</view>
+</view>

@@ -1,0 +1,36 @@
+<!--baoA/pages/Ituijshop/Ituijshop.wxml-->
+<view class="tuijshop">
+	<view class="kong" wx:if='{{kong}}'>
+		<view class="imgcontbox">
+			<view class="imgcont">
+				<image src="/images/index/kong.png"></image>
+				<text>您还没用发布哦</text>
+			</view>
+		</view>
+	</view>
+
+	
+
+
+	<!-- 商店商品列表 -->
+	<!-- <block wx:for="{{list}}" wx:key="i" > -->
+	<block>
+		<view class="shopbox"  catchtap="toXiu"  wx:if='{{!kong}}'>
+			<image src="{{list.img}}" class="shopimg"></image>
+			<view class="shopcont">
+				<view class="title">{{list.shopName}}</view>
+				<view class="goodsIfo">
+					{{list.goodsName}}
+				</view>
+				<view class="money">￥{{list.goodsPrice}}</view>
+			</view>
+			<view catchtap="del" class="del" data-imgid="{{list.imgId}}">
+				<image src="/images/index/del.png"></image>
+			</view>
+		</view>
+
+	</block>
+	<view class="addbtn" catchtap="totuijianFabu" wx:if='{{kong}}'>去发布</view>
+	<view class="addbtn" catchtap="toXiu" wx:if='{{!kong}}'>去修改</view>
+
+</view>

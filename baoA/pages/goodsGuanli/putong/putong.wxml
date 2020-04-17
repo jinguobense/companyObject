@@ -1,0 +1,95 @@
+<view class="putong">
+	<!-- 头部	//0-审核中 1-已上架 2-已下架 3-审核未通过 4-已删除 -->
+	<view class="head">
+		<view catchtap="changes" data-index="1" class="{{index == 1?'active':''}}">已上架</view>
+		<text></text>
+		<view catchtap="changes" data-index="2" class="{{index == 2?'active':''}}">已下架</view>
+		<text></text>
+		<view catchtap="changes" data-index="0" class="{{index == 0?'active':''}}">待审核</view>
+		<text></text>
+		<view catchtap="changes" data-index="3" class="{{index == 3?'active':''}}">已弃审</view>
+	</view>
+
+
+	<!-- 空 -->
+	<view class="kong" wx:if="{{rightlist.length == 0}}">
+		<view class="imgcontbox">
+			<view class="imgcont">
+				<image src="/images/index/kong.png"></image>
+				<text>抱歉，暂时还没有商品哦~</text>
+			</view>
+		</view>
+		<!-- <view class="addbtn" catchtap="totuijianFabu">去发布</view> -->
+	</view>
+
+	<!--内容部分  已上架-->
+	<view class="contbox" wx:if="{{leftList.length != 0}}">
+		<view class="lefttab">
+			<block>
+				<view class="list {{leftindex == 0 ? 'active' : ''}}" catchtap="changesL" data-typeid= " " data-index="0">全部 </view>
+				<view class="list {{leftindex == (index+1 )? 'active' : ''}}" wx:for="{{leftList}}" data-index="{{index+1}}" data-typeid= "{{item.goodsTypeId}}" wx:key="o" catchtap="changesL">
+				{{item.goodsTypeName}}
+				</view>
+			</block>
+		</view>
+
+
+		<!-- 右边部分 -->
+		<view class="right">
+			<block wx:for="{{rightlist}}" wx:key="i">
+				<view class="list" catchtap="toGooodsinfo" data-type="1">
+					<image src="/images/index/tihuan.png"></image>
+					<view class="cont">
+						<view class="title">{{item.goodsName}}</view>
+						<view class="midle">
+							<view class="ku">
+								<text class="kutext">剩余库存：</text>
+								<text class="kunum">{{item.skuBean.goodSkunum}}</text>
+							</view>
+							<view class="ku">
+								<text class="kutext">已售：</text>
+								<text class="kunum">6666</text>
+							</view>
+						</view>
+
+						<view class="price">
+							<view class="ku">
+								<text class="kutext">限购价：</text>
+								<text class="kunum">￥10</text>
+								<text class="kutext">/袋</text>
+							</view>
+							<view class="ku">
+								<text class="kutext">原价：</text>
+								<text class="kunum">￥20</text>
+								<text class="kutext">/袋</text>
+							</view>
+
+						</view>
+
+					</view>
+				</view>
+			</block>
+
+		</view>
+
+	</view>
+	
+
+
+
+
+	<!-- 固定底部 -->
+	<view class="footer">
+		<view class="btn" catchtap="toTuku">
+			<image src="/images/index/btnpic.png"></image>
+			<text>图库上传</text>
+		</view>
+		<view class="btn" catchtap="toFabu">
+			<image src="/images/index/addbtn.png"></image>
+			<text>发布商品 </text>
+		</view>
+	</view>
+
+
+
+</view>

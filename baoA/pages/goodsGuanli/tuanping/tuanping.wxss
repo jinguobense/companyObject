@@ -1,0 +1,201 @@
+/* baoA/pages/goodsGuanli/putong/putong.wxss */
+page{
+  background-color: #e9e9e9;
+  height: 100%;
+}
+.putong{
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  padding-top: 70rpx;
+  padding-bottom: 100rpx;
+
+
+
+}
+.putong .head{
+  width: 100%;
+  height: 70rpx;
+  background-color: #e2211c;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0rpx;
+  left: 0rpx;
+}
+.putong .head>view{
+  width: 194rpx;
+  height: 70rpx;
+  border-radius: 14rpx 14rpx 0rpx 0rpx;
+  text-align: center;
+  line-height: 70rpx;
+  color: #ffffff;
+  background-color: #e2211c;
+
+}
+.putong .head>text{
+  display: block;
+  width: 1rpx;
+	height: 35rpx;
+	background-color: #f2f2f2;
+}
+.putong .head view.active{
+  background-color: #ffffff;
+  color: #e2211c;
+}
+
+/* 内容 */
+.contbox{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  /* justify-content: space-between; */
+}
+/* 左边 */
+.contbox .lefttab{
+  width: 174rpx;
+  background: #fff;
+  height: 100%;
+  /* position: fixed;
+  left: 0;
+  top: 70rpx; */
+  display: flex;
+  overflow-y: auto;
+  flex-direction: column;
+  /* z-index: 1000; */
+  /* box-sizing: border-box;
+  padding-bottom: 100rpx; */
+}
+.lefttab .list{
+  width: 100%;
+  height: 90rpx;
+  background: #F6F6F6;
+  text-align: center;
+  line-height: 90rpx;
+  font-size: 28rpx;
+  color: #333;
+  box-sizing: border-box;
+  border-left: 4rpx solid #F6F6F6;
+  letter-spacing: 2rpx;
+  border-bottom: 1rpx solid #f4f4f4;
+  border-top: 1rpx solid #f4f4f4;
+}
+.lefttab .active{
+  color: #E90D16;
+  box-sizing: border-box;
+  border-left: 4rpx solid #E90D16;
+  background: #fff;
+}
+/* 右边内容部分 */
+.right{
+  width: 572rpx;
+  height: 100%;
+  overflow-y: auto;
+  /* margin-left: 178rpx;
+  margin-top: 70rpx; */
+  /* box-sizing: border-box; */
+  /* padding-bottom:100rpx ; */
+  
+}
+.right .list{
+  width: 514rpx;
+	height: 180rpx;
+	background-color: #ffffff;
+  border-radius: 7rpx;
+  padding: 21rpx 21rpx 25rpx 35rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10rpx;
+}
+.right .list image{
+  width: 125rpx;
+	height: 125rpx;
+	border-radius: 7rpx;
+}
+.right .list .cont{
+  height: 125rpx;
+  width: 381rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.right .list .cont .title{
+  width: 381rpx;
+  height: 28rpx;
+  font-size: 25rpx;
+  color: #333333;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.right .list .cont .midle{
+  height: 30rpx;
+  width: 381rpx;
+  font-size: 21rpx;
+  color: #666666;
+  display: flex;
+  align-items: center;
+}
+.right .list .cont .midle .ku{
+  width: 200rpx;
+  height: 30rpx;
+  color: #666666;
+}
+.right .list .cont .midle .ku .kunum{
+  font-size: 25rpx;
+  color: #333333;
+}
+.right .list .cont .price{
+  width: 381rpx;
+  height: 30rpx;
+  font-size: 21rpx;
+  color: #666666;
+  display: flex;
+  align-items: center;
+}
+.right .list .cont .price .ku{
+  width: 200rpx;
+  height: 30rpx;
+  color: #666666;
+  margin-right: 10rpx;
+
+}
+.right .list .cont .price .ku .kunum{
+  font-size: 25rpx;
+  color: #e2211c;
+}
+/* 底部按钮 */
+.footer{
+  height: 100rpx;
+  width: 100%;
+  position: fixed;
+  bottom: 0rpx;
+  left: 0rpx;
+  display: flex;
+  z-index: 9999;
+
+}
+.footer .btn{
+  width: 50%;
+  height: 100rpx;
+  background-color: #e2211c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.footer .btn:nth-child(1){
+  background-color: #439af6;
+}
+.footer .btn:first-of-type image{
+  width: 54rpx;
+  height: 46rpx;
+}
+.footer .btn image{
+  width: 46rpx;
+  height: 46rpx;
+  margin-right: 21rpx;
+}
+.footer .btn text{
+  color: #fff;
+}

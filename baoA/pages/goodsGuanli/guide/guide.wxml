@@ -1,0 +1,181 @@
+<!--pages/mine/guide/guide.wxml-->
+<view class="padding-bottom-100">
+	<!-- 店铺信息设置 -->
+	<view class="storeInfo padding-40" wx:if="{{index==1}}">
+		<view class="stepText">
+			<view class="title">操作步骤：</view>
+			<view class="content">我的页面→店铺信息→点击编辑→修改可修改内容→保存</view>
+			<view class="title">功能描述：</view>
+			<view class="content">店铺本身基本信息修改，可修改内容有电话、营业时间、店面封面等，其他内容不可修改。</view>
+		</view>
+		<view class="imgList margin-top-30">
+			<image wx:for="{{storeInfoImg}}" wx:key="index"  class="image {{index==1?'margin-top-30':''}}" src="{{item}}" mode="widthFix"></image>
+		</view>
+	</view>
+	<!-- 店铺广告设置 -->
+	<view class="storeAdv padding-40" wx:if="{{index==2}}">
+		<view class="stepText">
+				<view class="title">操作步骤：</view>
+				<view class="content">首页→广告管理→右上角“+”号→按要求填充内容→添加</view>
+				<view class="title">功能描述：</view>
+				<view class="content">店铺首页顶部轮播图设置，填充的轮播图可以连接本店铺的商品、活动、公告三种公示内容。</view>
+			</view>
+			<view class="imgList margin-top-30">
+				<image wx:for="{{storeAdvImg}}" wx:key="index"  class="image {{index==1?'margin-top-30':''}}" src="{{item}}" mode="widthFix"></image>
+			</view>
+	</view>
+	<!-- 推荐好店设置 -->
+	<view class="storeRec padding-40" wx:if="{{index==3}}">
+		<view class="stepText">
+			<view class="title">操作步骤：</view>
+			<view class="content">首页→推荐好店→去发布→按要求填充内容→保存</view>
+			<view class="title">功能描述：</view>
+			<view class="content">推荐好店功能是通过商品绑定让您的店铺展示在逛选平台的首页的推荐好店区域，让更多顾客了解您的店铺。</view>
+		</view>
+		<view class="imgList margin-top-30">
+			<image wx:for="{{storeRecImg}}" wx:key="index"  class="image {{index==1?'margin-top-30':''}}" src="{{item}}" mode="widthFix"></image>
+		</view>
+	</view>
+	<!-- 店铺配送 -->
+	<view class="storeAdv padding-40 flex-between" wx:if="{{index==4}}">
+		<view class="stepText width-324">
+			<view class="title">操作步骤：</view>
+			<view class="content">首页→推荐好店→去发布→按要求填充内容→保存</view>
+			<view class="title">功能描述：</view>
+			<view class="content">推荐好店功能是通过商品绑定让您的店铺展示在逛选平台的首页的推荐好店区域，让更多顾客了解您的店铺。</view>
+		</view>
+		<view class="imgList margin-top-30">
+			<image wx:for="{{storeDisImg}}" wx:key="index"  class="image {{index==1?'margin-top-30':''}}" src="{{item}}" mode="widthFix"></image>
+		</view>
+	</view>
+	<!-- 商品发布管理 -->
+	<view class="shopPub padding-40" wx:if="{{index==6}}">
+		<view class="stepText">
+			<view class="title">操作步骤：</view>
+			<view class="content">
+				首页→在商品管理中选择要发布的商品种类→发布商品→选择上传方式（本地上传）→按要求填充内容→提交
+				<view>其他活动商品上传方式类同。</view>
+			</view>
+			<view class="title">功能描述：</view>
+			<view class="content">该区域可以根据需求选择上传普通、团拼、限时抢购、满减、多人团、新人专享6种商品。同时设置相关活动和优惠券。</view>
+		</view>
+		<view class=" margin-top-30">
+			<image class="image" style="margin:auto" src="{{shopPubImg[0]}}" mode="widthFix"></image>
+			<view class="imgList margin-top-30">
+				<image class="image" src="{{shopPubImg[1]}}" mode="widthFix"></image>
+				<image class="image" src="{{shopPubImg[2]}}" mode="widthFix"></image>
+			</view>
+		</view>
+	</view>
+	<!-- 图库上架商品 -->
+	<view class="storeAdv padding-40" wx:if="{{index==7}}">
+		<view class="stepText">
+			<view class="title">操作步骤：</view>
+			<view class="content">首页→打开图库→搜索或选择发布的商品→点击上传商品→选择活动→填充需要填充的内容→提交。</view>
+			<view class="title">功能描述：</view>
+			<view class="content">通过图库上传商品是选择平台已经储备的商品图片，无需店铺自己制作商品图片，美观实用，简单便捷。</view>
+		</view>
+		<view class="imgList margin-top-30">
+			<image wx:for="{{shopPutImg}}" wx:key="index"  class="image" src="{{item}}" mode="widthFix"></image>
+		</view>
+	</view>
+	<!-- 首页扫码取货 -->
+	<view class="shopPub padding-40" wx:if="{{index==9}}">
+		<view class="stepText">
+				<view class="title">操作步骤：</view>
+				<view class="content">首页→点击顶部扫码框→扫描顾客订单二维码→确认取货</view>
+				<view class="title">功能描述：</view>
+				<view class="content">扫码取货是店主通过“店助”扫描顾客在“众聚逛选”上的待取货订单详情上的核维码，识别订单，确认取货。</view>
+			</view>
+			<view class=" margin-top-30">
+				<image class="image" style="margin:auto" src="{{orderScanImg[0]}}" mode="widthFix"></image>
+				<view class="imgList margin-top-30">
+					<image class="image" src="{{orderScanImg[1]}}" mode="widthFix"></image>
+					<image class="image" src="{{orderScanImg[2]}}" mode="widthFix"></image>
+				</view>
+			</view>
+	</view>
+	<!-- 订单列表管理 -->
+	<view class="storeAdv padding-40 flex-between" wx:if="{{index==10}}">
+		<view class="stepText width-324">
+			<view class="title">操作步骤：</view>
+			<view class="content">我的页面→订单管理→订单列表查看及操作</view>
+			<view class="title">功能描述：</view>
+			<view class="content">展示和管理自己店铺的销售订单。</view>
+		</view>
+		<view class="imgList margin-top-30">
+			<image wx:for="{{orderListImg}}" wx:key="index"  class="image {{index==1?'margin-top-30':''}}" src="{{item}}" mode="widthFix"></image>
+		</view>
+	</view>
+	<!-- 销售报表 -->
+	<view class="storeAdv padding-40" wx:if="{{index==12}}">
+		<view class="stepText">
+			<view class="title">操作步骤：</view>
+			<view class="content">首页→今日收益→日收益/月收益</view>
+			<view class="title">功能描述：</view>
+			<view class="content">查看自己店铺某日或某月的收益情况。</view>
+		</view>
+		<view class="imgList margin-top-30">
+			<image wx:for="{{earningsImg}}" wx:key="index"  class="image {{index==1?'margin-top-30':''}}" src="{{item}}" mode="widthFix"></image>
+		</view>
+	</view>
+	<!-- 提现及提现记录 -->
+	<view class="withdraw" wx:if="{{index==13}}">
+		<view class="storeAdv padding-40">
+			<view class="fs-28">1.提现</view>
+			<view class="stepText">
+				<view class="title">操作步骤：</view>
+				<view class="content">首页→账户余额→选择提现方式→填写提现信息→提现</view>
+				<view class="title">功能描述：</view>
+				<view class="content">提现功能可以随时随地将店铺的收益提现到自己的微信或银行卡账户。</view>
+			</view>
+			<view class="imgList margin-top-30">
+				<image wx:for="{{withdrawImg}}" wx:key="index"  class="image {{index==1?'margin-top-30':''}}" src="{{item}}" mode="widthFix"></image>
+			</view>
+		</view>
+		<view class="storeAdv padding-40">
+			<view class="fs-28">2.提现记录</view>
+			<view class="stepText">
+				<view class="title">操作步骤：</view>
+				<view class="content">首页→账户余额→提现记录</view>
+				<view class="title">功能描述：</view>
+				<view class="content">提现记录可以随时查看自己的提现记录。</view>
+			</view>
+			<view class="imgList margin-top-30">
+				<image wx:for="{{withdrawRecordImg}}" wx:key="index" class="image {{index==1?'margin-top-30':''}}" src="{{item}}" mode="widthFix"></image>
+			</view>
+		</view>
+	</view>
+	<!-- 销售报表 -->
+	<view class="storeAdv padding-40" wx:if="{{index==14}}">
+		<view class="stepText">
+			<view class="title">操作步骤：</view>
+			<view class="content">我的页面→订单管理→订单列表查看及操作</view>
+		</view>
+		<view class="storeAdv flex-between">
+			<view class="stepText width-324">
+				<view class="title">功能描述：</view>
+				<view class="content">1）订单统计：可以查看每月的销售额和销售变化。</view>
+			</view>
+			<view class="imgList margin-top-30">
+				<image class="image" src="../../../images/mine/icon/11-1.png" mode="widthFix"></image>
+			</view>
+		</view>
+		<view class="storeAdv flex-between" wx:if="{{index==14}}">
+			<view class="stepText width-324">
+				<view class="content">2）商品盘点：可以分别查看每月的各类商品售卖情况。</view>
+			</view>
+			<view class="imgList margin-top-30">
+				<image class="image" src="../../../images/mine/icon/11-2.png" mode="widthFix"></image>
+			</view>
+		</view>
+		<view class="storeAdv flex-between" wx:if="{{index==14}}">
+			<view class="stepText width-324">
+				<view class="content">3）财务报表：可以清楚地查看每月的收入明细。</view>
+			</view>
+			<view class="imgList margin-top-30">
+				<image class="image" src="../../../images/mine/icon/11-3.png" mode="widthFix"></image>
+			</view>
+		</view>
+	</view>
+</view>

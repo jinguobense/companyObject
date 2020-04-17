@@ -1,0 +1,16 @@
+<view class="setactiveBox">
+  <view  class="cont">
+    <view class="item" data-index="0" catchtap="toactivelist">
+      <image src="/images/index/activemj.png"></image>
+      <text>满减活动设置</text>
+    </view>
+
+    <view class="item" data-index="1" catchtap="toactivelist">
+      <image src="/images/index/activeyouh.png"></image>
+      <text>优惠券设置</text>
+    </view>
+
+  </view>
+
+
+</view>

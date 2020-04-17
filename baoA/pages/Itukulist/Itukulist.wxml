@@ -1,0 +1,47 @@
+<view class="tukulist">
+	<view class=" headbox">
+		<view class="searchbox">
+			<input placeholder="搜索您想要的图库" bindinput='watch' value="{{searchcon}}"></input>
+			<view catchtap="tosearch">
+				<icon type='search' size='36rpx'></icon>
+			</view>
+
+		</view>
+	</view>
+
+	<view class="contbox">
+		<block wx:for="{{3}}" wx:key="o">
+			<view class="list">
+				<view class="title">
+					<text>早餐切片面包帕代欧营养面包招牌吐司果酱
+面包</text>
+				</view>
+
+				<view class="imgbox">
+					<block wx:for="{{4}}" wx:key="i">
+						<image src="/images/index/tihuan.png"></image>
+					</block>
+				</view>
+
+				<view class="btnbox">
+					<view class="btnsee" catchtap="totukulistXq">浏览</view>
+					<view class="btnuse" catchtap="usepic">应用图片</view>
+				</view>
+
+			</view>
+
+
+		</block>
+	</view>
+
+
+
+
+
+
+
+
+
+
+
+</view>

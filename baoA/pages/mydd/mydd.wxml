@@ -1,0 +1,56 @@
+<view class="Mydd">
+	<view class="header">
+		<!-- 类别横向滚动框 -->
+		<scroll-view class="recommend_scroll_x_box" scroll-x="true" scroll-with-animation bindscroll="scrollMove" scroll-left='{{scrollLeft}}'>
+			<text class="list recommend_hot_box {{tabindex==0 ? 'active' : ''}}" data-current="0" catchtap="changetab" id="ele0">全部</text>
+			<text class="list recommend_hot_box {{tabindex==1 ? 'active' : ''}}" data-current="1" catchtap="changetab" id="ele1">待付款</text>
+			<text class="list recommend_hot_box {{tabindex==2 ? 'active' : ''}}" data-current="2" catchtap="changetab" id="ele2">拼团中</text>
+			<text class="list recommend_hot_box {{tabindex==3 ? 'active' : ''}}" data-current="3" catchtap="changetab" id="ele3">待取货</text>
+			<text class="list recommend_hot_box {{tabindex==4 ? 'active' : ''}}" data-current="4" catchtap="changetab" id="ele4">待收货</text>
+			<text class="list recommend_hot_box {{tabindex==5 ? 'active' : ''}}" data-current="5" catchtap="changetab" id="ele5">退款售后</text>
+		</scroll-view>
+	</view>
+  <!-- 全部 -->
+  <view class="conbox">
+    <view class="con" wx:if="{{tabindex == 0}}">
+      <view class="nogoods" wx:if="{{false}}">
+        <image src="/images/index/kong.png"></image>
+        <text>暂无订单信息</text>
+      </view>
+
+      <view class="list" wx:for="{{2}}" wx:key="i">
+        <view class="top">
+          <image src="/images/index/dianpu.png"></image>
+          <view class="tit">店铺名称</view>
+          <text>待付款</text>
+        </view>
+      </view>
+
+      <block wx:for="{{2}}" wx:key="i">
+        <view class="mid">
+          <image src="/images/index/tihuan.png"></image>
+          <view class="right">
+            <view class="tit">商品名称商品名称商品名称商品名称</view>
+            <view class="guige">
+              <text>规格</text>
+            </view>
+          </view>
+
+
+        </view>
+      
+      </block>
+
+    </view>
+
+
+
+
+
+
+
+
+
+  </view>
+
+</view>

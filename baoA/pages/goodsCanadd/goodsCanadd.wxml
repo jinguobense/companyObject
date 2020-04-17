@@ -1,0 +1,44 @@
+<!--baoA/pages/add/add.wxml-->
+
+
+<view class="item">
+		<text>规格：</text>
+		<input  bindinput="getguigeN" placeholder="请输入规格信息" value="{{guigeName}}"></input>
+	</view>
+<view class="item" wx:if='{{fenleiIndex==2||fenleiIndex==4||fenleiIndex==3 || fenleiIndex == 0}}'>
+	<text>单价：</text>
+	<input type="digit"  bindblur='danjiaShijiao' bindinput="danjiaP" value="{{danjiaprice}}" placeholder="元"></input>
+</view>
+<view class="item" wx:if='{{fenleiIndex==1 || fenleiIndex==2}}'>
+	<text>活动价：</text>
+	<input type="digit"  bindblur='huodongShijiao'  bindinput="huodongP" value='{{huodongprice}}'  placeholder="元" ></input>
+</view>
+<view class="item" wx:if='{{fenleiIndex==4}}'>
+	<text>拼团价：</text>
+	<input type="digit"  bindblur='pintuanShijiao'  bindinput="pintuanP" value='{{pintuanprice}}'  placeholder="元" ></input>
+</view>
+
+<view class="item" wx:if='{{fenleiIndex==1 || fenleiIndex==5 }}'>
+	<text>原价：</text>
+	<input type="digit" bindblur='yuanjiaShijiao' bindinput="yuanjiaP"  value='{{yuanjiaprice}}' placeholder="元" ></input>
+</view>
+<!-- <view class="item" wx:if='{{fenleiIndex==5}}'>
+	<text>底价：</text>
+	<input type="digit"  bindblur='dijiaShijiao' value='{{dijiaprice}}' bindinput="dijiaP" placeholder="元" ></input>
+</view> -->
+<view class="item" wx:if='{{fenleiIndex==5}}'>
+	<text>新人专享价价：</text>
+	<input type="digit" bindblur='lingshouShijiao' bindinput="lingshouP" value='{{lingshouprice}}' placeholder="元" ></input>
+</view>
+<view class="item">
+	<text>库存：</text>
+	<input type="number" bindinput="kucunN" maxlength="5" value="{{kucunNum}}" placeholder="请输入商品数量"></input>
+</view>
+<view class="item fenmian">
+	<text>商品封面图：</text>
+	<image wx:if='{{!imgURL}}' catchtap="upGoodsimg" src="/images/index/select.png"></image>
+	<image wx:if='{{imgURL}}' catchtap="upGoodsimg" src="{{imgURL}}"></image>
+</view>
+
+
+<view class="btn" catchtap="quedingAdd">确定添加</view>

@@ -1,0 +1,98 @@
+<view class="putong">
+	<!-- 头部 -->
+	<view class="head">
+		<view catchtap="changes" data-index="0" class="{{index == 0?'active':''}}">已上架</view>
+		<text></text>
+		<view catchtap="changes" data-index="1" class="{{index == 1?'active':''}}">已下架</view>
+		<text></text>
+		<view catchtap="changes" data-index="2" class="{{index == 2?'active':''}}">待审核</view>
+		<text></text>
+		<view catchtap="changes" data-index="3" class="{{index == 3?'active':''}}">已弃审</view>
+	</view>
+
+
+	<!-- 空 -->
+	<view class="kong" wx:if="{{list.length == 0}}">
+		<view class="imgcontbox">
+			<view class="imgcont">
+				<image src="/images/index/kong.png"></image>
+				<text>您还没用发布哦</text>
+			</view>
+		</view>
+		<!-- <view class="addbtn" catchtap="totuijianFabu">去发布</view> -->
+	</view>
+
+	<!--内容部分  已上架-->
+	<view class="contbox" wx:if="{{list.length != 0}}">
+		<view class="lefttab">
+			<block>
+				<view class="list active">
+					时令水果
+				</view>
+				<block wx:for="{{10}}" wx:key="i">
+					<view class="list">
+						生鲜果蔬
+					</view>
+				</block>
+			</block>
+		</view>
+
+		<!-- 右边部分 -->
+		<view class="right">
+			<block wx:for="{{10}}" wx:key="i">
+				<view class="list" catchtap="toGooodsinfo" data-type="1">
+					<image src="/images/index/tihuan.png"></image>
+					<view class="cont">
+						<view class="title">20洽洽薯片喀吱脆35g休闲20洽洽薯片喀吱脆35g休闲</view>
+						<view class="midle">
+							<view class="ku">
+								<text class="kutext">剩余库存：</text>
+								<text class="kunum">6666</text>
+							</view>
+							<view class="ku">
+								<text class="kutext">已售：</text>
+								<text class="kunum">6666</text>
+							</view>
+						</view>
+
+						<view class="price">
+							<view class="ku">
+								<text class="kutext">限购价：</text>
+								<text class="kunum">￥10</text>
+								<text class="kutext">/袋</text>
+							</view>
+							<view class="ku">
+								<text class="kutext">原价：</text>
+								<text class="kunum">￥20</text>
+								<text class="kutext">/袋</text>
+							</view>
+
+						</view>
+
+					</view>
+				</view>
+			</block>
+
+		</view>
+
+	</view>
+
+
+
+
+
+	<!-- 固定底部 -->
+	<view class="footer">
+		<view class="btn" catchtap="toTuku">
+			<image src="/images/index/addbtn.png"></image>
+			<text>图库上传</text>
+		</view>
+		<view class="btn" catchtap="toFabu">
+			<image src="/images/index/addbtn.png"></image>
+			<text>发布商品 </text>
+		</view>
+	</view>
+
+
+
+</view>

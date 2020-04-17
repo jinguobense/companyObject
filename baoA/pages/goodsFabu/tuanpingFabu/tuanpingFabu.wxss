@@ -1,0 +1,435 @@
+/* baoA/pages/goodsFabu/tuanpingFabu/tuanpingFabu.wxss */
+page{
+  background: #fff;
+}
+.manjianFabu{
+  height: 100%;
+  width: 100%;
+}
+.manjianFabu .header{
+  width: 100%;
+	height: 70rpx;
+  background-color: #ffffff;
+  display: flex;
+  position: fixed;
+  top: 0rpx;
+  left: 0rpx;
+  align-items: center;
+}
+.manjianFabu .header text{
+  display: block;
+  height: 65rpx;
+  width: 25%;
+  text-align: center;
+  line-height: 65rpx;
+  border-bottom: 2rpx solid #ffffff;
+}
+.manjianFabu .header text.active{
+  color: #e2211c;
+  border-bottom: 2rpx solid #e2211c;
+}
+/* 基本信息 */
+.jibenInfo{
+  width: 100%;
+  background-color: white;
+  box-sizing: border-box;
+  padding-left: 30rpx;
+  margin-top: 70rpx;
+  padding-top: 20rpx;
+  margin-bottom: 100px;
+
+}
+.jibenInfo .goodsName{
+  height: 144rpx;
+  border-bottom: 2rpx solid #F2F2F2;
+  background: #ffffff;
+}
+.jibenInfo .goodsName .name{
+  height: 72rpx;
+  line-height: 72rpx;
+  font-size: 30rpx;
+  color: #333333;
+}
+
+.jibenInfo .goodsName .nameinput{
+  height: 72rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-sizing: border-box;
+  padding-right: 30rpx;
+}
+.jibenInfo .goodsName .nameinput>input{
+  width: 100%;
+  font-size: 30rpx;
+  color: #333333;
+}
+/*  */
+.jibenInfo .goodsFenlei{
+  height: 86rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding-right: 30rpx;
+  font-size: 30rpx;
+  color: #333333;
+  /* border-bottom: 2rpx solid #F2F2F2; */
+}
+.jibenInfo .goodsFenlei>image{
+  width: 16rpx;
+  height: 26rpx;
+}
+/* 添加封面 */
+.jibenInfo .addGoodsFengmian{
+  height: 250rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-sizing: border-box;
+  padding-right: 30rpx;
+  font-size: 30rpx;
+  color: #333333;
+  border-bottom: 2rpx solid #F2F2F2;
+}
+.jibenInfo .addGoodsFengmian>view{
+  height: 120rpx;
+  margin-right: 10rpx;
+}
+.jibenInfo .addGoodsFengmian>image{
+  width: 129rpx;
+	height: 129rpx;
+}
+/* 日期弹窗 */
+.jibenInfo .Time{
+  border-top: 1rpx solid #efefef;
+  padding: 20rpx 0rpx;
+  color: #333333;
+}
+.jibenInfo .Time .data{
+  margin-top: 20rpx;
+  margin-left: 40rpx;
+}
+.jibenInfo .Time .top{
+  height: 30rpx;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+.jibenInfo .Time .top image{
+  width: 34rpx;
+  height: 34rpx;
+  margin-right: 30rpx;
+}
+.jibenInfo .Time .tishi{
+  width: 656rpx;
+	height: 60rpx;
+	font-size: 25rpx;
+	line-height: 35rpx;
+	letter-spacing: 3rpx;
+  color: #e2211c;
+  background: #fff;
+  margin-top: 30rpx;
+}
+
+/* 商品参数 */
+.canshu{
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  margin-top: 100rpx;
+}
+.canshu .item{
+  height: 90rpx;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: 40rpx;
+}
+.canshu .fenmian{
+  height: 140rpx;
+  width: 100%;
+}
+.canshu .fenmian image{
+  width: 129rpx;
+	height: 129rpx;
+}
+
+/* 商品主图 */
+.goodsImg .addLunbo{
+  width: 100%;
+  background-color: white;
+  margin-top: 100rpx;
+}
+.goodsImg .addLunbo .headers{
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  box-sizing: border-box;
+  padding-left: 30rpx;
+  font-size: 30rpx;
+  color: #333333;
+}
+.goodsImg .addLunbo .imgList{
+  margin-top: 2rpx;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+  padding-bottom: 22rpx;
+   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; 
+}
+.goodsImg .addLunbo .imgList>view{
+  width: 178rpx;
+  height: 178rpx;
+  margin-right: 48rpx;
+  margin-bottom: 10rpx;
+  position: relative;
+}
+
+.goodsImg .addLunbo .imgList>view .tu {
+  width: 178rpx;
+  height: 178rpx;
+}
+
+.goodsImg .addLunbo .imgList>view .cuo{
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  right: 6rpx;
+  top: 6rpx;
+}
+.goodsImg .addLunbo .imgList>image {
+  width: 178rpx;
+  height: 178rpx;
+  margin-right: 48rpx;
+  margin-bottom: 10rpx;
+}
+/* 商品详情 */
+
+.goodsMsg .addLunbo{
+  width: 100%;
+  background-color: white;
+  margin-top: 100rpx;
+}
+.goodsMsg .addLunbo .headers{
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  box-sizing: border-box;
+  padding-left: 30rpx;
+  font-size: 30rpx;
+  color: #333333;
+}
+.goodsMsg .addLunbo .imgList{
+  margin-top: 2rpx;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+  padding-bottom: 22rpx;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  /* justify-content: space-between; */
+}
+.goodsMsg .addLunbo .imgList>image{
+  width: 178rpx;
+  height: 178rpx;
+  margin-right:  48rpx;
+  margin-bottom: 10rpx;
+}
+.goodsMsg .addLunbo .imgList .xiangqingtu{
+  width: 100%;
+}
+.goodsMsg .addLunbo .imgList .xiangqingtu>image{
+  width: 100%;
+}
+
+
+/*  提交按钮*/
+.btn{
+  width: 152rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  color: white;
+  border-radius: 30rpx;
+  text-align: center;
+  margin-right: 28rpx;
+  background-color: #e2211c;
+  float: right;
+ 
+}
+/* 其他 */
+.noshow{
+  color: gray;
+}
+
+/* 底部提交按钮 */
+
+.dibuFooter {
+  width: 750rpx;
+  height: 92rpx;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  z-index: 99;
+}
+
+.dibuFooter>view {
+  width: 50%;
+  height: 92rpx;
+  line-height: 92rpx;
+  text-align: center;
+  color: white;
+  background-color: #9dcbfc;
+}
+
+.dibuFooter>view:nth-child(2) {
+  
+  background-color: #e2211c;
+}
+
+/* 日期弹窗 */
+ 
+.mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  z-index: 99;
+  opacity: 0.7;
+ }
+  
+ .modalDlgdingdan{
+  width: 682rpx;
+  height: 500rpx;
+  position: fixed;
+  top: 60%;
+  left: 0;
+  z-index: 999;
+  margin: -370rpx 34rpx;
+  background-color: #fff;
+ }
+ .modalDlgdingdan .dingdanitel{
+   width: 100%;
+   height: 70rpx;
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   box-sizing: border-box;
+   padding: 0 30rpx;
+   justify-content: space-between;
+   background-color: #F3F3F3;
+   font-size: 26rpx;
+ }
+ .modalDlgdingdan .dingdanitel .quxiao{
+   height: 70rpx;
+   font-size: 24rpx;
+   color: #000000;
+   padding-right: 20rpx;
+     line-height: 70rpx;
+ }
+ .modalDlgdingdan .dingdanitel .queding{
+   height: 70rpx;
+   padding-left: 20rpx;
+   line-height: 70rpx;
+   font-size: 24rpx;
+   color: #4FA0E5;
+ }
+ 
+ 
+ 
+ 
+ 
+ /* 选择分类弹窗 */
+ .mask2 {
+   width: 100%;
+   height: 100%;
+   position: fixed;
+   top: 0;
+   left: 0;
+   background: #000;
+   z-index: 99;
+   opacity: 0.7;
+ }
+ 
+ .modalDlgdingdan2 {
+   width: 100%;
+   min-height: 420rpx;
+   position: fixed;
+   bottom: 0;
+   left: 0;
+   z-index: 999;
+   background-color: #fff;
+ }
+ .modalDlgdingdan1 {
+   width: 100%;
+   min-height: 300rpx;
+   position: fixed;
+   bottom: 0;
+   left: 0;
+   z-index: 999;
+   background-color: #fff;
+ }
+ .modalDlgdingdan1 .addshuxingss{
+   margin-top: 20rpx;
+   width: 100%;
+   height: 90rpx;
+   box-sizing: border-box;
+   padding-left: 50rpx;
+   font-size: 26rpx;
+   color: #333;
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+ }
+ .modalDlgdingdan1 .addshuxingss>input{
+   width: 480rpx;
+   height: 70rpx;
+ }
+ .modalDlgdingdan2 .dingdanitel,.modalDlgdingdan1 .dingdanitel{
+   width: 100%;
+   height: 70rpx;
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   box-sizing: border-box;
+   padding: 0 30rpx;
+   justify-content: space-between;
+   background-color: #f3f3f3;
+   font-size: 26rpx;
+ }
+ 
+ .modalDlgdingdan2 .dingdanitel .quxiao,.modalDlgdingdan1 .dingdanitel .quxiao {
+   height: 70rpx;
+   font-size: 24rpx;
+   color: #000;
+   padding-right: 20rpx;
+   line-height: 70rpx;
+ }
+ 
+ .modalDlgdingdan2 .dingdanitel .queding,.modalDlgdingdan1 .dingdanitel .queding {
+   height: 70rpx;
+   padding-left: 20rpx;
+   line-height: 70rpx;
+   font-size: 24rpx;
+   color: #4fa0e5;
+ }
+ .modalDlgdingdan2  .addfenl{
+   width: 100%;
+   height: 90rpx;
+   background-color: #4fa0e5;
+   color: white;
+   font-size: 26rpx;
+   line-height: 90rpx;
+   text-align: center;
+ }
+ 

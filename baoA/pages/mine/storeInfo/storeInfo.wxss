@@ -1,0 +1,114 @@
+/* pages/mine/storeInfo/storeInfo.wxss */
+.storeItem{
+	width:100%;
+	border-bottom:1rpx solid #f2f2f2;
+}
+.padding-40{
+	padding:40rpx;
+	box-sizing: border-box;
+}
+.padding-x-40{
+	padding:0 40rpx;
+	box-sizing: border-box;
+}
+.storeInfo{
+	padding-bottom:80rpx;
+}
+/* 字号 */
+.fs-20{
+	font-size: 20rpx;
+}
+.fs-22 {
+	font-size: 22rpx;
+}
+.fs-24 {
+	font-size: 24rpx;
+}
+.fs-26{
+	font-size: 26rpx;
+}
+.fs-28 {
+	font-size: 28rpx;
+}
+.fs-32 {
+	font-size: 32rpx;
+}
+.fs-30 {
+	font-size: 30rpx;
+}
+.fs-36 {
+	font-size: 36rpx;
+}
+.fs-60{
+	font-size: 60rpx;
+}
+.margin-left-10{
+	margin-left: 10rpx;
+}
+/*每个页面公共css */
+/* 布局 */
+.flex {
+	display: flex;
+	align-items: center;
+}
+.flex-star-between{
+	display: flex;
+	justify-content: space-between;
+}
+.flex-end{
+	display: flex;
+	justify-content: flex-end;
+}
+.flex-center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.flex-warp{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+.flex-between {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.iconImg{
+	width:28rpx;
+	height:28rpx;
+}
+.right{
+	width:370rpx;
+}
+.text-right{
+	text-align: right;
+}
+.color-e4{
+	color:#e4393c;
+}
+.storeImg{
+	width:168rpx;
+	height:168rpx;
+	border-radius:10rpx;
+	background:#ddd;
+}
+.margin-top-50{
+	margin-top:50rpx;
+}
+.btnS{
+	margin-top:80rpx;
+}
+.btn{
+	width:520rpx;
+	height:90rpx;
+	background:#e2211c;
+	border-radius: 7rpx;
+	line-height:90rpx;
+	color:#fff;
+	text-align: center;
+	font-weight: 400;
+}
+text{
+	display: inline-block;
+}

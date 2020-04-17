@@ -1,0 +1,71 @@
+<view class="activeBox">
+	<!-- <view class="kong">
+		<image src=""></image>
+	</view> -->
+
+<!-- 优惠券 -->
+	<view class="cont" wx:if="{{fenleiIndex == 1}}">
+		<block wx:for="{{list}}" wx:key="i">
+			<view class="list" catchtap="toactiveXiu">
+				<view class="leftbox">
+					<view class="item timebox">
+						<text>活动时间：</text>
+						<text class="wenzi">{{item.freeCouponTime}}</text>
+					</view>
+					<view class="item">
+						<text>使用范围：</text>
+						<text class="wenzi">{{item.freeCouponDesc}}</text>
+					</view>
+				</view>
+				<view class="right">
+					<view class="money">
+						<text>88</text>
+						<view class="active">满{{item.fullSubPrice}}减{{item.freeCouponPrice}}</view>
+					</view>
+				</view>
+			</view>
+
+		</block>
+	</view>
+
+<!-- 满减活动 -->
+	<view class="cont" wx:if="{{fenleiIndex == 0}}">
+		<block wx:for="{{list}}" wx:key="i">
+			<view class="manjlist list" catchtap="toactiveXiu">
+				<view class="top">
+					<image src="/images/index/activemj.png"></image>
+					<text>满{{item.fullSubPrice}}减{{item.freeCouponPrice}}</text>
+				</view>
+				<view class="manitem">
+					<view class="time">
+						<text>开始时间：</text>
+						<view class="active">{{item.freeCouponTime}}</view>
+					</view>
+					<view class="time">
+						<text>结束时间：</text>
+						<view class="active">2020-04-31 17：02：00</view>
+					</view>
+						<view class="time">
+						<text>状态：</text>
+						<view class="active">活动进行中</view>
+					</view>
+				</view>
+			</view>
+
+		</block>
+	</view>
+
+
+
+
+
+
+	<view class="footer" wx:if="{{fenleiIndex == 1}}">
+		<view class="btn" catchtap="toactiveAdd">添 加 优 惠 券</view>
+	</view>
+
+	<view class="footer" wx:if="{{fenleiIndex == 0}}">
+		<view class="btn" catchtap="toactiveAdd">添 加 满 减 活 动</view>
+	</view>
+
+</view>

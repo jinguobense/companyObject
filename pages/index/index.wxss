@@ -1,0 +1,139 @@
+/* 固定部分 */
+.fix{
+  height: 99rpx;
+  width: 81rpx;
+  position: fixed;
+  top:833rpx ;
+  right: 28rpx;
+}
+.fix image{
+  height: 99rpx;
+  width: 81rpx;
+}
+/* 背景 */
+.head .bg{
+  width: 100%;
+  height: 363rpx;
+  position: absolute;
+  top: 0rpx;
+  z-index: -1;
+}
+.head .bg image{
+  width: 100%;
+  height: 100%;
+}
+.head{
+  width: 100%;
+	height: 363rpx;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.head .dpmoney{
+  width: 644rpx;
+	height: 75rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0rpx auto;
+  margin-top: 20rpx;
+}
+.head .dpmoney .shouyi{
+  height: 75rpx;
+  width: 130rpx;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: #ffffff;
+  font-size: 31rpx;
+}
+.head .more{
+  width: 161rpx;
+	height: 161rpx;
+  margin-top: 30rpx;
+}
+.head .more image{
+  width: 161rpx;
+	height: 161rpx;
+}
+/* 图库部分内容 */
+.tucontbox{
+  width: 643rpx;
+  margin: 0rpx auto;
+  margin-bottom: 138rpx;
+}
+.tucontbox .tukucont{
+  width: 643rpx;
+  height: 178rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 70rpx;
+  margin-top: 64rpx;
+}
+.tucontbox .tukucont .tuku{
+  width: 275rpx;
+	height: 140rpx;
+}
+.tucontbox .tukucont .tuku image{
+  width: 275rpx;
+	height: 140rpx;
+}
+.tucontbox .guanlicont{
+  width:100%;
+  height: 104rpx;
+  display: flex;
+  justify-content: space-between;
+  margin: 0rpx auto;
+}
+.tucontbox .guanlicont .guanli{
+  height: 130rpx;
+  width: 33%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 25rpx;
+}
+.tucontbox .guanlicont .guanli image{
+  width: 88rpx;
+  height: 88rpx;
+  margin-bottom: 18rpx;
+}
+/* 商品管理 */
+.goodsgl{
+  width: 715rpx;
+  margin: 0rpx auto;
+  box-sizing: border-box;
+  padding-bottom: 100rpx;
+}
+.goodsgl .goodsgltop{
+  height: 33rpx;
+  border-left: 7rpx solid #e8474f;
+  font-size: 35rpx;
+  color: #333333;
+  line-height: 33rpx;
+  padding-left: 10rpx;
+}
+.goodsgl .goodsglcont{
+  width:100%;
+  margin: 0rpx auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 64rpx;
+}
+.goodsgl .goodsglcont .goodsgllist{
+  height: 130rpx;
+  width: 33%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 25rpx;
+}
+.goodsgl .goodsglcont .goodsgllist image{
+  width: 88rpx;
+  height: 88rpx;
+  margin-bottom: 18rpx;
+}

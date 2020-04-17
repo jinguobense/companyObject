@@ -1,0 +1,61 @@
+page{
+  background: #efefef;
+}
+.cont{
+  height: 100%;
+  width: 100%;
+}
+.cont .item{
+  width: 100%;
+  height: 101rpx;
+  display: flex;
+  align-items: center;
+  font-size: 31rpx;
+  color: #333333;
+  margin-bottom: 14rpx;
+  background: #fff;
+  box-sizing: border-box;
+  padding-left: 35rpx;
+}
+.cont .item image{
+  width: 30rpx;
+  height: 31rpx;
+  margin-right: 10rpx;
+}
+.cont .item:nth-child(2) image{
+  width: 39rpx;
+	height: 34rpx;
+}
+.cont .item:nth-child(3) image{
+  width: 25rpx;
+	height: 38rpx;
+}
+.cont .item:nth-child(4) image{
+  width: 29rpx;
+	height: 34rpx;
+}
+.cont .item:nth-child(3){
+  margin-bottom: 0rpx;
+  border-bottom: 1rpx solid #efefef;
+}
+.cont .item:nth-child(4) .huoqu{
+  font-size: 31rpx;
+  color: #e5a722;
+}
+.cont .item image.you{
+  width: 21rpx;
+	height: 35rpx;
+}
+.tijiao{
+  width: 540rpx;
+	height: 90rpx;
+	background-color: #ff4040;
+  border-radius: 14rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 90rpx;
+  position: absolute;
+  bottom: 217rpx;
+  left: 50%;
+  margin-left: -270rpx;
+}

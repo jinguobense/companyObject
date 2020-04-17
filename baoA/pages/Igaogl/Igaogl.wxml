@@ -1,0 +1,24 @@
+<!--baoA/pages/Igaogl/Igaogl.wxml-->
+<view class="gaogl">
+  <view class="top">
+    <view>序号</view>
+    <view>图片</view>
+    <view>连接类型</view>
+  </view>
+
+  <view class="cont">
+    <block wx:for="{{shopList}}" wx:key="i">
+      <view class="list" catchtap="toadd" data-type="1" data-imgId="{{item.imgId}}">
+      <view>{{item.seq}}</view>
+      <view><image src="{{item.img}}"></image></view>
+      <view>{{item.urlvalue}}</view>
+    </view>
+    </block>
+  </view>
+  <view class="btn" catchtap="toadd" data-type="0">添 加 广 告</view>
+
+
+
+
+</view>
+

@@ -1,0 +1,44 @@
+<!--pages/mine/setting/setting.wxml-->
+<view class="setting">
+	<view class="settingList">
+		<view class="setItem padding-x-40 fs-32 flex-between" bindtap="goAccount">
+			<view class="left flex">
+				<image class="icon" src="/images/mine/set.png" mode="widthFix"></image>
+				<text class="margin-left-20">账号管理</text>
+			</view>
+			<image class="rightImg" src="/images/mine/you.png" mode="widthFix"></image>
+		</view>
+		<!-- <view class="setItem padding-x-40 fs-32 flex-between"  bindtap="showModel" data-type="1">
+			<view class="left flex">
+				<image class="icon" src="/images/mine/del.png" mode="widthFix"></image>
+				<text class="margin-left-20">清除缓存</text>
+			</view>
+		</view> -->
+		<!-- <view class="setItem padding-x-40 fs-32 flex-between">
+			<view class="left flex">
+				<image class="icon" src="/images/mine/update.png" mode="widthFix"></image>
+				<text class="margin-left-20">版本更新</text>
+			</view>
+			<view class="fs-28 color-6">检测到最新版本，请更新</view>
+			 <view class="fs-28 color-6">已是最新版本</view> 
+		</view> -->
+		<view class="setItem padding-x-40 fs-32 flex-between" bindtap="showModel" data-type="2">
+			<view class="left flex">
+				<image class="icon" src="/images/mine/loginOut.png" mode="widthFix"></image>
+				<text class="margin-left-20">退出登录</text>
+			</view>
+			<image class="rightImg" src="/images/mine/you.png" mode="widthFix"></image>
+		</view>
+	</view>
+</view>
+<view class="model" wx:if="{{isShow}}">
+	<view class="modelBox">
+		<view class="modelCon padding-40">
+			<view class="title fs-28">{{modelText}}</view>
+			<view class="flex-end fs-24  margin-top-30 color-e4">
+				<view class="" catchtap="cancel">取消</view>
+				<view class="margin-left-50" catchtap="sure">确定</view>
+			</view>
+		</view>
+	</view>
+</view>

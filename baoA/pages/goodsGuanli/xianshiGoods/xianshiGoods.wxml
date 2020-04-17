@@ -1,0 +1,129 @@
+<view class="ptongxq">
+	<view class="headtab">
+		<view catchtap="changes" data-index="0" class="{{index == 0?'active':''}}">商品详情</view>
+		<view catchtap="changes" data-index="1" class="{{index == 1?'active':''}}">商品参数</view>
+	</view>
+	<!-- 详情内容 -->
+	<view class="content" wx:if="{{index == 0}}">
+		<!-- 轮播 -->
+		<view class="swiper">
+			<swiper indicator-dots="true" autoplay="true" circular="true" skip-hidden-item-layout="true" indicator-color="rgba(0, 0, 0, .1)" indicator-active-color="#fff" interval="2000" class='banner'>
+				<block wx:for="{{5}}" wx:key="i">
+					<swiper-item class="item">
+						<image src="/images/index/banner4.jpg"></image>
+					</swiper-item>
+				</block>
+
+			</swiper>
+		</view>
+
+		<view class="title">
+			<view class="text">
+				<text class="goodsac_box">团拼</text>
+			 20洽洽薯片喀吱脆35g休闲热卖学生零食批发非油炸膨化食品
+			</view>
+		</view>
+		<!-- 取货截至事件 -->
+		<view class="quTime">
+			 取货截至时间：2019-11-10 22：00
+		</view>
+
+		<!-- 活动时间 -->
+		<view class="acTime">
+			
+		</view>
+
+
+		<!-- <view class="psong" wx:if="{{psong == 0}}">
+			<view class="left">
+				<image src="/images/index/psong.png"></image>
+				<text>可配送商品</text>
+			</view>
+			<view class="right">
+				<text>平台抽成：1%</text>
+			</view>
+		</view>
+		<view class="psong" wx:if="{{psong == 1}}">
+			<view class="left">
+				<image src="/images/index/psong.png"></image>
+				<text>不配送请到店自取</text>
+			</view>
+		</view> -->
+		<!-- 规格参数 -->
+		<view class="goodsInfo">
+			<view class="htitle">
+				<text>规格参数</text>
+				<text>活动价</text>
+				<text>原价</text>
+				<text>库存</text>
+			</view>
+			<view class="list">
+				<block wx:for="{{3}}" wx:key="i">
+					<view class="item">
+						<text>番茄味</text>
+						<text class="price color_red">￥3.5</text>
+						<text class="price">￥3.5</text>
+						<text>99999</text>
+					</view>
+				</block>
+			</view>
+
+		</view>
+
+		<!-- 商品详情图 -->
+		<view class="goodsxq">
+			<view class="header">
+				商品详情
+			</view>
+			<view class="contpic">
+				<block wx:for="{{4}}" wx:key="i">
+					<image src="/images/index/banner4.jpg"></image>
+				</block>
+			</view>
+		</view>
+		<!-- 底部 -->
+		<view class="footer">
+			<view class="fitem fenxiang">
+				<image src="/images/index/7fx.png"></image>
+				<text>分享</text>
+			</view>
+
+			<view class="fitem">
+				<text>下架商品</text>
+			</view>
+		</view>
+
+	</view>
+
+	<!-- 商品参数 -->
+	<view class="content" wx:if="{{index == 1}}">
+		<view class="canshu">
+			<view class="htitle">
+				<text>规格参数</text>
+				<text>单价</text>
+				<text>库存</text>
+			</view>
+			<view class="list">
+				<block wx:for="{{3}}" wx:key="i">
+					<view class="item">
+						<text>番茄味</text>
+						<text class="price">￥3.5</text>
+						<text>99999</text>
+					</view>
+				</block>
+			</view>
+		</view>
+
+		<!-- 修改按钮 -->
+		<block wx:if="{{index == 1}}">
+			<view class="xiubtn" catchtap="toxiuInfo">修改信息</view>
+		</block>
+
+	</view>
+
+
+
+
+
+
+</view>

@@ -1,0 +1,34 @@
+/* pages/mine/guideList/guideList.wxss */
+page{
+	background:#f6f6f6;
+}
+.guideList{
+	padding-bottom:100rpx;
+}
+.guideItem{
+	width:100%;
+	height:84rpx;
+	padding:0 40rpx;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	font-size: 28rpx;
+	border-bottom:1rpx solid #f6f6f6;
+}
+.title{
+	display: flex;
+	align-items: center;
+}
+.bg-f{
+	background:#fff;
+}
+.iconImg{
+	width:30rpx;
+	height:30rpx;
+	margin-right:20rpx;
+}
+.right{
+	width:10rpx;
+	height:24rpx;
+}

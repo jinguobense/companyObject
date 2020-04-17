@@ -1,0 +1,163 @@
+page{
+  background: #efefef;
+}
+.cont{
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding-bottom: 160rpx;
+}
+.cont .list{
+  width: 700rpx;
+	height: 270rpx;
+  background-color: #ffffff;
+  margin: 0rpx auto;
+  display: flex;
+  align-items: center;
+  padding-left: 22rpx;
+  box-sizing: border-box;
+  margin-top: 14rpx;
+  border-radius: 14rpx;
+}
+.cont .list .leftbox{
+  width: 526rpx;
+  height: 270rpx;
+  display: flex;
+  flex-direction: column;
+
+}
+.cont .list .leftbox .item{
+  width: 526rpx;
+  height: 100rpx;
+  font-size: 25rpx;
+  color: #656565;
+  display: flex;
+
+}
+.cont .list .leftbox .timebox{
+  margin-top: 40rpx;
+}
+.cont .list .leftbox .item .wenzi{
+  height: 74rpx;
+  width: 332rpx;
+  font-size: 28rpx;
+  color: #9a9a9a;
+  line-height:40rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.cont .list .right{
+  width: 154rpx;
+  height: 269rpx;
+  background-image: linear-gradient(90deg, 
+		#f2a14f 0%, 
+		#f2784d 100%), 
+	linear-gradient(	#ffffff,	#ffffff);
+  background-blend-mode: normal, normal;
+  border-radius: 0rpx 14rpx 14rpx 0rpx;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+}
+.cont .list .right .money{
+  width: 196rpx;
+  text-align: center;
+  font-size: 69rpx;
+  color: #fff;
+}
+.cont .list .right .money text::after{
+  content: "元";
+  font-size: 32rpx;
+  color: #fff;
+}
+.cont .list .right .money .active{
+  font-size: 28rpx;
+  color: #ffffff;
+}
+
+/* 满减 */
+.cont .manjlist{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.cont .manjlist .top{
+  height: 50rpx;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  color: red;
+  font-size: 36rpx;
+  margin-bottom: 30rpx;
+  margin-top: 28rpx;
+
+}
+.cont .manjlist .top image{
+  width: 44rpx;
+  height: 40rpx;
+  margin-right: 22rpx;
+  
+}
+.cont .manjlist .manitem {
+  width: 100%;
+  height: 280rpx;
+}
+.cont .manjlist .manitem .time{
+  height: 40rpx;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  color: #9a9a9a;
+  font-size: 24rpx;
+}
+.cont .manjlist .time view{
+  color: #333333;
+}
+
+/* 底部按钮 */
+.footer{
+  width: 100%;
+  height: 140rpx;
+  background-color: #ffffff;
+  position: fixed;
+  bottom: 0rpx;
+  left: 0rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.footer .btn{
+  width: 611rpx;
+	height: 76rpx;
+	background-color: #f2a04f;
+  border-radius: 38rpx;
+  color: #fff;
+  line-height: 76rpx;
+  text-align: center;
+}
+
+/* 底部按钮 */
+.footer{
+  width: 100%;
+  height: 140rpx;
+  background-color: #ffffff;
+  position: fixed;
+  bottom: 0rpx;
+  left: 0rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.footer .btn{
+  width: 611rpx;
+	height: 76rpx;
+	background-color: #f2a04f;
+  border-radius: 38rpx;
+  color: #fff;
+  line-height: 76rpx;
+  text-align: center;
+}

@@ -1,0 +1,10 @@
+<!--pages/mine/guideList/guideList.wxml-->
+<view class="guideList">
+	<view class="guideItem {{item.type=='content'?'bg-f':''}}" bindtap="{{item.type=='content'?'goGuide':''}}" data-index="{{index}}" wx:for='{{guideList}}' wx:key="index">
+		<view class="title">
+			<image wx:if="{{item.type=='title'}}" class="iconImg" mode="widthFix" src="{{item.imgUrl}}"></image>
+			<view class="rightTitle">{{item.text}}</view>
+		</view>
+		<image class="right" wx:if="{{item.type=='content'}}" mode="widthFix" src="{{item.imgUrl}}"></image>
+	</view>
+</view>

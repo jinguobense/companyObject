@@ -1,0 +1,89 @@
+<view class="ptongxq">
+	<view class="headtab">
+		<view catchtap="changes" data-index="0" class="{{index == 0?'active':''}}">商品详情</view>
+		<view catchtap="changes" data-index="1" class="{{index == 1?'active':''}}">商品参数</view>
+	</view>
+	<!-- 详情内容 -->
+	<view class="content" wx:if="{{index == 0}}">
+		<!-- 轮播 -->
+		<view class="swiper">
+			<swiper indicator-dots="true" autoplay="true" circular="true" skip-hidden-item-layout="true" indicator-color="rgba(0, 0, 0, .1)" indicator-active-color="#fff" interval="2000" class='banner'>
+				<block wx:for="{{5}}" wx:key="i">
+					<swiper-item class="item">
+						<image src="/images/index/banner4.jpg"></image>
+					</swiper-item>
+				</block>
+
+			</swiper>
+		</view>
+
+		<view class="title">
+			<text>休闲</text>
+		</view>
+
+		<!-- 规格参数 -->
+		<view class="goodsInfo">
+			<view class="htitle">
+				<text>规格参数</text>
+				<text>新人专享价</text>
+        <text>单价</text>
+				<text>库存</text>
+			</view>
+			<view class="list">
+				<block wx:for="{{2}}" wx:key="i">
+					<view class="item">
+						<text>番茄味</text>
+						<text class="price">￥3.5</text>
+            <text>666</text>
+						<text>99999</text>
+					</view>
+				</block>
+			</view>
+
+		</view>
+
+		<!-- 商品详情图 -->
+		<view class="goodsxq">
+			<view class="header">
+				商品详情
+			</view>
+			<view class="contpic">
+				<block wx:for="{{2}}" wx:key="i">
+					<image src="/images/index/banner4.jpg"></image>
+				</block>
+			</view>
+		</view>
+	</view>
+
+	<!-- 商品参数 -->
+	<view class="content" wx:if="{{index == 1}}">
+		<view class="canshu">
+			<view class="htitle">
+				<text>规格参数</text>
+				<text>单价</text>
+				<text>库存</text>
+			</view>
+			<view class="list">
+				<block wx:for="{{3}}" wx:key="i">
+					<view class="item">
+						<text>番茄味</text>
+						<text class="price">￥3.5</text>
+						<text>99999</text>
+					</view>
+				</block>
+			</view>
+		</view>
+
+		<!-- 修改按钮 -->
+		<block wx:if="{{index == 1}}">
+			<view class="xiubtn" catchtap="toxiuInfo">修改信息</view>
+		</block>
+
+	</view>
+
+
+
+
+
+
+</view>

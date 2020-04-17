@@ -1,0 +1,308 @@
+<view class="manjianFabu">
+	<view class="header">
+		<text class="{{headIndex==0?'active':''}}" catchtap="changeIndex" data-index="0">基本信息</text>
+		<text class="{{headIndex==1?'active':''}}" catchtap="changeIndex" data-index="1">商品参数</text>
+		<text class="{{headIndex==2?'active':''}}" catchtap="changeIndex" data-index="2">商品主图</text>
+		<text class="{{headIndex==3?'active':''}}" catchtap="changeIndex" data-index="3">商品详情</text>
+	</view>
+	<view wx:if='{{headIndex==0}}' class="jibenInfo">
+		<view class="goodsName">
+			<view class="name">
+				<text>商品名称：</text>
+				<text wx:if='{{goodsValName==""}}' class="noshow">请在下方填写商品名称</text>
+				<text wx:if='{{goodsValName!=""}}' class="show">{{goodsValName}}</text>
+			</view>
+			<view class="nameinput">
+				<input bindinput="goodsVal"></input>
+			</view>
+		</view>
+
+		<view>
+			<view class="goodsFenlei" catchtap="showshoplist">
+				<view class="left">
+					<text>店铺商品属性分类：</text>
+					<text wx:if='{{shuxingFenleiarray[shuxingindex]}}' class="show">{{shuxingFenleiarray[shuxingindex]}}</text>
+					<text wx:if='{{!shuxingFenleiarray[shuxingindex]}}' class="noshow">休闲零食</text>
+				</view>
+				<image src="/images/index/you.png"></image>
+			</view>
+		</view>
+
+
+		<view class="goodsFenlei" catchtap="showyijilist">
+			<view class="left">
+				<text>平台一级分类：</text>
+				<text wx:if='{{sumfenlei[yijiindex]}}' class="show">{{sumfenlei[yijiindex].pfgTypeName1}}</text>
+				<text wx:if='{{!sumfenlei[yijiindex]}}' class="noshow">休闲零食</text>
+			</view>
+			<image src="/images/index/you.png"></image>
+		</view>
+
+
+
+		<view class="goodsFenlei" wx:if='{{yijiFenlei}}' catchtap="showerjilist">
+			<view class="left">
+				<text>平台二级分类：</text>
+				<text wx:if='{{sumfenlei[yijiindex].subTypeList[erjiindex]}}' class="show">{{sumfenlei[yijiindex].subTypeList[erjiindex].pfgTypeName2}}</text>
+				<text wx:if='{{!sumfenlei[yijiindex].subTypeList[erjiindex]}}'  class="noshow">坚果炒货</text>
+			</view>
+			<image src="/images/index/you.png"></image>
+		</view>
+
+		<view wx:if='{{!yijiFenlei}}' catchtap="yesorno">
+			<view class="goodsFenlei">
+				<view class="left">
+					<text>平台二级分类：</text>
+					<text wx:if='{{erjiFenleiarray[erjiindex]}}' class="show">{{erjiFenleiarray[erjiindex]}}</text>
+					<text wx:if='{{!erjiFenleiarray[erjiindex]}}' class="noshow">坚果炒货</text>
+				</view>
+				<image src="/images/index/you.png"></image>
+			</view>
+		</view>
+
+
+
+		<view class="goodsFenlei" catchtap="showdanweilist">
+			<view class="left">
+				<text>商品单位：</text>
+				<text wx:if='{{array[index]}}' class="show">{{array[index].unit}}</text>
+				<text wx:if='{{!array[index]}}' class="noshow">件</text>
+			</view>
+			<image src="/images/index/you.png"></image>
+		</view>
+
+
+
+		<view class="addGoodsFengmian" catchtap="addFengmian">
+			<view class="left">
+				<text>商品封面图：</text>
+			</view>
+			<image wx:if='{{!imgURL}}' src="/images/index/select.png" catchtap="addFengmian"></image>
+			<image wx:if='{{imgURL}}' catchtap="addFengmian" src="{{imgURL}}"></image>
+
+		</view>
+
+		<view>
+			<view class="goodsnum">
+				<text>限购量：</text>
+				<input class="num" placeholder="请输入限购量" />
+			</view>
+		</view>
+		<view>
+			<view class="goodsnum">
+				<text>团购目标：</text>
+				<input class="num" placeholder="20" />
+			</view>
+		</view>
+		<!-- 时间 -->
+
+		<view class="Time" catchtap="tongJiStart" data-startorend="1">
+			<view class="top">
+				<text>活动开始时间：</text>
+				<image src="/images/index/time.png"></image>
+			</view>
+			<input class="data" wx:if='{{!startTimestr}}' type="text" placeholder="请选择活动开始时间" disabled></input>
+			<input class="data" wx:if='{{startTimestr}}' type="text" value="{{startTimestr}}" disabled placeholder="请选择活动开始时间"></input>
+		</view>
+
+		<view class="Time" catchtap="tongJiStart" data-startorend="2">
+			<view class="top">
+				<text>活动结束时间：</text>
+				<image src="/images/index/time.png"></image>
+			</view>
+			<input class="data" type="text" placeholder="请选择活动结束时间" disabled wx:if="{{!endTimestr}}"></input>
+			<input class="data" wx:if='{{endTimestr}}' type="text" value="{{endTimestr}}" disabled placeholder="请选择活动结束时间"></input>
+		</view>
+
+	</view>
+
+
+
+	<!--商品参数  -->
+	<view class="canshu" wx:if="{{headIndex==1}}">
+
+		<view class="btn" catchtap="toAdd">添加</view>
+	</view>
+
+	<!-- 商品主图 -->
+	<view wx:if='{{headIndex==2}}' class="goodsImg ">
+		<view class="addLunbo">
+			<view class="headers">
+				选择轮播图
+			</view>
+			<view class="imgList" catchtap="bindChooiceProduct">
+				<view class="imgbox" wx:for="{{goodsZhutu}}" wx:key='i'>
+					<image class="tu" src="{{item}}"></image>
+					<image class="cuo" catchtap="shanchuzhutu" data-index="{{index}}" src="/images/login/cuohao.png"></image>
+				</view>
+				<image class="tu" src="/images/index/select.png" wx:if='{{goodsZhutu.length<6}}' catchtap="addzhutuImg"></image>
+			</view>
+
+		</view>
+
+	</view>
+
+	<!-- 商品详情 -->
+	<view wx:if='{{headIndex==3}}' class="goodsMsg ">
+		<view class="addLunbo">
+			<view class="headers">
+				上传商品详情图
+			</view>
+
+			<view class="imgList">
+				<image wx:if='{{!xiangQingimg}}' catchtap="xiangqTu" src="/images/index/select.png"></image>
+				<view class="xiangqingtu" wx:if='{{xiangQingimg}}'>
+					<image catchtap="xiangqTu" src="{{xiangQingimg}}" mode="widthFix"></image>
+				</view>
+			</view>
+
+
+		</view>
+	</view>
+
+	<!-- 底部提交按钮等 -->
+	<view class="dibuFooter">
+		<view class="one" catchtap="chongzhiInfoo">重置信息</view>
+		<view class="two" catchtap="tiJiaoInfo">确认提交</view>
+	</view>
+
+</view>
+
+
+
+
+<!-- 商品开始日期弹窗 -->
+<view class="modalDlgdingdan" wx:if="{{goodsModalone}}">
+	<!-- 商品日期选择 -->
+	<view class="dingdanitel">
+		<text class="quxiao" catchtap="close_dingdanTime">取消</text>
+		<text class="queding" catchtap="xiayiBu">下一步</text>
+	</view>
+	<view>
+		<picker-view indicator-style="height: 50rpx;" style="width:80%; margin: 0 auto; height: 340rpx;" value="{{valueRiqi}}" bindchange="riqiChange">
+			<picker-view-column>
+				<view wx:for="{{years}}" wx:key='k' style="line-height: 50rpx; text-align: center;">{{item}}年</view>
+			</picker-view-column>
+			<picker-view-column>
+				<view wx:for="{{months}}" wx:key='k' style="line-height: 50rpx; text-align: center;">{{item}}月</view>
+			</picker-view-column>
+			<picker-view-column>
+				<view wx:for="{{days}}" wx:key='k' style="line-height: 50rpx; text-align: center;">{{item}}日</view>
+			</picker-view-column>
+		</picker-view>
+	</view>
+</view>
+
+<!-- 商品结束日期弹窗 -->
+<view class="modalDlgdingdan" wx:if="{{goodsModaltwo}}">
+	<!-- 商品日期选择 -->
+	<view class="dingdanitel">
+		<text class="quxiao" catchtap="close_dingdanTime">取消</text>
+		<text class="queding" catchtap="quedingEnd">确定</text>
+	</view>
+	<view>
+		<picker-view indicator-style="height: 50rpx;" style="width:80%; margin: 0 auto; height: 340rpx;" value="{{valueShijian}}" bindchange="shijianChange">
+			<picker-view-column>
+				<view wx:for="{{hours}}" wx:key='k' style="line-height: 50rpx; text-align: center;">{{item}}时</view>
+			</picker-view-column>
+			<picker-view-column>
+				<view wx:for="{{minutes}}" wx:key='k' style="line-height: 50rpx; text-align: center;">{{item}}分</view>
+			</picker-view-column>
+			<!-- <picker-view-column>
+        <view wx:for="{{seconds}}" wx:key='k' style="line-height: 50rpx; text-align: center;">{{item}}秒</view>
+      </picker-view-column> -->
+		</picker-view>
+	</view>
+</view>
+<view class="mask" catchtouchmove="preventTouchMove" wx:if="{{showAnceng}}"></view>
+
+
+
+<!-- 单位 -->
+<view class="modalDlgdingdan2" wx:if="{{danweiModel}}">
+	<view class="dingdanitel">
+		<text class="quxiao" catchtap="close_dingdanTime1">取消</text>
+		<text class="queding" catchtap="danweiChange">确定</text>
+	</view>
+	<view>
+		<picker-view indicator-style="height: 50rpx;" style="width:80%; margin: 0 auto; height: 340rpx;" bindchange="changedanweiVal">
+			<picker-view-column>
+				<view wx:for="{{array}}" wx:key='k' style="line-height: 50rpx; text-align: center;">{{item.unit}}</view>
+			</picker-view-column>
+		</picker-view>
+	</view>
+</view>
+
+
+
+<!-- 新增属性 -->
+<view class="modalDlgdingdan1" wx:if="{{addshopfenlModal}}">
+	<view class="dingdanitel">
+		<text class="quxiao" catchtap="close_dingdanTime1">取消</text>
+		<text class="queding" catchtap="confirmM">确定</text>
+	</view>
+	<view class="addshuxingss">
+		<text>新增商品属性：</text>
+		<input bindinput="iName" placeholder="请输入商品属性"></input>
+	</view>
+</view>
+
+
+
+
+
+<view class="mask2" catchtap="close_dingdanTime1" wx:if="{{showAnceng1}}"></view>
+
+
+
+<!-- 店铺属性分类 -->
+<view class="modalDlgdingdan2" wx:if="{{shopfenlModal}}">
+	<view class="dingdanitel">
+		<text class="quxiao" catchtap="close_dingdanTime1">取消</text>
+		<text class="queding" catchtap="shuxingChange">确定</text>
+	</view>
+	<view>
+		<picker-view indicator-style="height: 50rpx;" style="width:80%; margin: 0 auto; height: 340rpx;" bindchange="changeshuxingVal">
+			<picker-view-column>
+				<view wx:for="{{shuxingFenleiarray}}" wx:key='k' style="line-height: 50rpx; text-align: center;">{{item.goodsTypeName}}</view>
+			</picker-view-column>
+		</picker-view>
+	</view>
+	<view class="addfenl" catchtap="addshuxingss">
+		添加分类
+	</view>
+</view>
+
+
+
+
+<!-- 一级分类 -->
+<view class="modalDlgdingdan2" wx:if="{{yijiModel}}">
+	<view class="dingdanitel">
+		<text class="quxiao" catchtap="close_dingdanTime1">取消</text>
+		<text class="queding" catchtap="yijiChange">确定</text>
+	</view>
+	<view>
+		<picker-view indicator-style="height: 50rpx;" style="width:80%; margin: 0 auto; height: 340rpx;" bindchange="changeyijiVal">
+			<picker-view-column>
+				<view wx:for="{{sumfenlei}}" wx:key='k' style="line-height: 50rpx; text-align: center;">{{item.pfgTypeName1}}</view>
+			</picker-view-column>
+		</picker-view>
+	</view>
+</view>
+
+
+<!-- 二级分类 -->
+<view class="modalDlgdingdan2" wx:if="{{erjiModel}}">
+	<view class="dingdanitel">
+		<text class="quxiao" catchtap="close_dingdanTime1">取消</text>
+		<text class="queding" catchtap="erjiChange">确定</text>
+	</view>
+	<view>
+		<picker-view indicator-style="height: 50rpx;" style="width:80%; margin: 0 auto; height: 340rpx;" bindchange="changeerjiVal">
+			<picker-view-column>
+				<view wx:for="{{sumfenlei[yijiindex].subTypeList}}" wx:key='k' style="line-height: 50rpx; text-align: center;">{{item.pfgTypeName2}}</view>
+			</picker-view-column>
+		</picker-view>
+	</view>
+</view>

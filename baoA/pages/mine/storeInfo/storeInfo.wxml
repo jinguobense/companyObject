@@ -1,0 +1,90 @@
+<!--pages/mine/storeInfo/storeInfo.wxml-->
+<view class='storeInfo'>
+	<view class="storeItem padding-40 flex-star-between">
+		<view class="left">
+			<image class="iconImg" src="/images/mine/store.png" mode="widthFix"></image>
+			<text class="fs-28 margin-left-10">店铺名称：</text>
+		</view>
+		<view class="right">
+			<input type="text" class="text-right fs-28" disabled="{{disabled}}" value="{{storeName}}" bindinput="shopname" auto-focus="{{autofocus}}" ></input>
+
+		
+			<!-- <view class="fs-28 flex-end" wx:if="{{type==1}}">路路欢乐超市</view>
+			<view class="fs-28 flex-end" wx:if="{{type==2}}">
+				<input type="text" placeholder="请输入店铺名"></input>
+			</view> -->
+		</view>
+	</view>
+	<view class="storeItem padding-40 flex-star-between">
+		<view class="left">
+			<image class="iconImg" src="/images/mine/money.png" mode="widthFix"></image>
+			<text class="fs-28 margin-left-10">店铺余额：</text>
+		</view>
+		<view class="right">
+			<view class="fs-28 flex-end color-e4">{{shopinfo.balance}}元</view>
+		</view>
+	</view>
+	<view class="storeItem padding-40 flex-star-between">
+		<view class="left">
+			<image class="iconImg" src="/images/mine/tel.png" mode="widthFix"></image>
+			<text class="fs-28 margin-left-10">客服电话：</text>
+		</view>
+		<view class="right">
+			<input type="text" class="text-right fs-28" disabled="{{disabled}}" bindinput="phone" value="{{phone}}"></input>
+			
+		</view>
+	</view>
+	<view class="storeItem padding-40 flex-star-between" wx:if="{{type == 1}}">
+		<view class="left">
+			<image class="iconImg" src="/images/mine/addr2.png" mode="widthFix"></image>
+			<text class="fs-28 margin-left-10">店铺地址：</text>
+		</view>
+		<view class="right">
+			<view class="fs-28 flex-end">{{shopinfo.detailAddr}}</view>
+		</view>
+	</view>
+	<view class="storeItem padding-40 flex-star-between" catchtap="openmap" wx:if="{{type == 2}}" >
+		<view class="left">
+			<image class="iconImg" src="/images/mine/addr2.png" mode="widthFix"></image>
+			<text class="fs-28 margin-left-10">店铺地址：</text>
+		</view>
+		<view class="right">
+			<view class="fs-28 flex-end">{{shopaddr}}</view>
+		</view>
+	</view>
+	<view class="storeItem padding-40 flex-star-between">
+		<view class="left">
+			<image class="iconImg" src="/images/mine/time.png" mode="widthFix"></image>
+			<text class="fs-28 margin-left-10">营业时间：</text>
+		</view>
+		<view class="right">
+			<input type="text" class="text-right fs-28" bindinput="inpTime" disabled="{{disabled}}" value="{{time}}"></input>
+			
+		</view>
+	</view>
+	<view class="storeItem padding-40 flex-star-between">
+		<view class="left">
+			<image class="iconImg" src="/images/mine/img.png" mode="widthFix"></image>
+			<text class="fs-28 margin-left-10">店铺封面图：</text>
+		</view>
+		<view class="right flex-end">
+			<image class="storeImg" src="{{storeImg!=''?storeImg:''}}" bindtap="{{type==2?'choseImg':''}}"></image>
+		</view>
+	</view>
+	<view class="storeItem padding-40">
+		<view class="left">
+			<image class="iconImg" src="/images/mine/honor.png" mode="widthFix"></image>
+			<text class="fs-28 margin-left-10">商家资质：</text>
+		</view>
+		<view class="flex-between padding-x-40 margin-top-50">
+			<block wx:for="{{shopZiIgm}}" wx:key="i">
+				<image class="storeImg" src="{{item.img}}"></image>
+			</block>
+			
+		</view>
+	</view>
+	<view class='btnS flex-center'>
+		<view class="btn" wx:if="{{type==2}}" bindtap="save">保存</view>
+		<view class="btn" wx:if="{{type==1}}" bindtap="edit">编辑</view>
+	</view>
+</view>

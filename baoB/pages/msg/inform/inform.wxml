@@ -1,0 +1,23 @@
+<!--rootA/pages/msg/inform/inform.wxml-->
+<view class="inform">
+	<view class="informList padding-x-30">
+		<view class="informItem padding-x-24" wx:for="{{5}}" wx:key="index" bindtap="{{index % 2 !== 0?'goOrder':'goSystem'}}">
+			<view class="dot" wx:if="{{index==0}}"></view>
+			<view class="informTitle flex-between">
+				<view class="leftType fs-36" wx:if="{{index % 2 !== 0}}">订单通知</view>
+				<view class="leftType fs-36" wx:if="{{index % 2 == 0}}">系统通知</view>
+				<view class="rightTime fs-26 color-9d padding-x-24">17:02</view>
+			</view>
+			<view class="informCon flex">
+				<image class="leftImg"></image>
+				<view class="rightCon">
+					<view class="conTitle fs-28">圣芝红酒法国波尔多AOC银奖干红原瓶进口珍藏葡萄酒类葡萄酒类葡萄酒类</view>
+					<view class="orderBox fs-20 flex-between margin-top-20 color-91" wx:if="{{index % 2 !== 0}}">
+						<view class="orderNum">订单编号：1252547896453264532</view>
+						<view class="orderState">已发货</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>

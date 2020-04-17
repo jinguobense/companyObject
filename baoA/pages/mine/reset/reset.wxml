@@ -1,0 +1,30 @@
+<!--pages/mine/reset/reset.wxml-->
+<view class="reset">
+	<view class="resetList">
+		<view class="resetItem padding-x-40 fs-32 flex-between">
+			<view>绑定手机号：</view>
+			<view>{{tel}}</view>
+		</view>
+		<view class="resetItem padding-x-40 fs-32 flex-between">
+			<view>填写验证码：</view>
+			<view class="flex">
+				<input class="verifyInp" placeholder="请输入验证码" bindinput="inputcode" type="number"></input>
+				<view class="verify margin-left-20 {{disabled?'':'disabled'}}" bindtap="getVerify">{{time}}</view>
+			</view>
+		</view>
+		<view class="resetItem padding-x-40 fs-32 flex-between">
+			<view>设置密码：</view>
+			<input type="{{inpType}}" class='psdInp' bindinput="getpasswsd" placeholder="请输入新密码"></input>
+		</view>
+		<view class="resetItem padding-x-40 fs-32 flex-between">
+			<view>再次确认密码：</view>
+			<input type="{{inpType}}" class='psdInp' bindinput="getrepasswsd" placeholder="请再次输入新密码"></input>
+		</view>
+	</view>
+
+	<view class="btn" catchtap="sure">提  交</view>
+
+
+
+
+</view>

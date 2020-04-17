@@ -1,0 +1,102 @@
+<!--baoA/pages/Iyue/Iyue.wxml-->
+<view class="tixian">
+	<!--头部按钮 -->
+	<view class="tops">
+		<view class="tabs">
+			<text catchtap="changes" data-index="0" class="{{index == 0?'active':''}}">提到微信</text>
+			<text catchtap="changes" data-index="1" class="{{index == 1?'active':''}}">提到银行卡</text>
+		</view>
+	</view>
+	<!-- 微信内容部分 -->
+	<view class="content" wx:if="{{index == 0}}">
+		<view class="username item">
+			<view></view>
+			<text>姓名：</text>
+			<input type="text" placeholder="请输入姓名"></input>
+		</view>
+		<view class="useroder item">
+			<view></view>
+			<text>微信账户名：</text>
+			<input type="text" placeholder="请选中提现的微信账户" disabled catchtap="touserzhanghu"></input>
+			<image src="../../../images/index/you.png"></image>
+		</view>
+		<view class="tixianmoney">
+			<view style=" margin-left: 47rpx;">提现金额（元）</view>
+
+			<view class="money">
+				<view class="left">
+					<view style="width:47rpx"></view>
+					<text>￥</text>
+					<input type="number" placeholder="最多可体现164.48元"></input>
+
+				</view>
+				<view class="tixianbtn">全部提现</view>
+			</view>
+		</view>
+
+		<view class="btn" catchtap="tixian">立即提现</view>
+
+	</view>
+
+	<!-- 银行卡 -->
+	<view class="content" wx:if="{{index == 1}}">
+		<view class="username item">
+			<view></view>
+			<!-- <image src="/images/index/xm.png"></image> -->
+			<text>姓名：</text>
+			<input type="text" placeholder="请输入姓名"></input>
+		</view>
+		<view class="useroder item">
+			<view></view>
+			<!-- <image src="/images/index/"></image> -->
+			<text>银行卡账户：</text>
+			<input type="text" placeholder="请选中提现的银行卡账户" disabled catchtap="touserzhanghu"></input>
+			<image src="../../../images/index/you.png"></image>
+		</view>
+		<view class="tixianmoney">
+			<view style=" margin-left: 47rpx;">提现金额（元）</view>
+
+			<view class="money">
+				<view class="left">
+					<view style="width:47rpx"></view>
+					<text>￥</text>
+					<input type="number" placeholder="最多可体现164.48元"></input>
+
+				</view>
+				<view class="tixianbtn">全部提现</view>
+			</view>
+		</view>
+
+		<view class="btn" catchtap="tixian">立即提现</view>
+
+	</view>
+
+	<!--输入密码 -->
+	<view class="mimabox" wx:if="{{showhide}}">
+		<view class="mask" catchtap="showhideTap"></view>
+		<view class="shuru">
+			<view class="rutitle">
+				<image src="/images/index/zuo.png" catchtap="showhideTap"></image>
+				<text>请输入交易密码</text>
+			</view>
+			<view class="number">
+				<view class="item" wx:for="{{6}}" wx:for-index="i" wx:key="i">
+					<view class="dian" wx:if="{{ value.length >= i+1 }}"></view>
+				</view>
+
+				<input type="number" class="input" focus="{{focus}}" bindinput="getvalue"></input>
+
+			</view>
+			<view class="forgetmima">
+				忘记密码？
+			</view>
+		</view>
+
+	</view>
+
+
+
+
+
+
+</view>

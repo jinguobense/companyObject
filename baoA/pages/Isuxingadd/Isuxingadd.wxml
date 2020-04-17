@@ -1,0 +1,30 @@
+<view class="suxingadd">
+  <view class="number item">
+    <view></view>
+    <text>序号：</text>
+    <input type="number" bindinput="inputNum" placeholder="请输入序号"></input>
+  </view>
+  <view class="number item">
+    <view></view>
+    <text>属性名称：</text>
+    <input type="text" bindinput="shuXname" value="{{shuXname}}" placeholder="请填写属性名称"></input>
+  </view>
+  <view class="zhaung item" catchtap="openmodel">
+    <view></view>
+    <text>状态：</text>
+    <input type="text" value="{{value}}" disabled></input>
+    <image src="../../../images/index/xia.png"></image>
+  </view>
+  
+  <!-- 选择显示 -->
+  <view class="model" wx:if="{{showmodel == 0}}">
+    <view data-show="0" catchtap="xuanze">显示</view>
+    <view data-show="1"  catchtap="xuanze">不显示</view>
+  </view>
+
+  <!-- 添加按钮 -->
+  <view class="addbtn" catchtap="getshuXing">添   加</view>
+
+
+  <!-- 图片选择弹窗 -->
+</view>

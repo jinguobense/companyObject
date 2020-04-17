@@ -1,0 +1,107 @@
+<view class="index">
+	<!-- 固定礼物 -->
+	<view class="fix">
+		<image src="../../images/index/fix.png"></image>
+	</view>
+	<!-- 头部 -->
+	<view class="head">
+		<!-- 背景盒子 -->
+		<view class="bg">
+			<image src="../../images/index/beijing.png"></image>
+		</view>
+		<view class="dpmoney">
+			<view class="shouyi" catchtap="toshouyi">
+				<text>今日收益</text>
+				<text class="money">{{homeObj.todayIncome}}</text>
+			</view>
+			<view class="shouyi" catchtap="totixian" data-type="{{homeObj.type}}">
+			<!-- type;     //1-无交易密码；2-有交易密码 -->
+				<text>账户余额</text>
+				<text class="money">{{homeObj.balance}}</text>
+			</view>
+		</view>
+		<!-- 扫码 -->
+		<view class="more" bindtap='getScancode'>
+			<image src="../../images/index/saoma.png"></image>
+		</view>
+		<view wx:if="{{result !=''}}">
+				<view>扫码的内容:{{result}}</view>
+			</view>
+	</view>
+	<!-- 图库部分内容 -->
+	<view class="tucontbox">
+		<view class="tukucont">
+			<view class="tuku" catchtap="totuku">
+				<image src="../../images/index/tuku.png"></image>
+				<!-- 图库 -->
+			</view>
+			<view class="tuku goodshop" catchtap="totuijshop">
+				<image src="../../images/index/tuijianhaodian.png"></image>
+				<!-- 推荐好店 -->
+			</view>
+		</view>
+		<!-- 商品管理 -->
+		<view class="guanlicont">
+			<navigator url="../../baoA/pages/Ishuxinggl/Ishuxinggl" class="guanli">
+				<image src="../../images/index/shuxing.png"></image>
+				<text>属性管理</text>
+			</navigator>
+			<navigator url="../../baoA/pages/Igaogl/Igaogl" class="guanli">
+				<image src="../../images/index/guanggao.png"></image>
+				<text>广告管理</text>
+			</navigator>
+			<navigator url="../../baoA/pages/Ipsonggl/Ipsonggl" class="guanli">
+				<image src="../../images/index/peisong.png"></image>
+				<text>配送管理</text>
+			</navigator>
+		</view>
+	</view>
+	<!-- 商品管理内容 -->
+	<view class="goodsgl">
+		<view class="goodsgltop">
+			<text>商品管理</text>
+		</view>
+		<view class="goodsglcont">
+			<navigator url="../../baoA/pages/goodsGuanli/putong/putong" class="goodsgllist" catchtap="toputong">
+				<image src="../../images/index/pt.png"></image>
+				<text>普通商品</text>
+			</navigator>
+			<navigator url="../../baoA/pages/goodsGuanli/tuanping/tuanping" class="goodsgllist">
+				<image src="../../images/index/pintuan.png"></image>
+				<text>大众拼团</text>
+			</navigator>
+			<navigator url="../../baoA/pages/goodsGuanli/xianshi/xianshi" class="goodsgllist">
+				<image src="../../images/index/qianggou.png"></image>
+				<text>限时抢购</text>
+			</navigator>
+		</view>
+		<view class="goodsglcont">
+			<navigator url="../../baoA/pages/goodsGuanli/manjian/manjian" class="goodsgllist">
+				<image src="../../images/index/manjian.png"></image>
+				<text>专场满减</text>
+			</navigator>
+			<navigator url="../../baoA/pages/goodsGuanli/xiaozhong/xiaozhong" class="goodsgllist">
+				<image src="../../images/index/tuanpin.png"></image>
+				<text>小众团拼</text>
+			</navigator>
+			<navigator url="../../baoA/pages/goodsGuanli/xinren/xinren" class="goodsgllist">
+				<image src="../../images/index/xinren.png"></image>
+				<text>新人专享</text>
+			</navigator>
+		</view>
+		<view class="goodsglcont" style=" margin-bottom: 30rpx;">
+			<navigator url="../../baoA/pages/goodsGuanli/setactive/setactive" class="goodsgllist">
+				<image src="../../images/index/shezhi.png"></image>
+				<text>设置活动</text>
+			</navigator>
+			<navigator url="../../baoA/pages/goodsGuanli/fenxiangshop/fenxiangshop" class="goodsgllist">
+				<image src="../../images/index/fenxiang.png"></image>
+				<text>分享店铺</text>
+			</navigator>
+			<navigator url="../../baoB/pages/goodsGuanli/guideList/guideList" class="goodsgllist">
+				<image src="../../images/index/zhinan.png"></image>
+				<text>店助指南</text>
+			</navigator>
+		</view>
+	</view>
+</view>

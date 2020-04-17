@@ -1,0 +1,117 @@
+/* pages/xiaoxi/xiaoxi.wxss */
+
+.container {
+  height: 100%;
+  background-color: #f2f2f2;
+}
+
+
+.container .top{
+  height: 80rpx;
+  width: 100%;
+  background-color: #ff4040;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: fixed;
+  top: 0rpx;
+  bottom: 0rpx;
+  z-index: 100;
+}
+.container .top .conttop{
+  height: 80rpx;
+  width: 80rpx;
+  display: flex;
+  align-items: center;
+}
+.container .top image{
+  width: 38rpx;
+	height: 39rpx;
+}
+.container .top .dian{
+  height: 10rpx;
+  width: 10rpx;
+  border-radius: 50%;
+  position: absolute;
+  right: 34rpx;
+  top: 14rpx;
+  background: #fff;
+}
+.content{
+  height: 100%;
+  background-color: #f2f2f2;
+  box-sizing: border-box;
+  color: #333333;
+  overflow-y: auto;
+  margin-top: 80rpx;
+}
+.content .item {
+  background-color: white;
+  height: 158rpx;
+  box-sizing: border-box;
+  padding-left: 26rpx;
+  padding-right: 32rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+}
+
+.content .item>image {
+  width: 104rpx;
+  height: 104rpx;
+  border-radius: 14rpx;
+  margin-right: 16rpx;
+}
+
+.content .item .suminfo {
+  height: 104rpx;
+  width: 586rpx;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.content .item .suminfo .nameAtime {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 22rpx;
+}
+
+.content .item .suminfo .nameAtime .name {
+  font-size: 29rpx;
+}
+
+.content .item .suminfo .nameAtime .times {
+  font-size: 22rpx;
+  color: #999;
+}
+
+.content .item .suminfo .infos {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.content .item .suminfo .conts {
+  font-size: 21rpx;
+  color: #fff;
+  width: 42rpx;
+	height: 42rpx;
+	background-color: #ff1b1b;
+  line-height: 42rpx;
+  text-align: center;
+  position: absolute;
+  right: 4rpx;
+  bottom: 0;
+  border-radius: 21rpx;
+}
+.content .item .xian{
+  width: 597rpx;
+	height: 1rpx;
+  background-color: #f7f7f7;
+  position: absolute;
+  bottom: 0rpx;
+  right: 0rpx;
+}

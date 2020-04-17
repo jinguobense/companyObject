@@ -1,0 +1,159 @@
+/* baoA/pages/goodsGuanli/setactiveXiu/setactiveXiu.wxss */
+page{
+  background: #fff;
+}
+.cont{
+  width: 100%;
+  height: 100%;
+
+}
+.cont .money{
+  height: 118rpx;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0rpx 20rpx;
+  box-sizing: border-box;
+  border-bottom: 1rpx solid #efefef;
+}
+.cont .money .item{
+  width: 50%;
+  height: 56rpx;
+  font-size: 31rpx;
+  color: #333333;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.cont .money .item input{
+  width: 193rpx;
+	height: 56rpx;
+	background-color: #f9f9f9;
+  border-radius: 7rpx;
+  text-align: center;
+
+}
+.cont .money .item::after{
+  content: "元";
+  color: #e1211c;
+  font-size: 25rpx;
+  position: absolute;
+  top: 10rpx;
+  right: 90rpx;
+}
+.cont .money .item:nth-child(1)::after{
+  content: "元";
+  color: #e1211c;
+  font-size: 25rpx;
+  position: absolute;
+  right: 120rpx;
+}
+
+.cont .goodsitem{
+  height: 156rpx;
+  width: 100%;
+  border-bottom: 1rpx solid #efefef;
+  color: #333333;
+  padding:0rpx 20rpx;
+  box-sizing: border-box;
+  font-size: 31rpx;
+  color: #333333;
+  overflow: hidden;
+}
+.cont .goodsitem .data{
+  margin-top: 20rpx;
+  margin-left: 30rpx;
+}
+.cont .goodsitem .top{
+  height: 30rpx;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 44rpx;
+}
+.cont .goodsitem .top image{
+  width: 16rpx;
+  height: 28rpx;
+  margin-right: 30rpx;
+}
+.cont .goodsitem .top .timeimg{
+  height: 40rpx;
+  width: 40rpx;
+}
+
+
+
+/* 底部按钮 */
+.footer{
+  width: 100%;
+  height: 140rpx;
+  background-color: #ffffff;
+  position: fixed;
+  bottom: 0rpx;
+  left: 0rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.footer .btn{
+  width: 611rpx;
+	height: 76rpx;
+	background-color: #e1211c;
+  border-radius: 38rpx;
+  color: #fff;
+  line-height: 76rpx;
+  text-align: center;
+}
+
+
+/* 日期弹窗 */
+ 
+.mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  z-index: 99;
+  opacity: 0.7;
+ }
+  
+ .modalDlgdingdan{
+  width: 682rpx;
+  height: 500rpx;
+  position: fixed;
+  top: 60%;
+  left: 0;
+  z-index: 999;
+  margin: -370rpx 34rpx;
+  background-color: #fff;
+ }
+ .modalDlgdingdan .dingdanitel{
+   width: 100%;
+   height: 70rpx;
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   box-sizing: border-box;
+   padding: 0 30rpx;
+   justify-content: space-between;
+   background-color: #F3F3F3;
+   font-size: 26rpx;
+ }
+ .modalDlgdingdan .dingdanitel .quxiao{
+   height: 70rpx;
+   font-size: 24rpx;
+   color: #000000;
+   padding-right: 20rpx;
+     line-height: 70rpx;
+ }
+ .modalDlgdingdan .dingdanitel .queding{
+   height: 70rpx;
+   padding-left: 20rpx;
+   line-height: 70rpx;
+   font-size: 24rpx;
+   color: #4FA0E5;
+ }
+ 

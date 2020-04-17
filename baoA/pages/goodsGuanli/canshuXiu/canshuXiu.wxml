@@ -1,0 +1,33 @@
+<view class="canshu">
+	<block wx:for="{{3}}" wx:key="i">
+		<view class="list">
+			<view class="guige item">
+				<text>规格参数：</text>
+				<input type="text" value="番茄味"></input>
+			</view>
+      <view class="price item">
+        <text>单价：</text>
+        <input type="digit" bindinput="inputPrice" value="￥3.5"></input>
+        <image src="/images/index/bianji.png"></image>
+      </view>
+      <view class="kucun item">
+        <view class="left">
+          <text>库存：</text>
+          <text class="{{kuNum}}">32659</text>
+        </view>
+        <view class="right">
+          <text catchtap="kujian">减：</text>
+          <input type="number" value="32659"></input>
+          <image src="/images/index/zengjia.png" catchtap="kuadd"></image>
+        </view>
+      </view>
+		</view>
+
+	</block>
+
+
+
+
+
+
+</view>

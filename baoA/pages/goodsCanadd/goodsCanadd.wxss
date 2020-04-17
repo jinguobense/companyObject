@@ -1,0 +1,27 @@
+/* baoA/pages/add/add.wxss */
+.item{
+  height: 90rpx;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: 40rpx;
+}
+.fenmian{
+  height: 140rpx;
+  width: 100%;
+}
+.fenmian image{
+  width: 129rpx;
+	height: 129rpx;
+}
+.btn{
+  width: 80%;
+  border-radius: 50rpx;
+	height: 80rpx;
+	background-color: #e2211c;
+  line-height: 80rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 35rpx;
+  margin: 400rpx auto;
+}
