@@ -1,6 +1,10 @@
 {
   "pages": [
     "pages/login/login",
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 5bc9ca8903b42cfb90a18fb8468d7185b4d8919e
     "pages/index/index",
     "pages/mine/mine",
     "pages/login/setUpShop/setUpShop",

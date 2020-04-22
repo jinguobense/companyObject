@@ -1,5 +1,6 @@
 <!--pages/login/login.wxml-->
 <view class="login">
+<<<<<<< HEAD
 	<image class="bg" src="/images/index/beijing.png" mode="widthFix"></image>
 	<view class="title">众聚店助</view>
 	<view class="loginBox">
@@ -22,11 +23,38 @@
 			</view>
 		</view>
 	</view>
+=======
+  <image class="bg" src="/images/index/beijing.png" mode="widthFix"></image>
+  <view class="title">众聚店助</view>
+  <view class="loginBox">
+    <view class='loginCon'>
+      <view class='loginList'>
+        <view class="loginItem flex">
+          <image class='leftimg' mode="widthFix" src="/images/login/tel.png"></image>
+
+          <input type="text" value="15290805361"  placeholder="请输入手机号" bindinput="dlphone"></input>
+        </view>
+        <view class="loginItem flex">
+          <image class='leftimg' mode="widthFix" src="/images/login/psd.png"></image>
+          <input type="password" value="123456"   placeholder="请输入密码" bindinput="dlpasswd"></input>
+         
+  
+        </view>
+        <view class="padding-x-20 margin-top-60">
+          <view class='loginBtn' catchtap="tologin">登录</view>
+          <view class="rem">忘记密码？</view>
+          <!-- <view class='loginBtn margin-top-60 bg_fff' catchtap="tozuce">去注册</view> -->
+        </view>
+        <view class="reg" bindtap="goReg">注册开店</view>
+      </view>
+    </view>
+  </view>
+>>>>>>> 5bc9ca8903b42cfb90a18fb8468d7185b4d8919e
 </view>
 
 <!-- 注册弹框 -->
 
-  <!-- <view class="modalDlg" wx:if="{{showModal}}">
+<!-- <view class="modalDlg" wx:if="{{showModal}}">
     <view class='close_mask' bindtap="close_mask">
       <image src="../../images/login/cuohao.png"></image>
     </view>

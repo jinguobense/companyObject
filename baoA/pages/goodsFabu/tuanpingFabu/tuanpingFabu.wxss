@@ -1,6 +1,6 @@
 /* baoA/pages/goodsFabu/tuanpingFabu/tuanpingFabu.wxss */
 page{
-  background: #fff;
+  background: #efefef;
 }
 .manjianFabu{
   height: 100%;
@@ -135,80 +135,86 @@ page{
   margin-top: 30rpx;
 }
 
+
 /* 商品参数 */
-.canshu{
-  width: 100%;
-  height: 100%;
-  background: #fff;
-  margin-top: 100rpx;
-}
-.canshu .item{
-  height: 90rpx;
+
+.goodsCanshu .addCanshu {
+  height: 60rpx;
   width: 100%;
   display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
   align-items: center;
-  padding-left: 40rpx;
-}
-.canshu .fenmian{
-  height: 140rpx;
-  width: 100%;
-}
-.canshu .fenmian image{
-  width: 129rpx;
-	height: 129rpx;
-}
-
-/* 商品主图 */
-.goodsImg .addLunbo{
-  width: 100%;
-  background-color: white;
   margin-top: 100rpx;
 }
-.goodsImg .addLunbo .headers{
-  width: 100%;
-  height: 80rpx;
-  line-height: 80rpx;
-  box-sizing: border-box;
-  padding-left: 30rpx;
-  font-size: 30rpx;
-  color: #333333;
+
+.goodsCanshu .addCanshu>text {
+  width: 152rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  color: white;
+  background-color: #e2211c;
+  border-radius: 30rpx;
+  text-align: center;
+  margin-right: 28rpx;
 }
-.goodsImg .addLunbo .imgList{
-  margin-top: 2rpx;
-  width: 100%;
+ 
+.goodsCanshu .guiGeitem {
+  width: 750rpx;
+  height: 160rpx;
+  margin-top: 12rpx;
+  background-color: white;
   box-sizing: border-box;
-  padding: 0 30rpx;
-  padding-bottom: 22rpx;
-   display: flex;
+  padding: 0 28rpx;
+  display: flex;
   flex-direction: row;
-  flex-wrap: wrap; 
-}
-.goodsImg .addLunbo .imgList>view{
-  width: 178rpx;
-  height: 178rpx;
-  margin-right: 48rpx;
-  margin-bottom: 10rpx;
-  position: relative;
+  align-items: center;
+  /* justify-content: space-between; */
 }
 
-.goodsImg .addLunbo .imgList>view .tu {
-  width: 178rpx;
-  height: 178rpx;
+.goodsCanshu .guiGeitem .leftInfo {
+  width: 536rpx;
+  height: 120rpx;
+  display: flex;
+  flex-direction: row;
+  font-size: 26rpx;
+  color: #333;
 }
 
-.goodsImg .addLunbo .imgList>view .cuo{
-  width: 40rpx;
-  height: 40rpx;
-  position: absolute;
-  right: 6rpx;
-  top: 6rpx;
+.goodsCanshu .guiGeitem .leftInfo>image {
+  width: 120rpx;
+  height: 120rpx;
+  margin-right: 24rpx;
 }
-.goodsImg .addLunbo .imgList>image {
-  width: 178rpx;
-  height: 178rpx;
-  margin-right: 48rpx;
-  margin-bottom: 10rpx;
+
+.goodsCanshu .guiGeitem .leftInfo .sumNum {
+  width: 416rpx;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
+
+.goodsCanshu .guiGeitem .leftInfo .sumNum>text {
+  margin-top: 10rpx;
+  width: 50%;
+}
+
+.goodsCanshu .guiGeitem .rightdel {
+  width: 152rpx;
+  height: 42rpx;
+  line-height: 42rpx;
+  text-align: center;
+  font-size: 26rpx;
+  color: #333;
+  border: 1rpx solid #333;
+  border-radius: 20rpx;
+  transform: rotateZ(360deg);
+}
+
+
+
+
+
 /* 商品详情 */
 
 .goodsMsg .addLunbo{

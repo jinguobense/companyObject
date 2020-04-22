@@ -1,15 +1,18 @@
 /* baoA/pages/goodsFabu/tuanpingFabu/tuanpingFabu.wxss */
-page{
-  background: #fff;
+
+page {
+  background:  #efefef;
 }
-.manjianFabu{
+
+.manjianFabu {
   height: 100%;
   width: 100%;
 }
-.manjianFabu .header{
+
+.manjianFabu .header {
   width: 100%;
-	height: 70rpx;
-  background-color: #ffffff;
+  height: 70rpx;
+  background-color: #fff;
   display: flex;
   position: fixed;
   top: 0rpx;
@@ -17,20 +20,24 @@ page{
   align-items: center;
   z-index: 999;
 }
-.manjianFabu .header text{
+
+.manjianFabu .header text {
   display: block;
   height: 65rpx;
   width: 25%;
   text-align: center;
   line-height: 65rpx;
-  border-bottom: 2rpx solid #ffffff;
+  border-bottom: 2rpx solid #fff;
 }
-.manjianFabu .header text.active{
+
+.manjianFabu .header text.active {
   color: #e2211c;
   border-bottom: 2rpx solid #e2211c;
 }
+
 /* 基本信息 */
-.jibenInfo{
+
+.jibenInfo {
   width: 100%;
   background-color: white;
   box-sizing: border-box;
@@ -38,21 +45,22 @@ page{
   margin-top: 70rpx;
   padding-top: 20rpx;
   margin-bottom: 100px;
+}
 
-}
-.jibenInfo .goodsName{
+.jibenInfo .goodsName {
   height: 144rpx;
-  border-bottom: 2rpx solid #F2F2F2;
-  background: #ffffff;
+  border-bottom: 2rpx solid #f2f2f2;
+  background: #fff;
 }
-.jibenInfo .goodsName .name{
+
+.jibenInfo .goodsName .name {
   height: 72rpx;
   line-height: 72rpx;
   font-size: 30rpx;
-  color: #333333;
+  color: #333;
 }
 
-.jibenInfo .goodsName .nameinput{
+.jibenInfo .goodsName .nameinput {
   height: 72rpx;
   display: flex;
   flex-direction: row;
@@ -60,13 +68,16 @@ page{
   box-sizing: border-box;
   padding-right: 30rpx;
 }
-.jibenInfo .goodsName .nameinput>input{
+
+.jibenInfo .goodsName .nameinput>input {
   width: 100%;
   font-size: 30rpx;
-  color: #333333;
+  color: #333;
 }
+
 /*  */
-.jibenInfo .goodsFenlei{
+
+.jibenInfo .goodsFenlei {
   height: 86rpx;
   display: flex;
   flex-direction: row;
@@ -75,15 +86,18 @@ page{
   box-sizing: border-box;
   padding-right: 30rpx;
   font-size: 30rpx;
-  color: #333333;
+  color: #333;
   /* border-bottom: 2rpx solid #F2F2F2; */
 }
-.jibenInfo .goodsFenlei>image{
+
+.jibenInfo .goodsFenlei>image {
   width: 16rpx;
   height: 26rpx;
 }
+
 /* 添加封面 */
-.jibenInfo .addGoodsFengmian{
+
+.jibenInfo .addGoodsFengmian {
   height: 250rpx;
   display: flex;
   flex-direction: row;
@@ -91,105 +105,162 @@ page{
   box-sizing: border-box;
   padding-right: 30rpx;
   font-size: 30rpx;
-  color: #333333;
-  border-bottom: 2rpx solid #F2F2F2;
+  color: #333;
+  border-bottom: 2rpx solid #f2f2f2;
 }
-.jibenInfo .addGoodsFengmian>view{
+
+.jibenInfo .addGoodsFengmian>view {
   height: 120rpx;
   margin-right: 10rpx;
 }
-.jibenInfo .addGoodsFengmian>image{
+
+.jibenInfo .addGoodsFengmian>image {
   width: 129rpx;
-	height: 129rpx;
+  height: 129rpx;
 }
 
 /* 日期弹窗 */
-.jibenInfo .Time{
+
+.jibenInfo .Time {
   border-top: 1rpx solid #efefef;
   padding-top: 20rpx;
-  color: #333333;
+  color: #333;
   padding-bottom: 20rpx;
-
 }
-.jibenInfo .Time .data{
+
+.jibenInfo .Time .data {
   margin-top: 20rpx;
   margin-left: 40rpx;
 }
-.jibenInfo .Time .top{
+
+.jibenInfo .Time .top {
   height: 30rpx;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
-
 }
-.jibenInfo .Time .top image{
+
+.jibenInfo .Time .top image {
   width: 40rpx;
   height: 40rpx;
   margin-right: 30rpx;
 }
-.jibenInfo .Time .tishi{
+
+.jibenInfo .Time .tishi {
   width: 656rpx;
-	height: 60rpx;
-	font-size: 25rpx;
-	line-height: 35rpx;
-	letter-spacing: 3rpx;
+  height: 60rpx;
+  font-size: 25rpx;
+  line-height: 35rpx;
+  letter-spacing: 3rpx;
   color: #e2211c;
   background: #fff;
   margin-top: 30rpx;
 }
-
-
 /* 商品参数 */
-.canshu{
-  width: 100%;
-  height: 100%;
-  background: #fff;
-  margin-top: 100rpx;
-}
-.canshu .item{
-  height: 90rpx;
+.goodsCanshu .addCanshu {
+  height: 60rpx;
   width: 100%;
   display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
   align-items: center;
-  padding-left: 40rpx;
+  margin-top: 100rpx;
 }
-.canshu .fenmian{
-  height: 140rpx;
-  width: 100%;
+
+.goodsCanshu .addCanshu>text {
+  width: 152rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  color: white;
+  background-color: #e2211c;
+  border-radius: 30rpx;
+  text-align: center;
+  margin-right: 28rpx;
 }
-.canshu .fenmian image{
-  width: 129rpx;
-	height: 129rpx;
+ 
+.goodsCanshu .guiGeitem {
+  width: 750rpx;
+  height: 160rpx;
+  margin-top: 12rpx;
+  background-color:  white;
+  box-sizing: border-box;
+  padding: 0 28rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* justify-content: space-between; */
+}
+
+.goodsCanshu .guiGeitem .leftInfo {
+  width: 536rpx;
+  height: 120rpx;
+  display: flex;
+  flex-direction: row;
+  font-size: 26rpx;
+  color: #333;
+}
+
+.goodsCanshu .guiGeitem .leftInfo>image {
+  width: 120rpx;
+  height: 120rpx;
+  margin-right: 24rpx;
+}
+
+.goodsCanshu .guiGeitem .leftInfo .sumNum {
+  width: 416rpx;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.goodsCanshu .guiGeitem .leftInfo .sumNum>text {
+  margin-top: 10rpx;
+  width: 50%;
+}
+
+.goodsCanshu .guiGeitem .rightdel {
+  width: 152rpx;
+  height: 42rpx;
+  line-height: 42rpx;
+  text-align: center;
+  font-size: 26rpx;
+  color: #333;
+  border: 1rpx solid #333;
+  border-radius: 20rpx;
+  transform: rotateZ(360deg);
 }
 
 /* 商品主图 */
-.goodsImg .addLunbo{
+
+.goodsImg .addLunbo {
   width: 100%;
   background-color: white;
   margin-top: 100rpx;
 }
-.goodsImg .addLunbo .headers{
+
+.goodsImg .addLunbo .headers {
   width: 100%;
   height: 80rpx;
   line-height: 80rpx;
   box-sizing: border-box;
   padding-left: 30rpx;
   font-size: 30rpx;
-  color: #333333;
+  color: #333;
 }
-.goodsImg .addLunbo .imgList{
+
+.goodsImg .addLunbo .imgList {
   margin-top: 2rpx;
   width: 100%;
   box-sizing: border-box;
   padding: 0 30rpx;
   padding-bottom: 22rpx;
-   display: flex;
+  display: flex;
   flex-direction: row;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
 }
-.goodsImg .addLunbo .imgList>view{
+
+.goodsImg .addLunbo .imgList>view {
   width: 178rpx;
   height: 178rpx;
   margin-right: 48rpx;
@@ -202,13 +273,14 @@ page{
   height: 178rpx;
 }
 
-.goodsImg .addLunbo .imgList>view .cuo{
+.goodsImg .addLunbo .imgList>view .cuo {
   width: 40rpx;
   height: 40rpx;
   position: absolute;
   right: 6rpx;
   top: 6rpx;
 }
+
 .goodsImg .addLunbo .imgList>image {
   width: 178rpx;
   height: 178rpx;
@@ -218,21 +290,23 @@ page{
 
 /* 商品详情 */
 
-.goodsMsg .addLunbo{
+.goodsMsg .addLunbo {
   width: 100%;
   background-color: white;
   margin-top: 100rpx;
 }
-.goodsMsg .addLunbo .headers{
+
+.goodsMsg .addLunbo .headers {
   width: 100%;
   height: 80rpx;
   line-height: 80rpx;
   box-sizing: border-box;
   padding-left: 30rpx;
   font-size: 30rpx;
-  color: #333333;
+  color: #333;
 }
-.goodsMsg .addLunbo .imgList{
+
+.goodsMsg .addLunbo .imgList {
   margin-top: 2rpx;
   width: 100%;
   box-sizing: border-box;
@@ -243,10 +317,11 @@ page{
   flex-wrap: wrap;
   /* justify-content: space-between; */
 }
-.goodsMsg .addLunbo .imgList>image{
+
+.goodsMsg .addLunbo .imgList>image {
   width: 178rpx;
   height: 178rpx;
-  margin-right:  48rpx;
+  margin-right: 48rpx;
   margin-bottom: 10rpx;
 }
 .goodsnum{
@@ -255,6 +330,7 @@ page{
   align-items: center;
 }
 
+<<<<<<< HEAD
 /* 提示 */
 .tishi{
   width: 88%;
@@ -265,8 +341,11 @@ page{
 
 }
 
+=======
+>>>>>>> 5bc9ca8903b42cfb90a18fb8468d7185b4d8919e
 /*  提交按钮*/
-.btn{
+
+.btn {
   width: 152rpx;
   height: 60rpx;
   line-height: 60rpx;
@@ -277,8 +356,10 @@ page{
   background-color: #e2211c;
   float: right;
 }
+
 /* 其他 */
-.noshow{
+
+.noshow {
   color: gray;
 }
 
@@ -305,13 +386,11 @@ page{
 }
 
 .dibuFooter>view:nth-child(2) {
-  
   background-color: #e2211c;
 }
 
-
-
 /* 日期弹窗 */
+
 .mask {
   width: 100%;
   height: 100%;
@@ -321,9 +400,9 @@ page{
   background: #000;
   z-index: 99;
   opacity: 0.7;
- }
-  
- .modalDlgdingdan{
+}
+
+.modalDlgdingdan {
   width: 682rpx;
   height: 500rpx;
   position: fixed;
@@ -332,119 +411,123 @@ page{
   z-index: 999;
   margin: -370rpx 34rpx;
   background-color: #fff;
- }
- .modalDlgdingdan .dingdanitel{
-   width: 100%;
-   height: 70rpx;
-   display: flex;
-   flex-direction: row;
-   align-items: center;
-   box-sizing: border-box;
-   padding: 0 30rpx;
-   justify-content: space-between;
-   background-color: #F3F3F3;
-   font-size: 26rpx;
- }
- .modalDlgdingdan .dingdanitel .quxiao{
-   height: 70rpx;
-   font-size: 24rpx;
-   color: #000000;
-   padding-right: 20rpx;
-     line-height: 70rpx;
- }
- .modalDlgdingdan .dingdanitel .queding{
-   height: 70rpx;
-   padding-left: 20rpx;
-   line-height: 70rpx;
-   font-size: 24rpx;
-   color: #4FA0E5;
- }
- 
- 
- 
- 
- 
- /* 选择分类弹窗 */
- .mask2 {
-   width: 100%;
-   height: 100%;
-   position: fixed;
-   top: 0;
-   left: 0;
-   background: #000;
-   z-index: 99;
-   opacity: 0.7;
- }
- 
- .modalDlgdingdan2 {
-   width: 100%;
-   min-height: 420rpx;
-   position: fixed;
-   bottom: 0;
-   left: 0;
-   z-index: 999;
-   background-color: #fff;
- }
- .modalDlgdingdan1 {
-   width: 100%;
-   min-height: 300rpx;
-   position: fixed;
-   bottom: 0;
-   left: 0;
-   z-index: 999;
-   background-color: #fff;
- }
- .modalDlgdingdan1 .addshuxingss{
-   margin-top: 20rpx;
-   width: 100%;
-   height: 90rpx;
-   box-sizing: border-box;
-   padding-left: 50rpx;
-   font-size: 26rpx;
-   color: #333;
-   display: flex;
-   flex-direction: row;
-   align-items: center;
- }
- .modalDlgdingdan1 .addshuxingss>input{
-   width: 480rpx;
-   height: 70rpx;
- }
- .modalDlgdingdan2 .dingdanitel,.modalDlgdingdan1 .dingdanitel{
-   width: 100%;
-   height: 70rpx;
-   display: flex;
-   flex-direction: row;
-   align-items: center;
-   box-sizing: border-box;
-   padding: 0 30rpx;
-   justify-content: space-between;
-   background-color: #f3f3f3;
-   font-size: 26rpx;
- }
- 
- .modalDlgdingdan2 .dingdanitel .quxiao,.modalDlgdingdan1 .dingdanitel .quxiao {
-   height: 70rpx;
-   font-size: 24rpx;
-   color: #000;
-   padding-right: 20rpx;
-   line-height: 70rpx;
- }
- 
- .modalDlgdingdan2 .dingdanitel .queding,.modalDlgdingdan1 .dingdanitel .queding {
-   height: 70rpx;
-   padding-left: 20rpx;
-   line-height: 70rpx;
-   font-size: 24rpx;
-   color: #4fa0e5;
- }
- .modalDlgdingdan2  .addfenl{
-   width: 100%;
-   height: 90rpx;
-   background-color: #4fa0e5;
-   color: white;
-   font-size: 26rpx;
-   line-height: 90rpx;
-   text-align: center;
- }
- 
+}
+
+.modalDlgdingdan .dingdanitel {
+  width: 100%;
+  height: 70rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+  justify-content: space-between;
+  background-color: #f3f3f3;
+  font-size: 26rpx;
+}
+
+.modalDlgdingdan .dingdanitel .quxiao {
+  height: 70rpx;
+  font-size: 24rpx;
+  color: #000;
+  padding-right: 20rpx;
+  line-height: 70rpx;
+}
+
+.modalDlgdingdan .dingdanitel .queding {
+  height: 70rpx;
+  padding-left: 20rpx;
+  line-height: 70rpx;
+  font-size: 24rpx;
+  color: #4fa0e5;
+}
+
+/* 选择分类弹窗 */
+
+.mask2 {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  z-index: 99;
+  opacity: 0.7;
+}
+
+.modalDlgdingdan2 {
+  width: 100%;
+  min-height: 420rpx;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  background-color: #fff;
+}
+
+.modalDlgdingdan1 {
+  width: 100%;
+  min-height: 300rpx;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  background-color: #fff;
+}
+
+.modalDlgdingdan1 .addshuxingss {
+  margin-top: 20rpx;
+  width: 100%;
+  height: 90rpx;
+  box-sizing: border-box;
+  padding-left: 50rpx;
+  font-size: 26rpx;
+  color: #333;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.modalDlgdingdan1 .addshuxingss>input {
+  width: 480rpx;
+  height: 70rpx;
+}
+
+.modalDlgdingdan2 .dingdanitel, .modalDlgdingdan1 .dingdanitel {
+  width: 100%;
+  height: 70rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+  justify-content: space-between;
+  background-color: #f3f3f3;
+  font-size: 26rpx;
+}
+
+.modalDlgdingdan2 .dingdanitel .quxiao, .modalDlgdingdan1 .dingdanitel .quxiao {
+  height: 70rpx;
+  font-size: 24rpx;
+  color: #000;
+  padding-right: 20rpx;
+  line-height: 70rpx;
+}
+
+.modalDlgdingdan2 .dingdanitel .queding, .modalDlgdingdan1 .dingdanitel .queding {
+  height: 70rpx;
+  padding-left: 20rpx;
+  line-height: 70rpx;
+  font-size: 24rpx;
+  color: #4fa0e5;
+}
+
+.modalDlgdingdan2  .addfenl {
+  width: 100%;
+  height: 90rpx;
+  background-color: #4fa0e5;
+  color: white;
+  font-size: 26rpx;
+  line-height: 90rpx;
+  text-align: center;
+}
