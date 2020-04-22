@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {},
+  "navigationBarTitleText": "小众团拼",
+  "navigationBarBackgroundColor": "#e2211c",
+  "navigationBarTextStyle": "white"
 }

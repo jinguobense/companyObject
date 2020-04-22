@@ -307,6 +307,24 @@ page{
 .noshow{
   color: gray;
 }
+.goodsnum{
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+}
+.goodsnum .cont{
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+}
+.goodsnum .cont input{
+  width: 120rpx;
+  border-bottom:2rpx solid #333;
+  text-align: center;
+}
+.border_bom{
+  border-bottom:2rpx solid #efefef ;
+}
 
 /* 底部提交按钮 */
 

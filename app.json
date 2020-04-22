@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/index/index",
     "pages/login/login",
+    "pages/index/index",
     "pages/mine/mine",
     "pages/login/setUpShop/setUpShop",
     "pages/baobiao/baobiao",
@@ -43,7 +43,7 @@
 
         "pages/Itukulist/Itukulist",
         "pages/ItukulistXq/ItukulistXq",
-        
+        "pages/Itukusearch/Itukusearch",
 
         "pages/goodsGuanli/putong/putong",
         "pages/goodsGuanli/tuanping/tuanping",

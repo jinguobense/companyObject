@@ -83,17 +83,17 @@
 
 		<view class="goodsName">
 			<view class="name">
-				<text>满减活动：</text>
+				<text>选择满减活动：</text>
 				<text wx:if='{{goodsValName==""}}' class="noshow">请在下方填写满减活动</text>
 				<text wx:if='{{goodsValName!=""}}' class="show">{{goodsValName}}</text>
 			</view>
 			<view class="nameinput">
-				<input bindinput="goodsVal"></input>
+				<input bindinput="goodsVal" disabled></input>
 			</view>
 		</view>
 
 		<!-- 时间 -->
-		<view class="Time" catchtap="tongJiStart" data-startorend="1">
+		<!-- <view class="Time" catchtap="tongJiStart" data-startorend="1">
 			<view class="top">
 				<text>活动开始时间：</text>
 				<image src="/images/index/time.png"></image>
@@ -109,7 +109,7 @@
 			</view>
 			<input class="data" type="text" placeholder="请选择活动结束时间" disabled wx:if="{{!endTimestr}}"></input>
 			<input class="data" wx:if='{{endTimestr}}' type="text" value="{{endTimestr}}" disabled placeholder="请选择活动结束时间"></input>
-		</view>
+		</view> -->
 
 		
 	</view>
@@ -169,9 +169,9 @@
 
 
 <!-- 商品开始日期弹窗 -->
-<view class="modalDlgdingdan" wx:if="{{goodsModalone}}">
+<!-- <view class="modalDlgdingdan" wx:if="{{goodsModalone}}"> -->
 	<!-- 商品日期选择 -->
-	<view class="dingdanitel">
+	<!-- <view class="dingdanitel">
 		<text class="quxiao" catchtap="close_dingdanTime">取消</text>
 		<text class="queding" catchtap="xiayiBu">下一步</text>
 	</view>
@@ -188,12 +188,12 @@
 			</picker-view-column>
 		</picker-view>
 	</view>
-</view>
+</view> -->
 
 <!-- 商品结束日期弹窗 -->
-<view class="modalDlgdingdan" wx:if="{{goodsModaltwo}}">
+<!-- <view class="modalDlgdingdan" wx:if="{{goodsModaltwo}}"> -->
 	<!-- 商品日期选择 -->
-	<view class="dingdanitel">
+	<!-- <view class="dingdanitel">
 		<text class="quxiao" catchtap="close_dingdanTime">取消</text>
 		<text class="queding" catchtap="quedingEnd">确定</text>
 	</view>
@@ -204,14 +204,14 @@
 			</picker-view-column>
 			<picker-view-column>
 				<view wx:for="{{minutes}}" wx:key='k' style="line-height: 50rpx; text-align: center;">{{item}}分</view>
-			</picker-view-column>
+			</picker-view-column> -->
 			<!-- <picker-view-column>
         <view wx:for="{{seconds}}" wx:key='k' style="line-height: 50rpx; text-align: center;">{{item}}秒</view>
       </picker-view-column> -->
-		</picker-view>
+		<!-- </picker-view>
 	</view>
 </view>
-<view class="mask" catchtouchmove="preventTouchMove" wx:if="{{showAnceng}}"></view>
+<view class="mask" catchtouchmove="preventTouchMove" wx:if="{{showAnceng}}"></view> -->
 
 
 

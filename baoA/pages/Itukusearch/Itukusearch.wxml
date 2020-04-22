@@ -1,0 +1,25 @@
+<view class="search">
+  <view class=" headbox">
+		<view class="searchbox">
+			<input placeholder="搜索您想要的图库"  bindinput="goodsname"  bindconfirm="toSearch"></input>
+			<view catchtap="tosearch">
+				<icon type='search' size='36rpx'></icon>
+			</view>
+
+		</view>
+	</view>
+
+  <!-- 历史搜索 -->
+  <view class="conbox">
+    <view class="tit">
+      <text>搜索历史：</text> 
+      <image src="/images/index/del.png" catchtap="clear"></image>
+    </view>
+    <view class="con">
+      <block wx:for="{{list}}" wx:key="index">
+        <text class="conlist" catchtap="lishisearch" data-index="{{index}}">白菜</text>
+      </block>
+    </view>
+  </view>
+
+</view>

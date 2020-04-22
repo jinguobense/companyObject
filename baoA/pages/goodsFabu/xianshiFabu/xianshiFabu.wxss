@@ -249,7 +249,21 @@ page{
   margin-right:  48rpx;
   margin-bottom: 10rpx;
 }
+.goodsnum{
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+}
 
+/* 提示 */
+.tishi{
+  width: 88%;
+  font-size: 28rpx;
+  color: #e2211c;
+  margin-top: 20rpx;
+  margin-left: 33rpx;
+
+}
 
 /*  提交按钮*/
 .btn{

@@ -1,7 +1,7 @@
 <view class="tukulist">
 	<view class=" headbox">
 		<view class="searchbox">
-			<input placeholder="搜索您想要的图库" bindinput='watch' value="{{searchcon}}"></input>
+			<input placeholder="搜索您想要的图库" bindinput='watch' value="{{searchcon}}" bindconfirm="toSearch"></input>
 			<view catchtap="tosearch">
 				<icon type='search' size='36rpx'></icon>
 			</view>
@@ -10,24 +10,36 @@
 	</view>
 
 	<view class="contbox">
-		<block wx:for="{{3}}" wx:key="o">
+		<block wx:for="{{listData}}" wx:key="o">
+
 			<view class="list">
 				<view class="title">
-					<text>早餐切片面包帕代欧营养面包招牌吐司果酱
-面包</text>
+					<text>{{item.goodsName}}</text>
 				</view>
 
 				<view class="imgbox">
-					<block wx:for="{{4}}" wx:key="i">
-						<image src="/images/index/tihuan.png"></image>
+					<block wx:for="{{item.goodsImgUrl}}" wx:for-item="cess" wx:key="i">
+						<image src="{{cess}}"></image>
 					</block>
 				</view>
 
 				<view class="btnbox">
-					<view class="btnsee" catchtap="totukulistXq">浏览</view>
-					<view class="btnuse" catchtap="usepic">应用图片</view>
+					<view class="btnsee" catchtap="totukulistXq" data-lunbo="{{item.goodsImgUrl}}" data-detail="{{item.detailUrl}}">浏览</view>
+					<view class="btnuse" catchtap="uppic" wx:if="{{usetype == ''}}">上传商品</view>
+					<view class="btnuse" catchtap="usepic" wx:if="{{usetype == 1}}">应用图片</view>
 				</view>
 
+			</view>
+
+			<!-- 上传商品弹框 -->
+			<view class="mask" wx:if="{{mask}}" catchtap="close" catchtouchmove='true'></view>
+			<view class="modelbox" wx:if="{{model}}">
+				<view catchtap="toFabu" data-type="0" data-lunbo="{{item.goodsImgUrl}}" data-detail="{{item.detailUrl}}">普通商品</view>
+				<view catchtap="toFabu" data-type="1" data-lunbo="{{item.goodsImgUrl}}" data-detail="{{item.detailUrl}}">大众拼团</view>
+				<view catchtap="toFabu" data-type="2" data-lunbo="{{item.goodsImgUrl}}" data-detail="{{item.detailUrl}}">限时抢购</view>
+				<view catchtap="toFabu" data-type="3" data-lunbo="{{item.goodsImgUrl}}" data-detail="{{item.detailUrl}}">满减专场</view>
+				<view catchtap="toFabu" data-type="4" data-lunbo="{{item.goodsImgUrl}}" data-detail="{{item.detailUrl}}">小众团拼</view>
+				<view catchtap="toFabu" data-type="5" data-lunbo="{{item.goodsImgUrl}}" data-detail="{{item.detailUrl}}">新人专享</view>
 			</view>
 
 
@@ -38,10 +50,15 @@
 
 
 
-
-
-
-
-
-
 </view>
+
+<!-- 上传商品弹框
+<view class="mask" wx:if="{{mask}}" catchtap="close"></view>
+<view class="modelbox">
+	<view catchtap="toFabu" data-type="0">普通商品</view>
+	<view catchtap="toFabu" data-type="1">大众拼团</view>
+	<view catchtap="toFabu" data-type="2">限时抢购</view>
+	<view catchtap="toFabu" data-type="3">满减专场</view>
+	<view catchtap="toFabu" data-type="4">小众团拼</view>
+	<view catchtap="toFabu" data-type="5">新人专享</view>
+</view> -->

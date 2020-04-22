@@ -8,9 +8,9 @@
 		<!-- 轮播 -->
 		<view class="swiper">
 			<swiper indicator-dots="true" autoplay="true" circular="true" skip-hidden-item-layout="true" indicator-color="rgba(0, 0, 0, .1)" indicator-active-color="#fff" interval="2000" class='banner'>
-				<block wx:for="{{5}}" wx:key="i">
+				<block wx:for="{{goodsInfo.goodsImg}}" wx:key="i">
 					<swiper-item class="item">
-						<image src="/images/index/banner4.jpg"></image>
+						<image src="item"></image>
 					</swiper-item>
 				</block>
 
@@ -18,7 +18,7 @@
 		</view>
 
 		<view class="title">
-			<text> 20洽洽薯片喀吱脆35g休闲热卖学生零食批发非油炸膨化食品</text>
+			<text> {{goodsInfo.goodsName}}</text>
 		</view>
 		<view class="psong" wx:if="{{psong == 0}}">
 			<view class="left">
@@ -46,11 +46,11 @@
 				<text>库存</text>
 			</view>
 			<view class="list">
-				<block wx:for="{{3}}" wx:key="i">
+				<block wx:for="{{goodsInfo.goodSkuList}}" wx:key="i">
 					<view class="item">
-						<text>番茄味</text>
-						<text class="price">￥3.5</text>
-						<text>99999</text>
+						<text>{{item.goodSkuvalue1}}</text>
+						<text class="price">￥{{item.curprice}}/{{goodsInfo.goodsUnit}}</text>
+						<text>{{item.goodSkunum}}</text>
 					</view>
 				</block>
 			</view>
@@ -63,8 +63,8 @@
 				商品详情
 			</view>
 			<view class="contpic">
-				<block wx:for="{{4}}" wx:key="i">
-					<image src="/images/index/banner4.jpg"></image>
+				<block>
+					<image src="{{goodsInfo.goodsDesc}}" mode="widthFix"></image>
 				</block>
 			</view>
 		</view>

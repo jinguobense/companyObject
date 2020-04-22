@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tabindex:'0',
+    tabindex:0,
     typeList:'' ,//分类内容
     typeId:'',
     name:'',
@@ -29,15 +29,22 @@ Page({
     })
     
   },
-  //跳转到图库列表
-  totukulist(){
-    wx.showLoading({
-      title: '加载中',
-    })
+  //跳转到搜索页面
+  tosearch(){
     wx.navigateTo({
-      url: '/baoA/pages/Itukulist/Itukulist',
+      url: '../Itukusearch/Itukusearch',
     })
-    wx.hideLoading()
+  },
+  //跳转到图库列表
+  totukulist(e){
+    var parentid = e.currentTarget.dataset.prid;
+    var goodsid = e.currentTarget.dataset.goodsid
+    var name = e.currentTarget.dataset.name
+    
+    wx.navigateTo({
+      url: '/baoA/pages/Itukulist/Itukulist?goodsid='  + goodsid +"&typeid=" + parentid,
+    })
+   
   },
   //获取图库分类
   getlistInfo(){
@@ -75,14 +82,14 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    this. getlistInfo()
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this. getlistInfo()
+    
     this.changes()
   },
 

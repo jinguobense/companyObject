@@ -2,19 +2,19 @@
 	<view class="zhupic">
 		<view class="top">主图</view>
 		<swiper class="swiper" indicator-dots="true" autoplay="true" indicator-color="#efefef" indicator-active-color="#ffffff" interval="1000" circular="true">
-			<block wx:for="{{3}}" wx:key="i">
+			<block wx:for="{{lunboimg}}" wx:key="i">
 				<swiper-item class="item">
-					<image src="/images/index/tihuan.png" mode="widthFix"></image>
+					<image src="{{item}}" mode="widthFix"></image>
 				</swiper-item>
 			</block>
 
 		</swiper>
 	</view>
-  <view class="xqpic "  >
+  <view class="xqpic"  >
     <view class="topxq {{tjboxtype?'tabboxguding':'tabboxold'}}" id="tuijianbox">详情图</view>
     <view class="piccont" id="tuijiancon">
-      <block wx:for="{{10}}" wx:key="i">
-        <image src="/images/index/tihuan.png" mode="widthFix"></image>
+      <block wx:for="{{xqimg}}" wx:key="i">
+        <image src="{{item}}" mode="widthFix"></image>
       </block>
     
     </view>

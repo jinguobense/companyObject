@@ -69,6 +69,11 @@ Page({
     this.setData({
       fenleiIndex:index
     })
+    if(index == 0){
+      wx.setNavigationBarTitle({title:'满减活动设置'})
+    }else{
+      wx.setNavigationBarTitle({title:'优惠券设置'})
+    }
   },
   
 

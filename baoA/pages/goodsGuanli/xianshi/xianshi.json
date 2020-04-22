@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {},
+  "navigationBarTitleText": "限时抢购",
+  "navigationBarBackgroundColor": "#e2211c",
+  "navigationBarTextStyle": "white"
 }

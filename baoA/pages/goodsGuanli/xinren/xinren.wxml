@@ -1,32 +1,46 @@
 <view>
 <view class="putong">
+		<view class="kong" wx:if="{{rightlist.length == 0}}">
+		<view class="imgcontbox">
+			<view class="imgcont">
+				<image src="/images/index/kong.png"></image>
+				<text>您还没用发布哦</text>
+			</view>
+		</view>
+		<!-- <view class="addbtn" catchtap="totuijianFabu">去发布</view> -->
+	</view>
+
 		<view class="right">
-			<block wx:for="{{3}}" wx:key="i">
-				<view class="list" catchtap="toGooodsinfo">
-					<image src="/images/index/tihuan.png"></image>
+			<block  wx:for="{{rightlist}}" wx:key="i" wx:if="{{rightlist.length != 0}}">
+				<view class="list" catchtap="toGooodsinfo" data-goodsid="{{item.goodsId}}">
+						<image src="{{item.goodsImg}}"></image>
 					<view class="cont">
-						<view class="title">休闲</view>
+						<view class="title">{{item.goodsName}}</view>
 						<view class="midle">
 							<view class="ku">
 								<text class="kutext">新人专享价：</text>
-								<text class="kunum">6666</text>
+								<text class="kunum">{{item.limitprice}}</text>
 							</view>
 							<view class="ku">
 								<text class="kutext">原价：</text>
-								<text class="kunum">666</text>
+								<text class="kunum">{{item.curprice}}</text>
 							</view>
               	<view class="ku">
 								<text class="kutext">库存：</text>
-								<text class="kunum">66</text>
+								<text class="kunum">{{item.goodSkunum}}</text>
 							</view>
 						</view>
 
 						<view class="price">
 							<view class="ku">
-								<text class="kusale">已售：10000</text>
+								<text class="kusale">已售：{{item.goodsSales}}</text>
 							</view>
 							<view class="ku">
-								<text class="kunum">待审核</text>
+							<!-- state:""        //0上架 1下架 2-审核中 3-弃审 -->
+								<text class="kunum" wx:if="{{item.state == 0}}">已上架</text>
+								<text class="kunum" wx:if="{{item.state == 1}}">已下架</text>
+								<text class="kunum" wx:if="{{item.state == 2}}">审核中</text>
+								<text class="kunum" wx:if="{{item.state == 3}}">已弃审</text>
 							</view>
 
 						</view>

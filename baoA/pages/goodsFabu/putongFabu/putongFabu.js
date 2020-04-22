@@ -668,7 +668,14 @@ Page({
     let _this = this
     if (options.goodsId) {
       _this.setData({
-        goodsId: options.goodsId
+        goodsId: options.goodsId,
+       
+      })
+    }else{
+      _this.setData({
+        goodsId: options.goodsId,
+        goodsZhutu:JSON.parse(options.lunboimg),
+        xiangQingimg:options.xqimg
       })
     }
   },

@@ -17,6 +17,7 @@ Page({
     this.setData({
       index: e.currentTarget.dataset.index,
       page: 1,
+      leftindex: 0,
     })
     this.getgoodsListdata()
     this.getshuxingType()
@@ -31,9 +32,10 @@ Page({
     this.getgoodsListdata()
 
   },
+  //进入详情
   toGooodsinfo(e) {
     wx.navigateTo({
-      url: '/baoA/pages/goodsGuanli/putongGoods/putongGoods?tabindex=' + e.currentTarget.dataset.type
+      url: '/baoA/pages/goodsGuanli/putongGoods/putongGoods?type=0' + '&goodsid='+ e.currentTarget.dataset.goodsid 
     })
   },
   //点击进入发布商品

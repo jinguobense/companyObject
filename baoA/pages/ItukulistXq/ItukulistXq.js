@@ -6,12 +6,20 @@ Page({
    */
   data: {
     tjboxtype:false,   //下面box是否固定
+    lunboimg:'',
+    xqimg:'',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var _this = this
+    console.log(options)
+    _this.setData({
+      lunboimg:JSON.parse(options.lunboimg),
+      xqimg:options.xqimg
+    })
 
   },
   // 监听页面滑动
@@ -20,7 +28,7 @@ Page({
     const query = wx.createSelectorQuery().in(this)
     query.selectAll('#tuijiancon').boundingClientRect()
     query.exec(function (ress) {
-      console.log(ress[0])
+      //console.log(ress[0])
       if (ress[0][0].top > 100) {
         _this.setData({
           tjboxtype: false,

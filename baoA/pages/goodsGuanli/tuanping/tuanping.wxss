@@ -3,6 +3,27 @@ page{
   background-color: #e9e9e9;
   height: 100%;
 }
+.kong .imgcontbox{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 171rpx;
+}
+.kong .imgcontbox .imgcont{
+  height: 311rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 42rpx;
+  color: #e1e1e1;
+}
+.kong .imgcontbox .imgcont image{
+  width: 246rpx;
+	height: 197rpx;
+}
 .putong{
   height: 100%;
   width: 100%;

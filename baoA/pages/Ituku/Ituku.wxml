@@ -2,7 +2,7 @@
 	<!-- 头部搜索框 -->
 	<view class=" headbox">
 		<view class="searchbox">
-			<input placeholder="搜索您想要的图库" bindinput='watch' value="{{searchcon}}"></input>
+			<input placeholder="搜索您想要的图库" catchtap="tosearch" disabled></input>
 			<view catchtap="tosearch">
 				<icon type='search' size='36rpx'></icon>
 			</view>
@@ -25,7 +25,7 @@
 			<view class="rcontbox">
 
 				<block wx:for="{{typeList2}}" wx:key="o"  wx:for-item="cess">
-					<view class="rlist" catchtap="totukulist">
+					<view class="rlist" catchtap="totukulist" data-name="{{cess.name}}" data-goodsid="{{cess.id}}" data-prid="{{cess.parentid}}">
 						<image src="{{cess.img}}"></image>
 						<text>{{cess.name}}</text>
 					</view>

@@ -76,7 +76,7 @@
 
 		<view class="goodsnum">
 			<text>限购量：</text>
-			<input class="num" placeholder="请输入限购量" />
+			<input class="num" type="number" placeholder="请输入限购量" />
 		</view>
 
 		<!-- 时间 -->
@@ -107,6 +107,9 @@
 			<input class="data" wx:if='{{endTimestr}}' type="text" value="{{endTimestr}}" disabled placeholder="请选择活动结束时间"></input>
 		</view>
 
+		<view class="tishi">
+			设置顾客取货截至时间，提醒顾客在规定时间内到店取货，如果不设置则视为没有取货时间
+		</view>
 
 
 

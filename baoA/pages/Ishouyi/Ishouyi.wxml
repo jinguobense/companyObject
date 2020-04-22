@@ -4,12 +4,25 @@
 			<text data-index="0" class="{{index == 0?'active':''}}" catchtap="changes">日收益</text>
 			<text data-index="1" class="{{index == 1?'active':''}}" catchtap="changes">月收益</text>
 		</view>
-		<view class="chazhao">查找</view>
+		<view class="chazhao">
+			<view class="data">2020-03-17</view>
+			<icon class="right" size="18" type="search"></icon>
+		</view>
 	</view>
 
 	<!-- 日收益 -->
-	<view wx:if="{{index == 0}}">
-		日收益
+	<view wx:if="{{index == 0}}" class="cont">
+		<block wx:for="{{3}}" wx:key="i">
+			<view class="list" catchtap="toshouyiXq">
+				<image src="/images/index/tihuan.png"></image>
+				<view class="contInfo">
+					<view class="title">Anber小屋</view>
+					<text>今日 22:28</text>
+				</view>
+				<view class="money">+￥19.90</view>
+			</view>
+
+		</block>
 	</view>
 
 
@@ -22,17 +35,32 @@
 
 	<!-- 月收益 -->
 	<view wx:if="{{index == 1}}" class="cont">
-		<block wx:for="{{3}}" wx:key="i">
-			<view class="list" catchtap="toshouyiXq">
-				<image src="/images/index/tihuan.png"></image>
-				<view class="contInfo">
-					<view class="title">Anber小屋</view>
-					<text>今日 22:28</text>
+		<view class="moubox">
+			<view class="top">
+				<text class="h2">3月份实时账单</text>
+			</view>
+			<view class="morebox">
+				<view class="item">
+					<view>总销售额</view>
+					<text class="price red">0</text>
 				</view>
-				<view class="money">+￥19.90</view>
+				<view class="bom">
+					<view class="item">
+						<view>退款金额</view>
+						<text >0</text>
+					</view>
+
+					<view class="item">
+						<view>订单数</view>
+						<text>0</text>
+					</view>
+				</view>
 			</view>
 
-		</block>
+
+
+		</view>
+
 	</view>
 
 

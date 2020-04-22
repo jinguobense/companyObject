@@ -10,6 +10,10 @@
 		<view catchtap="changes" data-index="3" class="{{index == 3?'active':''}}">已弃审</view>
 	</view>
 
+	<!-- 搜索 -->
+	<!-- <view class="search">
+		<image src="/images/index/search.png"></image>
+	</view> -->
 
 	<!-- 空 -->
 	<view class="kong" wx:if="{{rightlist.length == 0}}">
@@ -37,15 +41,15 @@
 		<!-- 右边部分 -->
 		<view class="right">
 			<block wx:for="{{rightlist}}" wx:key="i">
-				<view class="list" catchtap="toGooodsinfo" data-type="1">
+				<view class="list" catchtap="toGooodsinfo" data-goodsid="{{item.goodsId}}">
 					<image src="{{item.goodsImg}}"></image>
 					<view class="cont">
 						<view class="title">{{item.goodsName}}</view>
 						<view class="midle">
-							<view class="ku">
+							<!-- <view class="ku">
 								<text class="kutext">剩余库存：</text>
 								<text class="kunum">{{item.skuBean.goodSkunum}}</text>
-							</view>
+							</view> -->
 							<view class="ku">
 								<text class="kutext">已售：</text>
 								<text class="kunum">{{item.goodsSales}}</text>

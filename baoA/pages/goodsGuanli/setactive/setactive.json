@@ -1,4 +1,6 @@
 {
   "usingComponents": {},
-  "navigationBarTitleText": "活动设置"
+  "navigationBarTitleText": "活动设置",
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#e2211c"
 }

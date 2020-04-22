@@ -1,20 +1,22 @@
-// baoA/pages/goodsGuanli/putongGoods/putongGoods.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    tabindex:0,
-    index:0,
-    psong:0
+    type: 0, // 0普通 1大众 2限时 3满减 4小众 5新人
+    index: 0,
+    psong: 0,
+    goodsid: '',
+    goodsInfo: '',
   },
-  changes(e){
+  changes(e) {
     this.setData({
       index: e.currentTarget.dataset.index
     })
   },
-  toxiuInfo(){
+  toxiuInfo() {
     wx.showLoading({
       title: "加载中",
     })
@@ -23,16 +25,230 @@ Page({
     })
     wx.hideLoading()
   },
+  //获取普通商品详情
+  getputong() {
+    var _this = this
+    wx.request({
+      url: app.globalData.myurl,
+      data: {
+        cmd: "csGoodData",
+        goodsId: _this.data.goodsid //商品id
+      },
+      header: {
+        "content-type": "application/x-www-form-urlencoded",
+      },
+      success(res) {
+        console.log(res)
+        if (res.data.result == 0) {
+          _this.setData({
+            goodsInfo: res.data
+          })
+          setTimeout(function () {
+            wx.showToast({
+              title: res.data.resultNote,
+              icon: "none",
+              duration: 1500
+            })
+          }, 0)
+        } else {
+          setTimeout(function () {
+            wx.showToast({
+              title: res.data.resultNote,
+              icon: "none",
+              duration: 1500
+            })
+          }, 0)
+        }
+        wx.hideLoading()
+      }
+
+    })
+  },
+  //限时商品详情
+  getxianshi() {
+    var _this = this
+    wx.request({
+      url: app.globalData.myurl,
+      data: {
+        cmd: "limitGoodData",
+        goodsId: _this.data.goodsid //商品id
+      },
+      header: {
+        "content-type": "application/x-www-form-urlencoded",
+      },
+      success(res) {
+        console.log(res)
+        if (res.data.result == 0) {
+          _this.setData({
+            goodsInfo: res.data
+          })
+          setTimeout(function () {
+            wx.showToast({
+              title: res.data.resultNote,
+              icon: "none",
+              duration: 1500
+            })
+          }, 0)
+        } else {
+          setTimeout(function () {
+            wx.showToast({
+              title: res.data.resultNote,
+              icon: "none",
+              duration: 1500
+            })
+          }, 0)
+        }
+
+        wx.hideLoading()
+
+      }
+
+    })
+
+  },
+  //团购商品详情
+  gettuan(){
+    var _this = this
+    wx.request({
+      url: app.globalData.myurl,
+      data:{
+        cmd:"groGoodData",
+	      goodsId:_this.data.goodsid             //商品id
+      },
+      header:{
+        "content-type": "application/x-www-form-urlencoded",
+      },
+      success(res){
+        console.log(res)
+        if (res.data.result == 0) {
+          _this.setData({
+            goodsInfo: res.data
+          })
+          setTimeout(function () {
+            wx.showToast({
+              title: res.data.resultNote,
+              icon: "none",
+              duration: 1500
+            })
+          }, 0)
+        } else {
+          setTimeout(function () {
+            wx.showToast({
+              title: res.data.resultNote,
+              icon: "none",
+              duration: 1500
+            })
+          }, 0)
+        }
+        wx.hideLoading()
+      }
+    })
+  },
+  //满减商品详情
+  getmanjian(){
+    var _this = this
+    wx.request({
+      url: app.globalData.myurl,
+      data:{
+        cmd:"fullRedGoodData",
+	      goodsId:_this.data.goodsid             //商品id
+      },
+       header:{
+        "content-type": "application/x-www-form-urlencoded",
+      },
+      success(res){
+        console.log(res)
+        if (res.data.result == 0) {
+          _this.setData({
+            goodsInfo: res.data
+          })
+          setTimeout(function () {
+            wx.showToast({
+              title: res.data.resultNote,
+              icon: "none",
+              duration: 1500
+            })
+          }, 0)
+        } else {
+          setTimeout(function () {
+            wx.showToast({
+              title: res.data.resultNote,
+              icon: "none",
+              duration: 1500
+            })
+          }, 0)
+        }
+        wx.hideLoading()
+      }
+    })
+  },
+  //新人专享详情
+  getnew(){
+    var _this = this
+    wx.request({
+      url: app.globalData.myurl,
+      data:{
+        cmd:"getNewcomersData",
+	      goodsId:_this.data.goodsid             //商品id
+      },
+       header:{
+        "content-type": "application/x-www-form-urlencoded",
+      },
+      success(res){
+        console.log(res)
+        if (res.data.result == 0) {
+          _this.setData({
+            goodsInfo: res.data
+          })
+          setTimeout(function () {
+            wx.showToast({
+              title: res.data.resultNote,
+              icon: "none",
+              duration: 1500
+            })
+          }, 0)
+        } else {
+          setTimeout(function () {
+            wx.showToast({
+              title: res.data.resultNote,
+              icon: "none",
+              duration: 1500
+            })
+          }, 0)
+        }
+        wx.hideLoading()
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let that = this
+    let _this = this
     console.log(options)
-    if (options.tabindex){
-      that.setData({
-        tabindex: options.tabindex
+    if (options.type) {
+      _this.setData({
+        type: options.type,
+        goodsid: options.goodsid
       })
+    }
+    if(options.type == 0){
+      _this.getputong()
+    }
+    if(options.type == 1){
+      _this.gettuan()
+    }
+    if(options.type == 2){
+      _this.getxianshi()
+    }
+    if(options.type == 3){
+      _this.getmanjian()
+    }
+    if(options.type == 4){
+      _this.gettuan()
+    }
+    if(options.type == 5){
+      _this.getnew()
     }
   },
 

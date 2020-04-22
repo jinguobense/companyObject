@@ -141,17 +141,19 @@ page{
   left: 0rpx;
   text-align: center;
   line-height: 100rpx;
+  border-bottom: 2rpx solid #efefef;
 }
 .content .goodsxq .contpic{
   width: 100%;
-  height: auto;
+  /* margin-bottom: 110rpx; */
 }
 .content .goodsxq .contpic image{
   width: 100%;
+  margin-top: 100rpx;
 }
 .footer{
   width: 100%;
-  height: 111rpx;
+  height: 110rpx;
   background: #ffffff;
 	box-shadow: 0rpx 1rpx 4rpx 0rpx 
     rgba(0, 0, 0, 0.25);
@@ -164,7 +166,7 @@ page{
     z-index: 999;
 }
 .footer .fitem{
-  height: 111rpx;
+  height: 110rpx;
   width: 50%;
   display: flex;
   align-items: center;

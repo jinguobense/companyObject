@@ -83,7 +83,7 @@
 		</view>
 
 		<view>
-			<view class="goodsnum">
+			<view class="goodsnum border_bom">
 				<text>限购量：</text>
 				<input class="num" placeholder="请输入限购量" />
 			</view>

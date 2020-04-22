@@ -124,7 +124,7 @@ page{
   height: 140rpx;
   background-color: #ffffff;
   position: fixed;
-  bottom: 0rpx;
+  bottom: 130rpx;
   left: 0rpx;
   display: flex;
   align-items: center;

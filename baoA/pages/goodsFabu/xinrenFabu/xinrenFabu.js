@@ -98,57 +98,57 @@ Page({
   },
    //点击店铺分类弹窗
    showshoplist() {
-    let that = this
-    if (!that.data.shuxingFenleiarray.length) {
-      that.setData({
+    let _this = this
+    if (!_this.data.shuxingFenleiarray.length) {
+      _this.setData({
         showAnceng: true,
         shopfenlModal: true,
         zanshiName: '',
         anshiId: ''
       })
     } else {
-      that.setData({
+      _this.setData({
         showAnceng: true,
         shopfenlModal: true,
         zanshiName: 0,
-        anshiId: that.data.shuxingFenleiarray[0].goodsTypeId
+        anshiId: _this.data.shuxingFenleiarray[0].goodsTypeId
       })
     }
   },
   //店铺暂时存储
   changeshuxingVal(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
-    let that = this
-    that.setData({
+    let _this = this
+    _this.setData({
       zanshiName: e.detail.value[0],
-      anshiId: that.data.shuxingFenleiarray[e.detail.value[0]].goodsTypeId
+      anshiId: _this.data.shuxingFenleiarray[e.detail.value[0]].goodsTypeId
     })
   },
   //点击一级分类弹窗*********************************
   showyijilist() {
-    let that = this
-    that.setData({
+    let _this = this
+    _this.setData({
       showAnceng: true,
       yijiModel: true,
       zanshiName: 0,
-      anshiId: that.data.sumfenlei[0].pfgTypeId1
+      anshiId: _this.data.sumfenlei[0].pfgTypeId1
     })
   },
   //一级暂时存储
   changeyijiVal(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
-    let that = this
-    that.setData({
+    let _this = this
+    _this.setData({
       zanshiName: e.detail.value[0],
-      anshiId: that.data.sumfenlei[e.detail.value[0]].pfgTypeId1
+      anshiId: _this.data.sumfenlei[e.detail.value[0]].pfgTypeId1
     })
   },
   //确定1级分类
   yijiChange: function () {
-    let that = this
+    let _this = this
     this.setData({
-      yijiindex: that.data.zanshiName,
-      yijiFenlei: that.data.anshiId,
+      yijiindex: _this.data.zanshiName,
+      yijiFenlei: _this.data.anshiId,
       showAnceng: false, //暗层的显示
       yijiModel: false,
       erjiindex: '',
@@ -167,30 +167,30 @@ Page({
   },
   //点击二级分类弹窗****************
   showerjilist() {
-    let that = this
-    that.setData({
+    let _this = this
+    _this.setData({
       showAnceng: true,
       erjiModel: true,
       zanshiName: 0,
-      anshiId: that.data.sumfenlei[that.data.yijiindex].subTypeList[0].pfgTypeId2
+      anshiId: _this.data.sumfenlei[_this.data.yijiindex].subTypeList[0].pfgTypeId2
     })
   },
   //二级暂时存储
   changeerjiVal(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
-    let that = this
-    that.setData({
+    let _this = this
+    _this.setData({
       zanshiName: e.detail.value[0],
-      anshiId: that.data.sumfenlei[that.data.yijiindex].subTypeList[e.detail.value[0]].pfgTypeId2
+      anshiId: _this.data.sumfenlei[_this.data.yijiindex].subTypeList[e.detail.value[0]].pfgTypeId2
     })
   },
   //确定二级分类
   erjiChange: function (e) {
-    let that = this
+    let _this = this
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
-      erjiindex: that.data.zanshiName,
-      erjiFenlei: that.data.anshiId,
+      erjiindex: _this.data.zanshiName,
+      erjiFenlei: _this.data.anshiId,
       showAnceng: false,
       erjiModel: false,
     })
@@ -198,30 +198,30 @@ Page({
 
   //点击单位弹窗*******************
   showdanweilist() {
-    let that = this
-    that.setData({
+    let _this = this
+    _this.setData({
       showAnceng: true,
       danweiModel: true,
       zanshiName: 0,
-      anshiId: that.data.array[0].unitNo
+      anshiId: _this.data.array[0].unitNo
     })
   },
   //单位暂时存储
   changedanweiVal(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
-    let that = this
-    that.setData({
+    let _this = this
+    _this.setData({
       zanshiName: e.detail.value[0],
-      anshiId: that.data.array[e.detail.value[0]].unitNo
+      anshiId: _this.data.array[e.detail.value[0]].unitNo
     })
   },
   //确定单位
   danweiChange: function (e) {
-    let that = this
+    let _this = this
     console.log('picker发送选择改变，携带值为', e.detail.value)
-    that.setData({
-      index: that.data.zanshiName,
-      danweis: that.data.anshiId,
+    _this.setData({
+      index: _this.data.zanshiName,
+      danweis: _this.data.anshiId,
       showAnceng: false,
       danweiModel: false,
     })
@@ -229,7 +229,7 @@ Page({
 
   //获取平台分类
   getgoodstypelist() {
-    let that = this
+    let _this = this
     wx.request({
       url: app.globalData.myurl,
       method: 'POST',
@@ -241,7 +241,7 @@ Page({
       },
       success(res) {
         console.log(res)
-        that.setData({
+        _this.setData({
           sumfenlei: res.data.pfgType
         })
         
@@ -251,7 +251,7 @@ Page({
 
   //获取平台属性列表
   getshoptypelist() {
-    let that = this
+    let _this = this
     wx.request({
       url: app.globalData.myurl,
       method: 'POST',
@@ -264,7 +264,7 @@ Page({
       },
       success(res) {
         console.log(res, 333333)
-        that.setData({
+        _this.setData({
           shuxingFenleiarray:res.data.goodsType
         })
       }
@@ -273,7 +273,7 @@ Page({
 
   //获取单位
   getdanwei() {
-    let that = this
+    let _this = this
     wx.request({
       url: app.globalData.myurl,
       method: 'post',
@@ -285,7 +285,7 @@ Page({
       },
       success(res) {
         console.log(res)
-        that.setData({
+        _this.setData({
           array: res.data.unitList
         })
       }
@@ -294,15 +294,15 @@ Page({
 
   //上传封面图
   addFengmian() {
-    let that = this
+    let _this = this
     wx.navigateTo({
       url: '../cropper/cropper',
     })
   },
   //上传主图
   addzhutuImg(){
-    let that = this
-    that.setData({
+    let _this = this
+    _this.setData({
       imglistobg: ''
     })
     wx.navigateTo({
@@ -321,7 +321,7 @@ Page({
 
   //上传详情
   xiangqTu(){
-    let that = this
+    let _this = this
     wx.chooseImage({
       count: 1,
       sizeType: ['compressed'],
@@ -353,7 +353,7 @@ Page({
               "token": wx.getStorageSync('token')
             },
             success(res){
-              that.setData({
+              _this.setData({
                 xiangQingimg: res.data.imgUrl
               })
               setTimeout(function () {
@@ -403,9 +403,9 @@ Page({
   },
   // 头部切换
   changeIndex(e) {
-    let that = this
+    let _this = this
     console.log(e.currentTarget.dataset.index)
-    that.setData({
+    _this.setData({
       headIndex: e.currentTarget.dataset.index
     })
   },
@@ -419,7 +419,7 @@ Page({
 
   //上传普通零售
   tiJiaoInfo() {
-    var that = this
+    var _this = this
     wx.showLoading({
       title: '加载中',
     })
@@ -458,7 +458,7 @@ Page({
       },
       success(res){
         console.log(res,8888888888888)
-        that.setData({
+        _this.setData({
           
         })
         wx.hideLoading()
@@ -473,205 +473,200 @@ Page({
 
 
 
-
-
-
-
-
   // 时间
-  close_dingdanTime() {
-    let that = this
-    that.setData({
-      showAnceng: false, //暗层
-      goodsModalone: false, //商品开始时间年月日弹窗
-      goodsModaltwo: false, //商品开始时间时分秒弹窗
-    })
-  },
-  //关闭弹窗
-  close_dingdanTime1: function () {
-    this.setData({
-      shopfenlModal: false, //店铺分类
-      showAnceng1: false, //暗层的显示
-      yijiModel: false,
-      erjiModel: false,
-      danweiModel: false,
-      addshopfenlModal: false
-    })
-  },
+  // close_dingdanTime() {
+  //   let _this = this
+  //   _this.setData({
+  //     showAnceng: false, //暗层
+  //     goodsModalone: false, //商品开始时间年月日弹窗
+  //     goodsModaltwo: false, //商品开始时间时分秒弹窗
+  //   })
+  // },
+  // //关闭弹窗
+  // close_dingdanTime1: function () {
+  //   this.setData({
+  //     shopfenlModal: false, //店铺分类
+  //     showAnceng1: false, //暗层的显示
+  //     yijiModel: false,
+  //     erjiModel: false,
+  //     danweiModel: false,
+  //     addshopfenlModal: false
+  //   })
+  // },
   
 
 
-  // 日期切换
-  riqiChange: function (e) {
-    let that = this
-    const val = e.detail.value
-    if (that.data.startorend) {
-      this.setData({
-        year: this.data.years[val[0]],
-        month: this.data.months[val[1]],
-        day: this.data.days[val[2]]
-      })
-    } else {
-      this.setData({
-        year1: this.data.years[val[0]],
-        month1: this.data.months[val[1]],
-        day1: this.data.days[val[2]]
-      })
-    }
+  // // 日期切换
+  // riqiChange: function (e) {
+  //   let _this = this
+  //   const val = e.detail.value
+  //   if (_this.data.startorend) {
+  //     this.setData({
+  //       year: this.data.years[val[0]],
+  //       month: this.data.months[val[1]],
+  //       day: this.data.days[val[2]]
+  //     })
+  //   } else {
+  //     this.setData({
+  //       year1: this.data.years[val[0]],
+  //       month1: this.data.months[val[1]],
+  //       day1: this.data.days[val[2]]
+  //     })
+  //   }
 
-  },
-  // 时间切换
-  shijianChange: function (e) {
-    const val = e.detail.value
-    let that = this
-    if (that.data.startorend) {
-      this.setData({
-        hour: this.data.hours[val[0]],
-        minute: this.data.minutes[val[1]],
-        // second: this.data.seconds[val[2]]
-      })
-    } else {
-      this.setData({
-        hour1: this.data.hours[val[0]],
-        minute1: this.data.minutes[val[1]],
-        // second1: this.data.seconds[val[2]]
-      })
-    }
+  // },
+  // // 时间切换
+  // shijianChange: function (e) {
+  //   const val = e.detail.value
+  //   let _this = this
+  //   if (_this.data.startorend) {
+  //     this.setData({
+  //       hour: this.data.hours[val[0]],
+  //       minute: this.data.minutes[val[1]],
+  //       // second: this.data.seconds[val[2]]
+  //     })
+  //   } else {
+  //     this.setData({
+  //       hour1: this.data.hours[val[0]],
+  //       minute1: this.data.minutes[val[1]],
+  //       // second1: this.data.seconds[val[2]]
+  //     })
+  //   }
 
-  },
-  // 统计开始时间
-  tongJiStart(e) {
-    let that = this
-    let dates = new Date()
-    that.setData({
-      year: dates.getFullYear(),
-      year1: dates.getFullYear(),
-      month: dates.getMonth() + 1,
-      month1: dates.getMonth() + 1,
-      day: dates.getDate(),
-      day1: dates.getDate(),
-      hour: dates.getHours(),
-      hour1: dates.getHours(),
-      minute: dates.getMinutes(),
-      minute1: dates.getMinutes(),
-      second: '',
-      second1: '',
-      valueRiqi: [dates.getFullYear() - 1990, dates.getMonth(), dates.getDate() - 1],
-      valueShijian: [dates.getHours(), dates.getMinutes(), dates.getSeconds()],
-    })
-    console.log(e.currentTarget.dataset.startorend)
-    let startorend
-    let valueRiqi, valueShijian
-    if (e.currentTarget.dataset.startorend == 1) {
-      startorend = true
-      valueRiqi = [(that.data.year - 1990), that.data.month - 1, that.data.day - 1]
-      valueShijian = [that.data.hour, that.data.minute, that.data.second]
-    } else {
-      startorend = false
-      valueRiqi = [(that.data.year1 - 1990), that.data.month1 - 1, that.data.day1 - 1]
-      valueShijian = [that.data.hour1, that.data.minute1, that.data.second1]
-    }
-    this.setData({
-      goodsModalone: true,
-      showAnceng: true,
-      startorend: startorend,
-      valueRiqi: valueRiqi,
-      valueShijian: valueShijian,
-      // year: e.currentTarget.dataset.year * 1,
-      // month: e.currentTarget.dataset.month * 1,
-    })
-  },
-  // 统计下一步时间
-  xiayiBu: function () {
-    console.log('开始')
-    let that = this
-    let times = {}
-    if (that.data.startorend) {
-      times.year = that.data.year
-      if (that.data.month * 1 < 10) {
-        times.month = '0' + that.data.month
-      } else {
-        times.month = that.data.month
-      }
-      if (that.data.day * 1 < 10) {
-        times.day = '0' + that.data.day
-      } else {
-        times.day = that.data.day
-      }
-    } else {
-      times.year = that.data.year1
-      if (that.data.month1 * 1 < 10) {
-        times.month = '0' + that.data.month1
-      } else {
-        times.month = that.data.month1
-      }
-      if (that.data.day1 * 1 < 10) {
-        times.day = '0' + that.data.day1
-      } else {
-        times.day = that.data.day1
-      }
-    }
-    this.setData({
-      goodsModalone: false,
-      goodsModaltwo: true,
-      zanshistartTime: times
-    })
-  },
-  // 统计确定时间
-  quedingEnd: function () {
-    let that = this
-    let times = that.data.zanshistartTime
-    if (that.data.startorend) {
-      if (that.data.hour * 1 < 10) {
-        times.hour = '0' + that.data.hour
-      } else {
-        times.hour = that.data.hour
-      }
-      if (that.data.minute * 1 < 10) {
-        times.minute = '0' + that.data.minute
-      } else {
-        times.minute = that.data.minute
-      }
-      // if (that.data.second * 1 < 10) {
-      //   times.second = '0' + that.data.second
-      // } else {
-      //   times.second = that.data.second
-      // }
-    } else {
-      if (that.data.hour1 * 1 < 10) {
-        times.hour = '0' + that.data.hour1
-      } else {
-        times.hour = that.data.hour1
-      }
-      if (that.data.minute1 * 1 < 10) {
-        times.minute = '0' + that.data.minute1
-      } else {
-        times.minute = that.data.minute1
-      }
-      // if (that.data.second1 * 1 < 10) {
-      //   times.second = '0' + that.data.second1
-      // } else {
-      //   times.second = that.data.second1
-      // }
-    }
+  // },
+  // // 统计开始时间
+  // tongJiStart(e) {
+  //   let _this = this
+  //   let dates = new Date()
+  //   _this.setData({
+  //     year: dates.getFullYear(),
+  //     year1: dates.getFullYear(),
+  //     month: dates.getMonth() + 1,
+  //     month1: dates.getMonth() + 1,
+  //     day: dates.getDate(),
+  //     day1: dates.getDate(),
+  //     hour: dates.getHours(),
+  //     hour1: dates.getHours(),
+  //     minute: dates.getMinutes(),
+  //     minute1: dates.getMinutes(),
+  //     second: '',
+  //     second1: '',
+  //     valueRiqi: [dates.getFullYear() - 1990, dates.getMonth(), dates.getDate() - 1],
+  //     valueShijian: [dates.getHours(), dates.getMinutes(), dates.getSeconds()],
+  //   })
+  //   console.log(e.currentTarget.dataset.startorend)
+  //   let startorend
+  //   let valueRiqi, valueShijian
+  //   if (e.currentTarget.dataset.startorend == 1) {
+  //     startorend = true
+  //     valueRiqi = [(_this.data.year - 1990), _this.data.month - 1, _this.data.day - 1]
+  //     valueShijian = [_this.data.hour, _this.data.minute, _this.data.second]
+  //   } else {
+  //     startorend = false
+  //     valueRiqi = [(_this.data.year1 - 1990), _this.data.month1 - 1, _this.data.day1 - 1]
+  //     valueShijian = [_this.data.hour1, _this.data.minute1, _this.data.second1]
+  //   }
+  //   this.setData({
+  //     goodsModalone: true,
+  //     showAnceng: true,
+  //     startorend: startorend,
+  //     valueRiqi: valueRiqi,
+  //     valueShijian: valueShijian,
+  //     // year: e.currentTarget.dataset.year * 1,
+  //     // month: e.currentTarget.dataset.month * 1,
+  //   })
+  // },
+  // // 统计下一步时间
+  // xiayiBu: function () {
+  //   console.log('开始')
+  //   let _this = this
+  //   let times = {}
+  //   if (_this.data.startorend) {
+  //     times.year = _this.data.year
+  //     if (_this.data.month * 1 < 10) {
+  //       times.month = '0' + _this.data.month
+  //     } else {
+  //       times.month = _this.data.month
+  //     }
+  //     if (_this.data.day * 1 < 10) {
+  //       times.day = '0' + _this.data.day
+  //     } else {
+  //       times.day = _this.data.day
+  //     }
+  //   } else {
+  //     times.year = _this.data.year1
+  //     if (_this.data.month1 * 1 < 10) {
+  //       times.month = '0' + _this.data.month1
+  //     } else {
+  //       times.month = _this.data.month1
+  //     }
+  //     if (_this.data.day1 * 1 < 10) {
+  //       times.day = '0' + _this.data.day1
+  //     } else {
+  //       times.day = _this.data.day1
+  //     }
+  //   }
+  //   this.setData({
+  //     goodsModalone: false,
+  //     goodsModaltwo: true,
+  //     zanshistartTime: times
+  //   })
+  // },
+  // // 统计确定时间
+  // quedingEnd: function () {
+  //   let _this = this
+  //   let times = _this.data.zanshistartTime
+  //   if (_this.data.startorend) {
+  //     if (_this.data.hour * 1 < 10) {
+  //       times.hour = '0' + _this.data.hour
+  //     } else {
+  //       times.hour = _this.data.hour
+  //     }
+  //     if (_this.data.minute * 1 < 10) {
+  //       times.minute = '0' + _this.data.minute
+  //     } else {
+  //       times.minute = _this.data.minute
+  //     }
+  //     // if (_this.data.second * 1 < 10) {
+  //     //   times.second = '0' + _this.data.second
+  //     // } else {
+  //     //   times.second = _this.data.second
+  //     // }
+  //   } else {
+  //     if (_this.data.hour1 * 1 < 10) {
+  //       times.hour = '0' + _this.data.hour1
+  //     } else {
+  //       times.hour = _this.data.hour1
+  //     }
+  //     if (_this.data.minute1 * 1 < 10) {
+  //       times.minute = '0' + _this.data.minute1
+  //     } else {
+  //       times.minute = _this.data.minute1
+  //     }
+  //     // if (_this.data.second1 * 1 < 10) {
+  //     //   times.second = '0' + _this.data.second1
+  //     // } else {
+  //     //   times.second = _this.data.second1
+  //     // }
+  //   }
 
-    let timestr = times.year + '-' + times.month + '-' + times.day + ' ' + times.hour + ':' + times.minute + ':00'
-    if (that.data.startorend) {
-      this.setData({
-        showAnceng: false,
-        goodsModaltwo: false,
-        goodsstartTimes: times,
-        startTimestr: timestr
-      })
-    } else {
-      this.setData({
-        showAnceng: false,
-        goodsModaltwo: false,
-        goodssendTimes: times,
-        endTimestr: timestr
-      })
-    }
-  },
+  //   let timestr = times.year + '-' + times.month + '-' + times.day + ' ' + times.hour + ':' + times.minute + ':00'
+  //   if (_this.data.startorend) {
+  //     this.setData({
+  //       showAnceng: false,
+  //       goodsModaltwo: false,
+  //       goodsstartTimes: times,
+  //       startTimestr: timestr
+  //     })
+  //   } else {
+  //     this.setData({
+  //       showAnceng: false,
+  //       goodsModaltwo: false,
+  //       goodssendTimes: times,
+  //       endTimestr: timestr
+  //     })
+  //   }
+  // },
  
  
 
@@ -687,10 +682,16 @@ Page({
    */
   onLoad: function (options) {
     console.log(options)
-    let that = this
+    let _this = this
     if (options.goodsId) {
-      that.setData({
+      _this.setData({
         goodsId: options.goodsId
+      })
+    }else{
+      _this.setData({
+        goodsId: options.goodsId,
+        goodsZhutu:JSON.parse(options.lunboimg),
+        xiangQingimg:options.xqimg
       })
     }
   },
@@ -706,18 +707,18 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    let that = this
-    let goodsZhutu = that.data.goodsZhutu
+    let _this = this
+    let goodsZhutu = _this.data.goodsZhutu
     console.log(goodsZhutu)
-    if (that.data.imglistobg) {
-      goodsZhutu.push(that.data.imglistobg)
+    if (_this.data.imglistobg) {
+      goodsZhutu.push(_this.data.imglistobg)
     }
-    that.setData({
+    _this.setData({
       goodsZhutu: goodsZhutu
     })
-    that.getdanwei()
-    that.getshoptypelist()
-    that.getgoodstypelist()
+    _this.getdanwei()
+    _this.getshoptypelist()
+    _this.getgoodstypelist()
   },
 
   /**
